@@ -1,0 +1,1 @@
+after pushing to github, run pip install -r requirements.txt to get matching versions
