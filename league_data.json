@@ -1,5 +1,5 @@
 {
-    "updated": "02/07/2026 11:55 PM",
+    "updated": "02/08/2026 09:44 AM",
     "seasons": {
         "2025": [],
         "2026": [
@@ -168,7 +168,7 @@
                 "sort_date": "2025-12-05"
             },
             {
-                "date": "Nov 20, 2025",
+                "date": "Nov 21, 2025",
                 "teams": [
                     "Ryan's Remarkable Team",
                     "Daiki's Big D's"
@@ -199,10 +199,10 @@
                         "player": "Davion Mitchell"
                     }
                 ],
-                "sort_date": "2025-11-20"
+                "sort_date": "2025-11-21"
             },
             {
-                "date": "Nov 19, 2025",
+                "date": "Nov 20, 2025",
                 "teams": [
                     "rhua",
                     "Kenneth's Top-Notch Team"
@@ -217,7 +217,7 @@
                         "player": "Al Horford"
                     }
                 ],
-                "sort_date": "2025-11-19"
+                "sort_date": "2025-11-20"
             },
             {
                 "date": "Nov 19, 2025",
@@ -3043,19 +3043,6 @@
                     "avg_3pm": "1.3"
                 },
                 {
-                    "name": "Moritz Wagner",
-                    "id": 3150844,
-                    "img": "https://a.espncdn.com/i/headshots/nba/players/full/3150844.png",
-                    "avg_pts": "8.5",
-                    "avg_reb": "3.2",
-                    "avg_ast": "0.3",
-                    "avg_stl": "0.4",
-                    "avg_blk": "0.0",
-                    "avg_fg_pct": "0.5",
-                    "avg_ft_pct": "0.9",
-                    "avg_3pm": "1.2"
-                },
-                {
                     "name": "Pat Spencer",
                     "id": 4592714,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4592714.png",
@@ -3080,6 +3067,19 @@
                     "avg_fg_pct": "0.4",
                     "avg_ft_pct": "0.8",
                     "avg_3pm": "1.0"
+                },
+                {
+                    "name": "Drake Powell",
+                    "id": 5037873,
+                    "img": "https://a.espncdn.com/i/headshots/nba/players/full/5037873.png",
+                    "avg_pts": "6.0",
+                    "avg_reb": "1.6",
+                    "avg_ast": "1.6",
+                    "avg_stl": "0.5",
+                    "avg_blk": "0.1",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "0.7"
                 }
             ]
         },
@@ -3755,6 +3755,19 @@
                     "avg_fg_pct": "0.4",
                     "avg_ft_pct": "0.8",
                     "avg_3pm": "0.8"
+                },
+                {
+                    "name": "Jamir Watkins",
+                    "id": 4606840,
+                    "img": "https://a.espncdn.com/i/headshots/nba/players/full/4606840.png",
+                    "avg_pts": "4.2",
+                    "avg_reb": "3.4",
+                    "avg_ast": "0.7",
+                    "avg_stl": "0.8",
+                    "avg_blk": "0.5",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "0.5"
                 }
             ]
         },
