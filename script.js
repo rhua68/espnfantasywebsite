@@ -9,26 +9,75 @@ $(document).ready(function() {
         .then(data => {
             allData = data;
             
-            // 1. UPDATE THE FOOTER (Matches roster.js logic)
+            // 1. UPDATE THE FOOTER
             if (data.updated) {
                 $('#last-updated').text(data.updated);
             }
 
-            // 2. Initialize the table with the most recent year
-            const availableYears = Object.keys(data.seasons).sort().reverse();
-            const defaultYear = availableYears[0] || "2026";
-            
-            loadYearData(defaultYear);
+            // 2. BUILD THE TRADE BLOCK (Left Side) - Updated for Likely/Maybe logic
+            const tradeBlockList = $('#trade-block-list');
+            tradeBlockList.empty();
 
-            // 3. Handle Tab Clicks (Targeted specifically to #yearTabs)
-            $('#yearTabs .nav-link').off('click').on('click', function(e) {
+            if (!data.trade_block || data.trade_block.length === 0) {
+                tradeBlockList.append('<li class="list-group-item bg-transparent text-secondary italic">No players currently on the block.</li>');
+            } else {
+                data.trade_block.forEach(player => {
+                    // Logic for dynamic badge styling based on status
+                    const isLikely = player.status === "Likely";
+                    const badgeClass = isLikely ? "bg-primary" : "bg-dark border border-secondary text-secondary";
+                    const statusText = isLikely ? "LIKELY" : "MAYBE";
+
+                    tradeBlockList.append(`
+                        <li class="list-group-item bg-transparent border-bottom border-secondary-subtle px-0 py-3">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <div class="fw-bold text-white">${player.name}</div>
+                                    <div class="text-primary x-small text-uppercase fw-bold" style="font-size: 0.7rem;">
+                                        ${player.team}
+                                    </div>
+                                </div>
+                                <span class="badge rounded-pill ${badgeClass}" style="font-size: 0.6rem; letter-spacing: 0.5px; min-width: 55px;">
+                                    ${statusText}
+                                </span>
+                            </div>
+                        </li>
+                    `);
+                });
+            }
+
+            // 3. AUTOMATICALLY BUILD THE DROPDOWN
+            const availableYears = Object.keys(data.seasons).sort().reverse();
+            const dropdownMenu = $('#year-dropdown-menu'); 
+            dropdownMenu.empty();
+
+            availableYears.forEach((year, index) => {
+                const label = `${parseInt(year)-1}-${year.slice(-2)}`; 
+                const activeClass = index === 0 ? 'active' : '';
+                
+                dropdownMenu.append(`
+                    <li><a class="dropdown-item ${activeClass}" href="#" data-year="${year}">${label} Season</a></li>
+                `);
+
+                if (index === 0) {
+                    $('#yearDropdown').text(`📅 ${label}`);
+                    loadYearData(year);
+                }
+            });
+
+            // 4. Handle Dynamic Dropdown Clicks
+            $('#year-dropdown-menu').on('click', '.dropdown-item', function(e) {
                 e.preventDefault();
                 
-                // UI update: toggle active class
-                $('#yearTabs .nav-link').removeClass('active');
+                const selectedYear = $(this).attr('data-year');
+                const seasonLabel = $(this).text().replace(' Season', '');
+
+                // UI Updates
+                $('.dropdown-item').removeClass('active');
                 $(this).addClass('active');
                 
-                const selectedYear = $(this).attr('data-year');
+                // Update the main dropdown button text
+                $('#yearDropdown').text(`📅 ${seasonLabel}`);
+
                 loadYearData(selectedYear);
             });
         })

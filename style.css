@@ -99,3 +99,61 @@ body {
         border: none;
     }
 }
+
+/* Style the dropdown to match your glassmorphism */
+.dropdown-menu-dark {
+    background: rgba(20, 20, 20, 0.9);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 8px;
+}
+
+.dropdown-item {
+    border-radius: 8px;
+    margin-bottom: 2px;
+    transition: all 0.2s ease;
+}
+
+.dropdown-item.active, 
+.dropdown-item:active {
+    background-color: var(--accent-blue);
+    color: #fff;
+}
+
+.dropdown-item:hover:not(.active) {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.italic {
+    font-style: italic;
+}
+
+.x-small {
+    font-size: 0.75rem;
+}
+
+#trade-block-list .list-group-item {
+    transition: background 0.2s;
+}
+
+#trade-block-list .list-group-item:hover {
+    background: rgba(255, 255, 255, 0.03) !important;
+}
+
+/* Glassmorphism for the trade block card */
+.bg-secondary-subtle {
+    background: rgba(30, 30, 30, 0.4) !important;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    border-radius: 16px;
+}
+
+.badge.bg-secondary {
+    background-color: rgba(108, 117, 125, 0.4) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.text-white-50 {
+    color: rgba(255, 255, 255, 0.5) !important;
+}

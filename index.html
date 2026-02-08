@@ -33,14 +33,13 @@
     </nav>
 
     <div class="container">
-        <ul class="nav nav-pills mb-4 justify-content-center" id="yearTabs">
-            <li class="nav-item">
-                <button class="nav-link active" data-year="2026">2025-26</button>
-            </li>
-            <li class="nav-item">
-                <button class="nav-link" data-year="2025">2024-25</button>
-            </li>
-        </ul>
+        <div class="dropdown mb-4 d-flex justify-content-center" id="year-switcher-container">
+            <button class="btn btn-outline-primary dropdown-toggle fw-bold" type="button" id="yearDropdown" data-bs-toggle="dropdown">
+                📅 Loading Seasons...
+            </button>
+            
+            <ul class="dropdown-menu dropdown-menu-dark shadow" id="year-dropdown-menu"></ul>
+        </div>
 
         <div class="row g-4">
             <div class="col-md-4">

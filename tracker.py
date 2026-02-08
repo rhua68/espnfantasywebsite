@@ -114,8 +114,8 @@ def get_current_rosters():
                         "avg_ast": f"{avg.get('3', 0):.1f}",
                         "avg_stl": f"{avg.get('2', 0):.1f}",
                         "avg_blk": f"{avg.get('1', 0):.1f}",
-                        "avg_fg_pct": f"{avg.get('19', 0):.1f}",
-                        "avg_ft_pct": f"{avg.get('20', 0):.1f}",
+                        "avg_fg_pct": f"{avg.get('19', 0):.2f}",
+                        "avg_ft_pct": f"{avg.get('20', 0):.2f}",
                         "avg_3pm": f"{avg.get('17', 0):.1f}"
                     }
 
@@ -131,12 +131,37 @@ def get_current_rosters():
         rosters.append(team_info)
     return rosters
 
+def get_trade_block():
+    print("--- Scanning Trade Block (Likely & Maybe) ---")
+    url = f"https://lm-api-reads.fantasy.espn.com/apis/v3/games/fba/seasons/2026/segments/0/leagues/{LEAGUE_ID}"
+    cookies = {"espn_s2": ESPN_S2, "SWID": SWID}
+    params = {"view": ["mTeam", "mRoster"]}
+    
+    response = requests.get(url, params=params, cookies=cookies)
+    data = response.json()
+    
+    trade_block = []
+    for team in data.get('teams', []):
+        team_name = team.get('name')
+        for entry in team.get('roster', {}).get('entries', []):
+            if entry.get('onTradeBlock') is True:
+                player = entry.get('playerPoolEntry', {}).get('player', {})
+                # Level TRADING = Likely, OPEN = Maybe
+                level = entry.get('tradeSharingLevel', 'OPEN') 
+                
+                trade_block.append({
+                    "name": player.get('fullName'),
+                    "team": team_name,
+                    "status": "Likely" if level == 'TRADING' else "Maybe"
+                })
+    return trade_block
 
 def main():
     master_data = {
         "updated": datetime.now().strftime("%m/%d/%Y %I:%M %p"),
         "seasons": {},
-        "rosters": get_current_rosters()
+        "rosters": get_current_rosters(),
+        "trade_block": get_trade_block()
     }
 
     for year in YEARS:
