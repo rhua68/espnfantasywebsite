@@ -1,5 +1,5 @@
 {
-    "updated": "02/06/2026 11:53 PM",
+    "updated": "02/07/2026 11:55 PM",
     "seasons": {
         "2025": [],
         "2026": [
@@ -242,2297 +242,4207 @@
     "rosters": [
         {
             "name": "rhua",
-            "abbrev": "RH",
             "logo": "https://mystique-api.fantasy.espn.com/apis/v1/domains/lm/images/15fb07a0-c431-11f0-9d0e-d3c969c03a65",
             "players": [
                 {
                     "name": "Victor Wembanyama",
                     "id": 5104157,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/5104157.png",
-                    "position": 5,
-                    "proTeam": 24
+                    "avg_pts": "23.9",
+                    "avg_reb": "11.1",
+                    "avg_ast": "2.7",
+                    "avg_stl": "0.9",
+                    "avg_blk": "2.7",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "1.8"
                 },
                 {
                     "name": "Alperen Sengun",
                     "id": 4871144,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4871144.png",
-                    "position": 5,
-                    "proTeam": 10
+                    "avg_pts": "20.8",
+                    "avg_reb": "9.5",
+                    "avg_ast": "6.3",
+                    "avg_stl": "1.4",
+                    "avg_blk": "1.0",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "0.6"
                 },
                 {
                     "name": "Jalen Johnson",
                     "id": 4701230,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4701230.png",
-                    "position": 4,
-                    "proTeam": 1
+                    "avg_pts": "23.4",
+                    "avg_reb": "10.6",
+                    "avg_ast": "8.2",
+                    "avg_stl": "1.3",
+                    "avg_blk": "0.5",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "1.7"
                 },
                 {
                     "name": "Trae Young",
                     "id": 4277905,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4277905.png",
-                    "position": 1,
-                    "proTeam": 27
+                    "avg_pts": "19.3",
+                    "avg_reb": "1.5",
+                    "avg_ast": "8.9",
+                    "avg_stl": "1.0",
+                    "avg_blk": "0.1",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "1.8"
                 },
                 {
                     "name": "Trey Murphy III",
                     "id": 4397688,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4397688.png",
-                    "position": 3,
-                    "proTeam": 3
+                    "avg_pts": "22.2",
+                    "avg_reb": "5.8",
+                    "avg_ast": "3.7",
+                    "avg_stl": "1.5",
+                    "avg_blk": "0.3",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "3.2"
                 },
                 {
                     "name": "Tyrese Haliburton",
                     "id": 4396993,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4396993.png",
-                    "position": 1,
-                    "proTeam": 11
+                    "avg_pts": "0.0",
+                    "avg_reb": "0.0",
+                    "avg_ast": "0.0",
+                    "avg_stl": "0.0",
+                    "avg_blk": "0.0",
+                    "avg_fg_pct": "0.0",
+                    "avg_ft_pct": "0.0",
+                    "avg_3pm": "0.0"
                 },
                 {
                     "name": "Jayson Tatum",
                     "id": 4065648,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4065648.png",
-                    "position": 4,
-                    "proTeam": 2
+                    "avg_pts": "0.0",
+                    "avg_reb": "0.0",
+                    "avg_ast": "0.0",
+                    "avg_stl": "0.0",
+                    "avg_blk": "0.0",
+                    "avg_fg_pct": "0.0",
+                    "avg_ft_pct": "0.0",
+                    "avg_3pm": "0.0"
                 },
                 {
                     "name": "Ausar Thompson",
                     "id": 4684742,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4684742.png",
-                    "position": 3,
-                    "proTeam": 8
+                    "avg_pts": "10.4",
+                    "avg_reb": "6.0",
+                    "avg_ast": "2.7",
+                    "avg_stl": "1.9",
+                    "avg_blk": "0.9",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.6",
+                    "avg_3pm": "0.1"
                 },
                 {
                     "name": "Jaime Jaquez Jr.",
                     "id": 4432848,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4432848.png",
-                    "position": 3,
-                    "proTeam": 14
+                    "avg_pts": "15.4",
+                    "avg_reb": "5.4",
+                    "avg_ast": "4.7",
+                    "avg_stl": "0.8",
+                    "avg_blk": "0.2",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "0.5"
                 },
                 {
                     "name": "Jeremiah Fears",
                     "id": 5144091,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/5144091.png",
-                    "position": 2,
-                    "proTeam": 3
+                    "avg_pts": "13.1",
+                    "avg_reb": "3.6",
+                    "avg_ast": "3.0",
+                    "avg_stl": "1.2",
+                    "avg_blk": "0.3",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "1.0"
                 },
                 {
                     "name": "Kyrie Irving",
                     "id": 6442,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/6442.png",
-                    "position": 1,
-                    "proTeam": 6
+                    "avg_pts": "0.0",
+                    "avg_reb": "0.0",
+                    "avg_ast": "0.0",
+                    "avg_stl": "0.0",
+                    "avg_blk": "0.0",
+                    "avg_fg_pct": "0.0",
+                    "avg_ft_pct": "0.0",
+                    "avg_3pm": "0.0"
                 },
                 {
                     "name": "Isaiah Collier",
                     "id": 4683766,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4683766.png",
-                    "position": 1,
-                    "proTeam": 26
+                    "avg_pts": "10.2",
+                    "avg_reb": "2.6",
+                    "avg_ast": "7.2",
+                    "avg_stl": "0.9",
+                    "avg_blk": "0.3",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "0.4"
                 },
                 {
                     "name": "Tre Jones",
                     "id": 4395626,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4395626.png",
-                    "position": 1,
-                    "proTeam": 4
+                    "avg_pts": "12.4",
+                    "avg_reb": "3.0",
+                    "avg_ast": "5.8",
+                    "avg_stl": "1.3",
+                    "avg_blk": "0.2",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "0.6"
                 },
                 {
                     "name": "Dejounte Murray",
                     "id": 3907497,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3907497.png",
-                    "position": 2,
-                    "proTeam": 3
+                    "avg_pts": "0.0",
+                    "avg_reb": "0.0",
+                    "avg_ast": "0.0",
+                    "avg_stl": "0.0",
+                    "avg_blk": "0.0",
+                    "avg_fg_pct": "0.0",
+                    "avg_ft_pct": "0.0",
+                    "avg_3pm": "0.0"
                 },
                 {
                     "name": "Naji Marshall",
                     "id": 4278594,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4278594.png",
-                    "position": 3,
-                    "proTeam": 6
+                    "avg_pts": "14.7",
+                    "avg_reb": "5.0",
+                    "avg_ast": "3.0",
+                    "avg_stl": "1.0",
+                    "avg_blk": "0.1",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "0.9"
                 },
                 {
                     "name": "Moussa Diabate",
                     "id": 4433249,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4433249.png",
-                    "position": 4,
-                    "proTeam": 30
+                    "avg_pts": "8.4",
+                    "avg_reb": "8.7",
+                    "avg_ast": "1.6",
+                    "avg_stl": "0.7",
+                    "avg_blk": "1.0",
+                    "avg_fg_pct": "0.6",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "0.0"
                 },
                 {
                     "name": "Kris Dunn",
                     "id": 2991139,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/2991139.png",
-                    "position": 1,
-                    "proTeam": 12
+                    "avg_pts": "7.8",
+                    "avg_reb": "2.9",
+                    "avg_ast": "3.3",
+                    "avg_stl": "1.5",
+                    "avg_blk": "0.2",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "1.0"
                 },
                 {
                     "name": "Anthony Black",
                     "id": 4712849,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4712849.png",
-                    "position": 1,
-                    "proTeam": 19
+                    "avg_pts": "15.9",
+                    "avg_reb": "4.0",
+                    "avg_ast": "4.1",
+                    "avg_stl": "1.4",
+                    "avg_blk": "0.7",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "1.6"
                 },
                 {
                     "name": "Jalen Smith",
                     "id": 4397189,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4397189.png",
-                    "position": 4,
-                    "proTeam": 4
+                    "avg_pts": "10.2",
+                    "avg_reb": "6.9",
+                    "avg_ast": "1.3",
+                    "avg_stl": "0.4",
+                    "avg_blk": "0.8",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "1.5"
                 },
                 {
                     "name": "Daniss Jenkins",
                     "id": 5107199,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/5107199.png",
-                    "position": 1,
-                    "proTeam": 8
+                    "avg_pts": "8.2",
+                    "avg_reb": "1.8",
+                    "avg_ast": "3.3",
+                    "avg_stl": "0.9",
+                    "avg_blk": "0.2",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "1.0"
                 },
                 {
                     "name": "Yang Hansen",
                     "id": 5217746,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/5217746.png",
-                    "position": 5,
-                    "proTeam": 22
+                    "avg_pts": "2.2",
+                    "avg_reb": "1.7",
+                    "avg_ast": "0.7",
+                    "avg_stl": "0.1",
+                    "avg_blk": "0.3",
+                    "avg_fg_pct": "0.3",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "0.2"
                 },
                 {
                     "name": "AJ Green",
                     "id": 4397475,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4397475.png",
-                    "position": 2,
-                    "proTeam": 15
+                    "avg_pts": "10.5",
+                    "avg_reb": "2.6",
+                    "avg_ast": "2.0",
+                    "avg_stl": "0.5",
+                    "avg_blk": "0.1",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "3.0"
                 },
                 {
                     "name": "Al Horford",
                     "id": 3213,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3213.png",
-                    "position": 5,
-                    "proTeam": 9
+                    "avg_pts": "7.4",
+                    "avg_reb": "4.8",
+                    "avg_ast": "2.2",
+                    "avg_stl": "0.8",
+                    "avg_blk": "1.1",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "1.5"
                 },
                 {
                     "name": "Jay Huff",
                     "id": 4065731,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4065731.png",
-                    "position": 5,
-                    "proTeam": 11
+                    "avg_pts": "8.5",
+                    "avg_reb": "3.8",
+                    "avg_ast": "1.2",
+                    "avg_stl": "0.5",
+                    "avg_blk": "2.0",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "1.4"
                 },
                 {
                     "name": "Ryan Nembhard",
                     "id": 4433629,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4433629.png",
-                    "position": 1,
-                    "proTeam": 6
+                    "avg_pts": "6.7",
+                    "avg_reb": "1.8",
+                    "avg_ast": "4.9",
+                    "avg_stl": "0.3",
+                    "avg_blk": "0.0",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "0.9"
                 },
                 {
                     "name": "Christian Koloko",
                     "id": 4431778,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4431778.png",
-                    "position": 5,
-                    "proTeam": 1
+                    "avg_pts": "2.8",
+                    "avg_reb": "3.3",
+                    "avg_ast": "0.7",
+                    "avg_stl": "0.6",
+                    "avg_blk": "1.0",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.5",
+                    "avg_3pm": "0.1"
                 },
                 {
                     "name": "Ty Jerome",
                     "id": 4065733,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4065733.png",
-                    "position": 1,
-                    "proTeam": 29
+                    "avg_pts": "20.0",
+                    "avg_reb": "2.2",
+                    "avg_ast": "5.5",
+                    "avg_stl": "1.0",
+                    "avg_blk": "0.2",
+                    "avg_fg_pct": "0.6",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "2.2"
                 },
                 {
                     "name": "Jared McCain",
                     "id": 4683778,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4683778.png",
-                    "position": 2,
-                    "proTeam": 25
+                    "avg_pts": "6.6",
+                    "avg_reb": "2.0",
+                    "avg_ast": "1.7",
+                    "avg_stl": "0.6",
+                    "avg_blk": "0.1",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "1.2"
                 }
             ]
         },
         {
             "name": "Collin's Competitive Team",
-            "abbrev": "CCT",
             "logo": "https://g.espncdn.com/lm-static/logo-packs/core/TeamMascots-RobbHarskamp/Team_Mascots-12.svg",
             "players": [
                 {
                     "name": "Luka Doncic",
                     "id": 3945274,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3945274.png",
-                    "position": 1,
-                    "proTeam": 13
+                    "avg_pts": "32.8",
+                    "avg_reb": "7.8",
+                    "avg_ast": "8.6",
+                    "avg_stl": "1.5",
+                    "avg_blk": "0.5",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "3.5"
                 },
                 {
                     "name": "Mikal Bridges",
                     "id": 3147657,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3147657.png",
-                    "position": 3,
-                    "proTeam": 18
+                    "avg_pts": "15.7",
+                    "avg_reb": "4.1",
+                    "avg_ast": "4.1",
+                    "avg_stl": "1.5",
+                    "avg_blk": "0.8",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "2.2"
                 },
                 {
                     "name": "Bam Adebayo",
                     "id": 4066261,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4066261.png",
-                    "position": 5,
-                    "proTeam": 14
+                    "avg_pts": "18.1",
+                    "avg_reb": "9.8",
+                    "avg_ast": "2.7",
+                    "avg_stl": "1.0",
+                    "avg_blk": "0.7",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "1.6"
                 },
                 {
                     "name": "Devin Vassell",
                     "id": 4395630,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4395630.png",
-                    "position": 2,
-                    "proTeam": 24
+                    "avg_pts": "14.4",
+                    "avg_reb": "3.9",
+                    "avg_ast": "2.4",
+                    "avg_stl": "0.8",
+                    "avg_blk": "0.4",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "2.4"
                 },
                 {
                     "name": "Keegan Murray",
                     "id": 4594327,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4594327.png",
-                    "position": 4,
-                    "proTeam": 23
+                    "avg_pts": "14.6",
+                    "avg_reb": "6.1",
+                    "avg_ast": "1.5",
+                    "avg_stl": "1.2",
+                    "avg_blk": "1.6",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "1.3"
                 },
                 {
                     "name": "Jalen Suggs",
                     "id": 4432165,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4432165.png",
-                    "position": 1,
-                    "proTeam": 19
+                    "avg_pts": "14.2",
+                    "avg_reb": "4.1",
+                    "avg_ast": "5.2",
+                    "avg_stl": "1.8",
+                    "avg_blk": "0.7",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "1.9"
                 },
                 {
                     "name": "Scoot Henderson",
                     "id": 4683678,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4683678.png",
-                    "position": 1,
-                    "proTeam": 22
+                    "avg_pts": "11.0",
+                    "avg_reb": "5.0",
+                    "avg_ast": "9.0",
+                    "avg_stl": "1.0",
+                    "avg_blk": "0.0",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.5",
+                    "avg_3pm": "2.0"
                 },
                 {
                     "name": "Mark Williams",
                     "id": 4701232,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4701232.png",
-                    "position": 5,
-                    "proTeam": 21
+                    "avg_pts": "12.2",
+                    "avg_reb": "8.2",
+                    "avg_ast": "1.1",
+                    "avg_stl": "1.0",
+                    "avg_blk": "1.0",
+                    "avg_fg_pct": "0.7",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "0.0"
                 },
                 {
                     "name": "Brandin Podziemski",
                     "id": 4709138,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4709138.png",
-                    "position": 2,
-                    "proTeam": 9
+                    "avg_pts": "11.9",
+                    "avg_reb": "4.6",
+                    "avg_ast": "3.5",
+                    "avg_stl": "1.1",
+                    "avg_blk": "0.2",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "1.7"
                 },
                 {
                     "name": "Gary Trent Jr.",
                     "id": 4277843,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4277843.png",
-                    "position": 2,
-                    "proTeam": 15
+                    "avg_pts": "8.5",
+                    "avg_reb": "1.1",
+                    "avg_ast": "1.5",
+                    "avg_stl": "0.6",
+                    "avg_blk": "0.1",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "2.0"
                 },
                 {
                     "name": "Cole Anthony",
                     "id": 4432809,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4432809.png",
-                    "position": 1,
-                    "proTeam": 21
+                    "avg_pts": "6.7",
+                    "avg_reb": "2.5",
+                    "avg_ast": "3.5",
+                    "avg_stl": "0.6",
+                    "avg_blk": "0.3",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.6",
+                    "avg_3pm": "0.6"
                 },
                 {
                     "name": "Caleb Martin",
                     "id": 3138160,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3138160.png",
-                    "position": 2,
-                    "proTeam": 6
+                    "avg_pts": "3.5",
+                    "avg_reb": "2.5",
+                    "avg_ast": "1.6",
+                    "avg_stl": "0.7",
+                    "avg_blk": "0.2",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.6",
+                    "avg_3pm": "0.3"
                 },
                 {
                     "name": "Isaiah Joe",
                     "id": 4395702,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4395702.png",
-                    "position": 2,
-                    "proTeam": 25
+                    "avg_pts": "10.0",
+                    "avg_reb": "2.5",
+                    "avg_ast": "1.4",
+                    "avg_stl": "0.6",
+                    "avg_blk": "0.2",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "2.3"
                 },
                 {
                     "name": "Sam Hauser",
                     "id": 4065804,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4065804.png",
-                    "position": 3,
-                    "proTeam": 2
+                    "avg_pts": "9.0",
+                    "avg_reb": "3.8",
+                    "avg_ast": "1.4",
+                    "avg_stl": "0.6",
+                    "avg_blk": "0.3",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "2.6"
                 },
                 {
                     "name": "De'Anthony Melton",
                     "id": 4066436,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4066436.png",
-                    "position": 1,
-                    "proTeam": 9
+                    "avg_pts": "11.5",
+                    "avg_reb": "2.8",
+                    "avg_ast": "2.2",
+                    "avg_stl": "1.7",
+                    "avg_blk": "0.4",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "1.3"
                 },
                 {
                     "name": "Luke Kennard",
                     "id": 3913174,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3913174.png",
-                    "position": 2,
-                    "proTeam": 13
+                    "avg_pts": "8.0",
+                    "avg_reb": "2.1",
+                    "avg_ast": "2.1",
+                    "avg_stl": "0.7",
+                    "avg_blk": "0.1",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "1.6"
                 },
                 {
                     "name": "Mike Conley",
                     "id": 3195,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3195.png",
-                    "position": 1,
-                    "proTeam": 0
+                    "avg_pts": "4.4",
+                    "avg_reb": "1.8",
+                    "avg_ast": "2.9",
+                    "avg_stl": "0.6",
+                    "avg_blk": "0.2",
+                    "avg_fg_pct": "0.3",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "1.0"
                 },
                 {
                     "name": "Svi Mykhailiuk",
                     "id": 3133602,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3133602.png",
-                    "position": 2,
-                    "proTeam": 26
+                    "avg_pts": "8.9",
+                    "avg_reb": "2.5",
+                    "avg_ast": "1.9",
+                    "avg_stl": "0.5",
+                    "avg_blk": "0.1",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "1.8"
                 },
                 {
                     "name": "Jarred Vanderbilt",
                     "id": 4278077,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4278077.png",
-                    "position": 4,
-                    "proTeam": 13
+                    "avg_pts": "5.1",
+                    "avg_reb": "5.1",
+                    "avg_ast": "1.4",
+                    "avg_stl": "1.0",
+                    "avg_blk": "0.4",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.6",
+                    "avg_3pm": "0.5"
                 },
                 {
                     "name": "Will Richard",
                     "id": 4897262,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4897262.png",
-                    "position": 2,
-                    "proTeam": 9
+                    "avg_pts": "6.7",
+                    "avg_reb": "2.4",
+                    "avg_ast": "1.4",
+                    "avg_stl": "1.2",
+                    "avg_blk": "0.1",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "1.1"
                 },
                 {
                     "name": "Craig Porter Jr.",
                     "id": 4701233,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4701233.png",
-                    "position": 2,
-                    "proTeam": 5
+                    "avg_pts": "4.9",
+                    "avg_reb": "3.5",
+                    "avg_ast": "3.2",
+                    "avg_stl": "1.0",
+                    "avg_blk": "0.6",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.5",
+                    "avg_3pm": "0.6"
                 },
                 {
                     "name": "Nae'Qwan Tomlin",
                     "id": 5106268,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/5106268.png",
-                    "position": 4,
-                    "proTeam": 5
+                    "avg_pts": "6.5",
+                    "avg_reb": "3.1",
+                    "avg_ast": "1.0",
+                    "avg_stl": "0.8",
+                    "avg_blk": "0.6",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "0.4"
                 },
                 {
                     "name": "Moussa Cisse",
                     "id": 4701208,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4701208.png",
-                    "position": 5,
-                    "proTeam": 6
+                    "avg_pts": "3.7",
+                    "avg_reb": "4.5",
+                    "avg_ast": "0.2",
+                    "avg_stl": "0.3",
+                    "avg_blk": "1.1",
+                    "avg_fg_pct": "0.6",
+                    "avg_ft_pct": "0.5",
+                    "avg_3pm": "0.0"
                 },
                 {
                     "name": "Yves Missi",
                     "id": 5061589,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/5061589.png",
-                    "position": 5,
-                    "proTeam": 3
+                    "avg_pts": "5.6",
+                    "avg_reb": "5.7",
+                    "avg_ast": "1.2",
+                    "avg_stl": "0.3",
+                    "avg_blk": "1.4",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.6",
+                    "avg_3pm": "0.0"
                 }
             ]
         },
         {
             "name": "darrin's Dirty Team",
-            "abbrev": "DDT",
             "logo": "https://g.espncdn.com/lm-static/fba/images/default_logos/20.svg",
             "players": [
                 {
                     "name": "Karl-Anthony Towns",
                     "id": 3136195,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3136195.png",
-                    "position": 5,
-                    "proTeam": 18
+                    "avg_pts": "19.9",
+                    "avg_reb": "11.9",
+                    "avg_ast": "2.9",
+                    "avg_stl": "0.9",
+                    "avg_blk": "0.6",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "1.6"
                 },
                 {
                     "name": "Donovan Mitchell",
                     "id": 3908809,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3908809.png",
-                    "position": 2,
-                    "proTeam": 5
+                    "avg_pts": "28.9",
+                    "avg_reb": "4.6",
+                    "avg_ast": "5.9",
+                    "avg_stl": "1.5",
+                    "avg_blk": "0.3",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "3.7"
                 },
                 {
                     "name": "Jamal Murray",
                     "id": 3936299,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3936299.png",
-                    "position": 1,
-                    "proTeam": 7
+                    "avg_pts": "26.0",
+                    "avg_reb": "4.3",
+                    "avg_ast": "7.5",
+                    "avg_stl": "1.0",
+                    "avg_blk": "0.4",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "3.2"
                 },
                 {
                     "name": "Desmond Bane",
                     "id": 4066320,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4066320.png",
-                    "position": 2,
-                    "proTeam": 19
+                    "avg_pts": "19.3",
+                    "avg_reb": "4.3",
+                    "avg_ast": "4.2",
+                    "avg_stl": "0.9",
+                    "avg_blk": "0.5",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "1.8"
                 },
                 {
                     "name": "Ivica Zubac",
                     "id": 4017837,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4017837.png",
-                    "position": 5,
-                    "proTeam": 11
+                    "avg_pts": "14.4",
+                    "avg_reb": "11.0",
+                    "avg_ast": "2.2",
+                    "avg_stl": "0.4",
+                    "avg_blk": "0.8",
+                    "avg_fg_pct": "0.6",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "0.0"
                 },
                 {
                     "name": "Coby White",
                     "id": 4395651,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4395651.png",
-                    "position": 1,
-                    "proTeam": 30
+                    "avg_pts": "18.6",
+                    "avg_reb": "3.7",
+                    "avg_ast": "4.7",
+                    "avg_stl": "0.7",
+                    "avg_blk": "0.1",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "2.5"
                 },
                 {
                     "name": "Myles Turner",
                     "id": 3133628,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3133628.png",
-                    "position": 5,
-                    "proTeam": 15
+                    "avg_pts": "12.9",
+                    "avg_reb": "5.6",
+                    "avg_ast": "1.6",
+                    "avg_stl": "0.7",
+                    "avg_blk": "1.6",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "2.2"
                 },
                 {
                     "name": "Darius Garland",
                     "id": 4396907,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4396907.png",
-                    "position": 1,
-                    "proTeam": 12
+                    "avg_pts": "18.0",
+                    "avg_reb": "2.4",
+                    "avg_ast": "6.9",
+                    "avg_stl": "0.8",
+                    "avg_blk": "0.1",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "2.3"
                 },
                 {
                     "name": "Anfernee Simons",
                     "id": 4351851,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4351851.png",
-                    "position": 2,
-                    "proTeam": 4
+                    "avg_pts": "14.3",
+                    "avg_reb": "2.4",
+                    "avg_ast": "2.5",
+                    "avg_stl": "0.5",
+                    "avg_blk": "0.1",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "2.7"
                 },
                 {
                     "name": "Brandon Miller",
                     "id": 4433287,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4433287.png",
-                    "position": 3,
-                    "proTeam": 30
+                    "avg_pts": "20.2",
+                    "avg_reb": "4.7",
+                    "avg_ast": "3.3",
+                    "avg_stl": "1.0",
+                    "avg_blk": "0.9",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "2.9"
                 },
                 {
                     "name": "Reed Sheppard",
                     "id": 4711272,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4711272.png",
-                    "position": 2,
-                    "proTeam": 10
+                    "avg_pts": "12.5",
+                    "avg_reb": "2.5",
+                    "avg_ast": "3.0",
+                    "avg_stl": "1.4",
+                    "avg_blk": "0.5",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "2.3"
                 },
                 {
                     "name": "Zach Edey",
                     "id": 4600663,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4600663.png",
-                    "position": 5,
-                    "proTeam": 29
+                    "avg_pts": "13.6",
+                    "avg_reb": "11.1",
+                    "avg_ast": "1.1",
+                    "avg_stl": "0.6",
+                    "avg_blk": "1.9",
+                    "avg_fg_pct": "0.6",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "0.1"
                 },
                 {
                     "name": "Kyle Kuzma",
                     "id": 3134907,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3134907.png",
-                    "position": 4,
-                    "proTeam": 15
+                    "avg_pts": "13.0",
+                    "avg_reb": "5.0",
+                    "avg_ast": "2.6",
+                    "avg_stl": "0.6",
+                    "avg_blk": "0.4",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "1.0"
                 },
                 {
                     "name": "D'Angelo Russell",
                     "id": 3136776,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3136776.png",
-                    "position": 1,
-                    "proTeam": 27
+                    "avg_pts": "10.2",
+                    "avg_reb": "2.3",
+                    "avg_ast": "4.0",
+                    "avg_stl": "0.5",
+                    "avg_blk": "0.1",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "1.3"
                 },
                 {
                     "name": "Christian Braun",
                     "id": 4431767,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4431767.png",
-                    "position": 2,
-                    "proTeam": 7
+                    "avg_pts": "9.1",
+                    "avg_reb": "4.1",
+                    "avg_ast": "2.6",
+                    "avg_stl": "0.6",
+                    "avg_blk": "0.4",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "0.4"
                 },
                 {
                     "name": "Tari Eason",
                     "id": 4433192,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4433192.png",
-                    "position": 3,
-                    "proTeam": 10
+                    "avg_pts": "12.4",
+                    "avg_reb": "6.3",
+                    "avg_ast": "1.4",
+                    "avg_stl": "1.3",
+                    "avg_blk": "0.6",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.6",
+                    "avg_3pm": "2.2"
                 },
                 {
                     "name": "Keon Ellis",
                     "id": 4702177,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4702177.png",
-                    "position": 2,
-                    "proTeam": 5
+                    "avg_pts": "5.6",
+                    "avg_reb": "1.4",
+                    "avg_ast": "0.6",
+                    "avg_stl": "1.1",
+                    "avg_blk": "0.5",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.6",
+                    "avg_3pm": "1.3"
                 },
                 {
                     "name": "Carter Bryant",
                     "id": 5061568,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/5061568.png",
-                    "position": 3,
-                    "proTeam": 24
+                    "avg_pts": "3.0",
+                    "avg_reb": "1.9",
+                    "avg_ast": "0.2",
+                    "avg_stl": "0.2",
+                    "avg_blk": "0.2",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "0.5"
                 },
                 {
                     "name": "Khaman Maluach",
                     "id": 5203685,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/5203685.png",
-                    "position": 5,
-                    "proTeam": 21
+                    "avg_pts": "1.1",
+                    "avg_reb": "0.9",
+                    "avg_ast": "0.1",
+                    "avg_stl": "0.0",
+                    "avg_blk": "0.4",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "0.0"
                 },
                 {
                     "name": "Corey Kispert",
                     "id": 4280151,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4280151.png",
-                    "position": 3,
-                    "proTeam": 1
+                    "avg_pts": "9.7",
+                    "avg_reb": "2.2",
+                    "avg_ast": "1.6",
+                    "avg_stl": "0.4",
+                    "avg_blk": "0.1",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "1.6"
                 },
                 {
                     "name": "Ronald Holland II",
                     "id": 4683771,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4683771.png",
-                    "position": 3,
-                    "proTeam": 8
+                    "avg_pts": "8.1",
+                    "avg_reb": "4.3",
+                    "avg_ast": "1.4",
+                    "avg_stl": "1.4",
+                    "avg_blk": "0.4",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "0.6"
                 },
                 {
                     "name": "Asa Newell",
                     "id": 4873201,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4873201.png",
-                    "position": 4,
-                    "proTeam": 1
+                    "avg_pts": "5.3",
+                    "avg_reb": "2.1",
+                    "avg_ast": "0.5",
+                    "avg_stl": "0.4",
+                    "avg_blk": "0.4",
+                    "avg_fg_pct": "0.6",
+                    "avg_ft_pct": "0.6",
+                    "avg_3pm": "0.7"
                 },
                 {
                     "name": "Jordan Hawkins",
                     "id": 4683750,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4683750.png",
-                    "position": 2,
-                    "proTeam": 3
+                    "avg_pts": "4.3",
+                    "avg_reb": "1.8",
+                    "avg_ast": "0.7",
+                    "avg_stl": "0.2",
+                    "avg_blk": "0.2",
+                    "avg_fg_pct": "0.3",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "0.8"
                 },
                 {
                     "name": "Isaac Okoro",
                     "id": 4432822,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4432822.png",
-                    "position": 3,
-                    "proTeam": 4
+                    "avg_pts": "8.8",
+                    "avg_reb": "2.6",
+                    "avg_ast": "1.5",
+                    "avg_stl": "0.6",
+                    "avg_blk": "0.5",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "1.1"
                 },
                 {
                     "name": "Justin Edwards",
                     "id": 4711297,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4711297.png",
-                    "position": 3,
-                    "proTeam": 20
+                    "avg_pts": "4.6",
+                    "avg_reb": "1.4",
+                    "avg_ast": "1.1",
+                    "avg_stl": "0.6",
+                    "avg_blk": "0.2",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "0.9"
                 },
                 {
                     "name": "Ziaire Williams",
                     "id": 4433137,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4433137.png",
-                    "position": 3,
-                    "proTeam": 17
+                    "avg_pts": "9.4",
+                    "avg_reb": "2.5",
+                    "avg_ast": "0.8",
+                    "avg_stl": "1.1",
+                    "avg_blk": "0.5",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "1.6"
                 },
                 {
                     "name": "Vince Williams Jr.",
                     "id": 4397227,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4397227.png",
-                    "position": 2,
-                    "proTeam": 26
+                    "avg_pts": "7.8",
+                    "avg_reb": "3.9",
+                    "avg_ast": "4.3",
+                    "avg_stl": "0.8",
+                    "avg_blk": "0.4",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "1.4"
                 }
             ]
         },
         {
             "name": "Ho's Hoopers",
-            "abbrev": "HH",
             "logo": "https://g.espncdn.com/lm-static/logo-packs/core/CatsAndDogs/cats_dogs-7.svg",
             "players": [
                 {
                     "name": "Anthony Edwards",
                     "id": 4594268,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4594268.png",
-                    "position": 2,
-                    "proTeam": 16
+                    "avg_pts": "29.8",
+                    "avg_reb": "5.3",
+                    "avg_ast": "3.7",
+                    "avg_stl": "1.3",
+                    "avg_blk": "0.8",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "3.4"
                 },
                 {
                     "name": "Jaylen Brown",
                     "id": 3917376,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3917376.png",
-                    "position": 3,
-                    "proTeam": 2
+                    "avg_pts": "29.5",
+                    "avg_reb": "7.0",
+                    "avg_ast": "4.7",
+                    "avg_stl": "1.0",
+                    "avg_blk": "0.4",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "2.1"
                 },
                 {
                     "name": "Cooper Flagg",
                     "id": 5041939,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/5041939.png",
-                    "position": 3,
-                    "proTeam": 6
+                    "avg_pts": "20.2",
+                    "avg_reb": "6.6",
+                    "avg_ast": "4.2",
+                    "avg_stl": "1.2",
+                    "avg_blk": "0.8",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "1.1"
                 },
                 {
                     "name": "Nikola Vucevic",
                     "id": 6478,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/6478.png",
-                    "position": 5,
-                    "proTeam": 2
+                    "avg_pts": "16.8",
+                    "avg_reb": "9.0",
+                    "avg_ast": "3.8",
+                    "avg_stl": "0.7",
+                    "avg_blk": "0.6",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "1.7"
                 },
                 {
                     "name": "Alex Sarr",
                     "id": 5160992,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/5160992.png",
-                    "position": 5,
-                    "proTeam": 27
+                    "avg_pts": "17.3",
+                    "avg_reb": "7.7",
+                    "avg_ast": "2.8",
+                    "avg_stl": "0.8",
+                    "avg_blk": "2.0",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "1.0"
                 },
                 {
                     "name": "Norman Powell",
                     "id": 2595516,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/2595516.png",
-                    "position": 2,
-                    "proTeam": 14
+                    "avg_pts": "23.0",
+                    "avg_reb": "3.6",
+                    "avg_ast": "2.6",
+                    "avg_stl": "1.2",
+                    "avg_blk": "0.2",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "2.8"
                 },
                 {
                     "name": "Matas Buzelis",
                     "id": 4711294,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4711294.png",
-                    "position": 3,
-                    "proTeam": 4
+                    "avg_pts": "15.1",
+                    "avg_reb": "5.4",
+                    "avg_ast": "2.1",
+                    "avg_stl": "0.6",
+                    "avg_blk": "1.4",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "2.0"
                 },
                 {
                     "name": "Immanuel Quickley",
                     "id": 4395724,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4395724.png",
-                    "position": 1,
-                    "proTeam": 28
+                    "avg_pts": "17.1",
+                    "avg_reb": "4.4",
+                    "avg_ast": "6.1",
+                    "avg_stl": "1.3",
+                    "avg_blk": "0.1",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "2.6"
                 },
                 {
                     "name": "Donte DiVincenzo",
                     "id": 3934673,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3934673.png",
-                    "position": 2,
-                    "proTeam": 16
+                    "avg_pts": "13.2",
+                    "avg_reb": "4.5",
+                    "avg_ast": "4.2",
+                    "avg_stl": "1.4",
+                    "avg_blk": "0.5",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "3.2"
                 },
                 {
                     "name": "Aaron Gordon",
                     "id": 3064290,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3064290.png",
-                    "position": 4,
-                    "proTeam": 7
+                    "avg_pts": "17.7",
+                    "avg_reb": "6.2",
+                    "avg_ast": "2.5",
+                    "avg_stl": "0.7",
+                    "avg_blk": "0.2",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "1.8"
                 },
                 {
                     "name": "Cason Wallace",
                     "id": 4683692,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4683692.png",
-                    "position": 2,
-                    "proTeam": 25
+                    "avg_pts": "8.2",
+                    "avg_reb": "3.0",
+                    "avg_ast": "2.1",
+                    "avg_stl": "2.1",
+                    "avg_blk": "0.2",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "1.4"
                 },
                 {
                     "name": "Daniel Gafford",
                     "id": 4278049,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4278049.png",
-                    "position": 5,
-                    "proTeam": 6
+                    "avg_pts": "8.3",
+                    "avg_reb": "6.6",
+                    "avg_ast": "0.9",
+                    "avg_stl": "0.8",
+                    "avg_blk": "1.3",
+                    "avg_fg_pct": "0.6",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "0.0"
                 },
                 {
                     "name": "Derik Queen",
                     "id": 4869780,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4869780.png",
-                    "position": 5,
-                    "proTeam": 3
+                    "avg_pts": "12.3",
+                    "avg_reb": "7.3",
+                    "avg_ast": "4.3",
+                    "avg_stl": "1.0",
+                    "avg_blk": "0.9",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "0.3"
                 },
                 {
                     "name": "Tre Johnson",
                     "id": 5238230,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/5238230.png",
-                    "position": 2,
-                    "proTeam": 27
+                    "avg_pts": "12.9",
+                    "avg_reb": "2.7",
+                    "avg_ast": "2.2",
+                    "avg_stl": "0.6",
+                    "avg_blk": "0.3",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "2.2"
                 },
                 {
                     "name": "Peyton Watson",
                     "id": 4576087,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4576087.png",
-                    "position": 3,
-                    "proTeam": 7
+                    "avg_pts": "14.9",
+                    "avg_reb": "4.9",
+                    "avg_ast": "2.0",
+                    "avg_stl": "1.0",
+                    "avg_blk": "1.2",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "1.5"
                 },
                 {
                     "name": "Fred VanVleet",
                     "id": 2991230,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/2991230.png",
-                    "position": 1,
-                    "proTeam": 10
+                    "avg_pts": "0.0",
+                    "avg_reb": "0.0",
+                    "avg_ast": "0.0",
+                    "avg_stl": "0.0",
+                    "avg_blk": "0.0",
+                    "avg_fg_pct": "0.0",
+                    "avg_ft_pct": "0.0",
+                    "avg_3pm": "0.0"
                 },
                 {
                     "name": "Noah Clowney",
                     "id": 4712896,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4712896.png",
-                    "position": 4,
-                    "proTeam": 17
+                    "avg_pts": "12.8",
+                    "avg_reb": "4.2",
+                    "avg_ast": "1.8",
+                    "avg_stl": "0.8",
+                    "avg_blk": "0.8",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "2.0"
                 },
                 {
                     "name": "Jock Landale",
                     "id": 3146557,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3146557.png",
-                    "position": 5,
-                    "proTeam": 1
+                    "avg_pts": "11.5",
+                    "avg_reb": "6.4",
+                    "avg_ast": "1.7",
+                    "avg_stl": "0.5",
+                    "avg_blk": "0.6",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "1.2"
                 },
                 {
                     "name": "Matisse Thybulle",
                     "id": 3907498,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3907498.png",
-                    "position": 3,
-                    "proTeam": 22
+                    "avg_pts": "5.0",
+                    "avg_reb": "1.0",
+                    "avg_ast": "0.8",
+                    "avg_stl": "2.5",
+                    "avg_blk": "0.0",
+                    "avg_fg_pct": "0.6",
+                    "avg_ft_pct": "1.0",
+                    "avg_3pm": "1.0"
                 },
                 {
                     "name": "Sandro Mamukelashvili",
                     "id": 4278580,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4278580.png",
-                    "position": 4,
-                    "proTeam": 28
+                    "avg_pts": "11.4",
+                    "avg_reb": "5.1",
+                    "avg_ast": "2.0",
+                    "avg_stl": "0.8",
+                    "avg_blk": "0.6",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "1.4"
                 },
                 {
                     "name": "Julian Champagnie",
                     "id": 4592479,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4592479.png",
-                    "position": 3,
-                    "proTeam": 24
+                    "avg_pts": "11.4",
+                    "avg_reb": "6.0",
+                    "avg_ast": "1.4",
+                    "avg_stl": "0.8",
+                    "avg_blk": "0.4",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "2.5"
                 },
                 {
                     "name": "Jusuf Nurkic",
                     "id": 3102530,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3102530.png",
-                    "position": 5,
-                    "proTeam": 26
+                    "avg_pts": "11.0",
+                    "avg_reb": "10.3",
+                    "avg_ast": "4.9",
+                    "avg_stl": "1.3",
+                    "avg_blk": "0.5",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.6",
+                    "avg_3pm": "0.6"
                 },
                 {
                     "name": "Keldon Johnson",
                     "id": 4395723,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4395723.png",
-                    "position": 3,
-                    "proTeam": 24
-                },
-                {
-                    "name": "Grant Williams",
-                    "id": 4066218,
-                    "img": "https://a.espncdn.com/i/headshots/nba/players/full/4066218.png",
-                    "position": 4,
-                    "proTeam": 30
+                    "avg_pts": "13.5",
+                    "avg_reb": "5.9",
+                    "avg_ast": "1.4",
+                    "avg_stl": "0.7",
+                    "avg_blk": "0.2",
+                    "avg_fg_pct": "0.6",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "1.2"
                 },
                 {
                     "name": "Cody Williams",
                     "id": 4895758,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4895758.png",
-                    "position": 2,
-                    "proTeam": 26
+                    "avg_pts": "5.8",
+                    "avg_reb": "2.3",
+                    "avg_ast": "0.9",
+                    "avg_stl": "0.6",
+                    "avg_blk": "0.4",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.6",
+                    "avg_3pm": "0.4"
                 },
                 {
                     "name": "Johnny Furphy",
                     "id": 5157066,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/5157066.png",
-                    "position": 2,
-                    "proTeam": 11
+                    "avg_pts": "5.2",
+                    "avg_reb": "4.4",
+                    "avg_ast": "1.1",
+                    "avg_stl": "0.6",
+                    "avg_blk": "0.2",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.5",
+                    "avg_3pm": "0.7"
                 },
                 {
                     "name": "Yanic Konan Niederhauser",
                     "id": 5108024,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/5108024.png",
-                    "position": 5,
-                    "proTeam": 12
+                    "avg_pts": "3.5",
+                    "avg_reb": "2.1",
+                    "avg_ast": "0.3",
+                    "avg_stl": "0.1",
+                    "avg_blk": "0.5",
+                    "avg_fg_pct": "0.7",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "0.0"
                 },
                 {
-                    "name": "Ousmane Dieng",
-                    "id": 4997526,
-                    "img": "https://a.espncdn.com/i/headshots/nba/players/full/4997526.png",
-                    "position": 3,
-                    "proTeam": 15
+                    "name": "Julian Strawther",
+                    "id": 4432181,
+                    "img": "https://a.espncdn.com/i/headshots/nba/players/full/4432181.png",
+                    "avg_pts": "5.7",
+                    "avg_reb": "2.0",
+                    "avg_ast": "1.0",
+                    "avg_stl": "0.4",
+                    "avg_blk": "0.1",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "0.6"
+                },
+                {
+                    "name": "Justin Champagnie",
+                    "id": 4432907,
+                    "img": "https://a.espncdn.com/i/headshots/nba/players/full/4432907.png",
+                    "avg_pts": "7.6",
+                    "avg_reb": "5.7",
+                    "avg_ast": "1.1",
+                    "avg_stl": "0.8",
+                    "avg_blk": "0.6",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "0.7"
                 }
             ]
         },
         {
             "name": "Aidan's Astounding Team",
-            "abbrev": "AAT",
             "logo": "https://g.espncdn.com/lm-static/fba/images/default_logos/9.svg",
             "players": [
                 {
                     "name": "James Harden",
                     "id": 3992,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3992.png",
-                    "position": 1,
-                    "proTeam": 5
+                    "avg_pts": "25.4",
+                    "avg_reb": "4.8",
+                    "avg_ast": "8.1",
+                    "avg_stl": "1.3",
+                    "avg_blk": "0.4",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "3.1"
                 },
                 {
                     "name": "Amen Thompson",
                     "id": 4684740,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4684740.png",
-                    "position": 3,
-                    "proTeam": 10
+                    "avg_pts": "17.8",
+                    "avg_reb": "7.6",
+                    "avg_ast": "5.5",
+                    "avg_stl": "1.4",
+                    "avg_blk": "0.6",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "0.3"
                 },
                 {
                     "name": "Deni Avdija",
                     "id": 4683021,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4683021.png",
-                    "position": 3,
-                    "proTeam": 22
+                    "avg_pts": "25.5",
+                    "avg_reb": "7.2",
+                    "avg_ast": "6.7",
+                    "avg_stl": "0.8",
+                    "avg_blk": "0.6",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "2.3"
                 },
                 {
                     "name": "Jalen Duren",
                     "id": 4433621,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4433621.png",
-                    "position": 5,
-                    "proTeam": 8
+                    "avg_pts": "17.7",
+                    "avg_reb": "10.5",
+                    "avg_ast": "1.7",
+                    "avg_stl": "0.9",
+                    "avg_blk": "0.8",
+                    "avg_fg_pct": "0.6",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "0.0"
                 },
                 {
                     "name": "Zach LaVine",
                     "id": 3064440,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3064440.png",
-                    "position": 2,
-                    "proTeam": 23
+                    "avg_pts": "19.2",
+                    "avg_reb": "2.8",
+                    "avg_ast": "2.3",
+                    "avg_stl": "0.7",
+                    "avg_blk": "0.3",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "2.5"
                 },
                 {
                     "name": "Stephon Castle",
                     "id": 4845367,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4845367.png",
-                    "position": 1,
-                    "proTeam": 24
+                    "avg_pts": "17.1",
+                    "avg_reb": "5.2",
+                    "avg_ast": "7.0",
+                    "avg_stl": "1.4",
+                    "avg_blk": "0.3",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "1.1"
                 },
                 {
                     "name": "Andrew Wiggins",
                     "id": 3059319,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3059319.png",
-                    "position": 3,
-                    "proTeam": 14
+                    "avg_pts": "15.8",
+                    "avg_reb": "4.9",
+                    "avg_ast": "2.8",
+                    "avg_stl": "1.2",
+                    "avg_blk": "1.0",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "1.9"
                 },
                 {
                     "name": "Cam Thomas",
                     "id": 4432174,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4432174.png",
-                    "position": 2,
-                    "proTeam": 0
+                    "avg_pts": "15.6",
+                    "avg_reb": "1.8",
+                    "avg_ast": "3.1",
+                    "avg_stl": "0.2",
+                    "avg_blk": "0.1",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "1.6"
                 },
                 {
                     "name": "John Collins",
                     "id": 3908845,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3908845.png",
-                    "position": 4,
-                    "proTeam": 12
+                    "avg_pts": "13.8",
+                    "avg_reb": "5.0",
+                    "avg_ast": "0.9",
+                    "avg_stl": "0.8",
+                    "avg_blk": "0.8",
+                    "avg_fg_pct": "0.6",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "1.4"
                 },
                 {
                     "name": "Kevin Porter Jr.",
                     "id": 4397140,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4397140.png",
-                    "position": 2,
-                    "proTeam": 15
+                    "avg_pts": "17.1",
+                    "avg_reb": "5.2",
+                    "avg_ast": "7.5",
+                    "avg_stl": "2.3",
+                    "avg_blk": "0.4",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "1.5"
                 },
                 {
                     "name": "Nickeil Alexander-Walker",
                     "id": 4278039,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4278039.png",
-                    "position": 2,
-                    "proTeam": 1
+                    "avg_pts": "20.2",
+                    "avg_reb": "3.5",
+                    "avg_ast": "3.7",
+                    "avg_stl": "1.2",
+                    "avg_blk": "0.6",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "3.1"
                 },
                 {
                     "name": "Bobby Portis",
                     "id": 3064482,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3064482.png",
-                    "position": 4,
-                    "proTeam": 15
+                    "avg_pts": "13.4",
+                    "avg_reb": "6.7",
+                    "avg_ast": "1.7",
+                    "avg_stl": "0.5",
+                    "avg_blk": "0.2",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "1.9"
                 },
                 {
                     "name": "Kelly Oubre Jr.",
                     "id": 3133603,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3133603.png",
-                    "position": 3,
-                    "proTeam": 20
+                    "avg_pts": "14.1",
+                    "avg_reb": "4.7",
+                    "avg_ast": "1.5",
+                    "avg_stl": "1.2",
+                    "avg_blk": "0.6",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "1.8"
                 },
                 {
                     "name": "Ajay Mitchell",
                     "id": 4900671,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4900671.png",
-                    "position": 1,
-                    "proTeam": 25
+                    "avg_pts": "14.1",
+                    "avg_reb": "3.5",
+                    "avg_ast": "3.7",
+                    "avg_stl": "1.4",
+                    "avg_blk": "0.3",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "1.1"
                 },
                 {
                     "name": "Rui Hachimura",
                     "id": 4066648,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4066648.png",
-                    "position": 4,
-                    "proTeam": 13
+                    "avg_pts": "12.1",
+                    "avg_reb": "3.5",
+                    "avg_ast": "0.8",
+                    "avg_stl": "0.5",
+                    "avg_blk": "0.3",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "1.8"
                 },
                 {
                     "name": "Cameron Johnson",
                     "id": 3138196,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3138196.png",
-                    "position": 3,
-                    "proTeam": 7
+                    "avg_pts": "11.8",
+                    "avg_reb": "3.6",
+                    "avg_ast": "2.3",
+                    "avg_stl": "0.6",
+                    "avg_blk": "0.3",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "1.9"
                 },
                 {
                     "name": "Jose Alvarado",
                     "id": 4277869,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4277869.png",
-                    "position": 1,
-                    "proTeam": 18
+                    "avg_pts": "7.9",
+                    "avg_reb": "2.8",
+                    "avg_ast": "3.1",
+                    "avg_stl": "0.9",
+                    "avg_blk": "0.1",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "1.7"
                 },
                 {
                     "name": "Goga Bitadze",
                     "id": 4348700,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4348700.png",
-                    "position": 5,
-                    "proTeam": 19
+                    "avg_pts": "5.9",
+                    "avg_reb": "5.0",
+                    "avg_ast": "1.2",
+                    "avg_stl": "0.7",
+                    "avg_blk": "1.2",
+                    "avg_fg_pct": "0.7",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "0.0"
                 },
                 {
                     "name": "Thomas Sorber",
                     "id": 5061603,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/5061603.png",
-                    "position": 5,
-                    "proTeam": 25
+                    "avg_pts": "0.0",
+                    "avg_reb": "0.0",
+                    "avg_ast": "0.0",
+                    "avg_stl": "0.0",
+                    "avg_blk": "0.0",
+                    "avg_fg_pct": "0.0",
+                    "avg_ft_pct": "0.0",
+                    "avg_3pm": "0.0"
                 },
                 {
                     "name": "Dominick Barlow",
                     "id": 4870562,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4870562.png",
-                    "position": 4,
-                    "proTeam": 20
+                    "avg_pts": "8.4",
+                    "avg_reb": "5.0",
+                    "avg_ast": "1.2",
+                    "avg_stl": "1.0",
+                    "avg_blk": "0.6",
+                    "avg_fg_pct": "0.6",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "0.4"
                 },
                 {
                     "name": "Jaylon Tyson",
                     "id": 4683747,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4683747.png",
-                    "position": 2,
-                    "proTeam": 5
+                    "avg_pts": "14.0",
+                    "avg_reb": "5.5",
+                    "avg_ast": "2.4",
+                    "avg_stl": "0.9",
+                    "avg_blk": "0.4",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "2.1"
                 },
                 {
                     "name": "Walter Clayton Jr.",
                     "id": 4896372,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4896372.png",
-                    "position": 2,
-                    "proTeam": 29
+                    "avg_pts": "6.9",
+                    "avg_reb": "2.0",
+                    "avg_ast": "3.3",
+                    "avg_stl": "0.6",
+                    "avg_blk": "0.3",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "1.0"
                 },
                 {
                     "name": "Trayce Jackson-Davis",
                     "id": 4431684,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4431684.png",
-                    "position": 4,
-                    "proTeam": 28
+                    "avg_pts": "4.2",
+                    "avg_reb": "3.1",
+                    "avg_ast": "0.9",
+                    "avg_stl": "0.4",
+                    "avg_blk": "0.5",
+                    "avg_fg_pct": "0.6",
+                    "avg_ft_pct": "0.6",
+                    "avg_3pm": "0.0"
                 },
                 {
                     "name": "Jaren Jackson Jr.",
                     "id": 4277961,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4277961.png",
-                    "position": 5,
-                    "proTeam": 26
+                    "avg_pts": "19.3",
+                    "avg_reb": "5.7",
+                    "avg_ast": "1.9",
+                    "avg_stl": "1.1",
+                    "avg_blk": "1.5",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "1.8"
                 },
                 {
                     "name": "Jalen Green",
                     "id": 4437244,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4437244.png",
-                    "position": 2,
-                    "proTeam": 21
+                    "avg_pts": "11.0",
+                    "avg_reb": "2.3",
+                    "avg_ast": "2.0",
+                    "avg_stl": "0.5",
+                    "avg_blk": "0.0",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "1.8"
                 },
                 {
                     "name": "Jarrett Allen",
                     "id": 4066328,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4066328.png",
-                    "position": 5,
-                    "proTeam": 5
+                    "avg_pts": "14.3",
+                    "avg_reb": "8.1",
+                    "avg_ast": "2.0",
+                    "avg_stl": "1.0",
+                    "avg_blk": "0.9",
+                    "avg_fg_pct": "0.6",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "0.0"
                 },
                 {
                     "name": "Robert Williams III",
                     "id": 4066211,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4066211.png",
-                    "position": 5,
-                    "proTeam": 22
+                    "avg_pts": "6.4",
+                    "avg_reb": "6.5",
+                    "avg_ast": "1.1",
+                    "avg_stl": "0.6",
+                    "avg_blk": "1.4",
+                    "avg_fg_pct": "0.8",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "0.1"
                 }
             ]
         },
         {
             "name": "Ryan's Remarkable Team",
-            "abbrev": "RRT",
             "logo": "https://g.espncdn.com/lm-static/fba/images/default_logos/18.svg",
             "players": [
                 {
                     "name": "Shai Gilgeous-Alexander",
                     "id": 4278073,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4278073.png",
-                    "position": 1,
-                    "proTeam": 25
+                    "avg_pts": "31.8",
+                    "avg_reb": "4.4",
+                    "avg_ast": "6.4",
+                    "avg_stl": "1.3",
+                    "avg_blk": "0.8",
+                    "avg_fg_pct": "0.6",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "1.8"
                 },
                 {
                     "name": "Pascal Siakam",
                     "id": 3149673,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3149673.png",
-                    "position": 4,
-                    "proTeam": 11
+                    "avg_pts": "23.7",
+                    "avg_reb": "6.8",
+                    "avg_ast": "4.0",
+                    "avg_stl": "1.1",
+                    "avg_blk": "0.5",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "1.8"
                 },
                 {
                     "name": "Dyson Daniels",
                     "id": 4869342,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4869342.png",
-                    "position": 2,
-                    "proTeam": 1
+                    "avg_pts": "11.4",
+                    "avg_reb": "6.5",
+                    "avg_ast": "6.2",
+                    "avg_stl": "1.9",
+                    "avg_blk": "0.4",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.6",
+                    "avg_3pm": "0.2"
                 },
                 {
                     "name": "Miles Bridges",
                     "id": 4066383,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4066383.png",
-                    "position": 3,
-                    "proTeam": 30
+                    "avg_pts": "18.4",
+                    "avg_reb": "6.1",
+                    "avg_ast": "3.5",
+                    "avg_stl": "0.5",
+                    "avg_blk": "0.5",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "2.2"
                 },
                 {
                     "name": "Payton Pritchard",
                     "id": 4066354,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4066354.png",
-                    "position": 1,
-                    "proTeam": 2
+                    "avg_pts": "17.3",
+                    "avg_reb": "4.2",
+                    "avg_ast": "5.3",
+                    "avg_stl": "0.7",
+                    "avg_blk": "0.1",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "2.6"
                 },
                 {
                     "name": "Toumani Camara",
                     "id": 4431736,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4431736.png",
-                    "position": 4,
-                    "proTeam": 22
+                    "avg_pts": "12.8",
+                    "avg_reb": "5.3",
+                    "avg_ast": "2.6",
+                    "avg_stl": "1.0",
+                    "avg_blk": "0.5",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "2.5"
                 },
                 {
                     "name": "Ace Bailey",
                     "id": 4873138,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4873138.png",
-                    "position": 3,
-                    "proTeam": 26
+                    "avg_pts": "11.5",
+                    "avg_reb": "3.7",
+                    "avg_ast": "1.6",
+                    "avg_stl": "0.8",
+                    "avg_blk": "0.5",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "1.5"
                 },
                 {
                     "name": "Brook Lopez",
                     "id": 3448,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3448.png",
-                    "position": 5,
-                    "proTeam": 12
+                    "avg_pts": "6.7",
+                    "avg_reb": "2.7",
+                    "avg_ast": "0.9",
+                    "avg_stl": "0.5",
+                    "avg_blk": "1.0",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "1.5"
                 },
                 {
                     "name": "Egor Demin",
                     "id": 5175643,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/5175643.png",
-                    "position": 1,
-                    "proTeam": 17
+                    "avg_pts": "10.7",
+                    "avg_reb": "3.1",
+                    "avg_ast": "3.3",
+                    "avg_stl": "0.8",
+                    "avg_blk": "0.3",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "2.5"
                 },
                 {
                     "name": "Jonas Valanciunas",
                     "id": 6477,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/6477.png",
-                    "position": 5,
-                    "proTeam": 7
+                    "avg_pts": "9.0",
+                    "avg_reb": "5.2",
+                    "avg_ast": "1.3",
+                    "avg_stl": "0.2",
+                    "avg_blk": "0.7",
+                    "avg_fg_pct": "0.6",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "0.1"
                 },
                 {
                     "name": "Kyle Filipowski",
                     "id": 4684793,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4684793.png",
-                    "position": 4,
-                    "proTeam": 26
+                    "avg_pts": "9.6",
+                    "avg_reb": "6.6",
+                    "avg_ast": "2.0",
+                    "avg_stl": "0.7",
+                    "avg_blk": "0.4",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "0.9"
                 },
                 {
                     "name": "Jaylen Wells",
                     "id": 5112087,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/5112087.png",
-                    "position": 2,
-                    "proTeam": 29
+                    "avg_pts": "12.0",
+                    "avg_reb": "3.5",
+                    "avg_ast": "1.7",
+                    "avg_stl": "0.8",
+                    "avg_blk": "0.1",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "1.8"
                 },
                 {
                     "name": "Isaiah Stewart",
                     "id": 4432810,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4432810.png",
-                    "position": 5,
-                    "proTeam": 8
+                    "avg_pts": "10.1",
+                    "avg_reb": "5.3",
+                    "avg_ast": "1.2",
+                    "avg_stl": "0.3",
+                    "avg_blk": "1.7",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "0.7"
                 },
                 {
                     "name": "Ryan Dunn",
                     "id": 4888725,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4888725.png",
-                    "position": 3,
-                    "proTeam": 21
+                    "avg_pts": "6.0",
+                    "avg_reb": "4.1",
+                    "avg_ast": "1.5",
+                    "avg_stl": "0.9",
+                    "avg_blk": "0.4",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.6",
+                    "avg_3pm": "0.8"
                 },
                 {
                     "name": "Jaxson Hayes",
                     "id": 4397077,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4397077.png",
-                    "position": 5,
-                    "proTeam": 13
+                    "avg_pts": "6.4",
+                    "avg_reb": "3.8",
+                    "avg_ast": "0.8",
+                    "avg_stl": "0.4",
+                    "avg_blk": "0.6",
+                    "avg_fg_pct": "0.8",
+                    "avg_ft_pct": "0.6",
+                    "avg_3pm": "0.0"
                 },
                 {
                     "name": "Davion Mitchell",
                     "id": 4278053,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4278053.png",
-                    "position": 1,
-                    "proTeam": 14
+                    "avg_pts": "9.1",
+                    "avg_reb": "2.5",
+                    "avg_ast": "7.2",
+                    "avg_stl": "1.2",
+                    "avg_blk": "0.1",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.6",
+                    "avg_3pm": "1.2"
                 },
                 {
                     "name": "Dereck Lively II",
                     "id": 4683688,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4683688.png",
-                    "position": 5,
-                    "proTeam": 6
+                    "avg_pts": "4.3",
+                    "avg_reb": "5.3",
+                    "avg_ast": "1.9",
+                    "avg_stl": "0.6",
+                    "avg_blk": "1.6",
+                    "avg_fg_pct": "0.6",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "0.0"
                 },
                 {
                     "name": "Jerami Grant",
                     "id": 2991070,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/2991070.png",
-                    "position": 4,
-                    "proTeam": 22
+                    "avg_pts": "19.1",
+                    "avg_reb": "3.5",
+                    "avg_ast": "2.5",
+                    "avg_stl": "0.6",
+                    "avg_blk": "0.6",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "2.3"
                 },
                 {
                     "name": "GG Jackson",
                     "id": 5105550,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/5105550.png",
-                    "position": 4,
-                    "proTeam": 29
+                    "avg_pts": "8.7",
+                    "avg_reb": "3.5",
+                    "avg_ast": "1.1",
+                    "avg_stl": "0.7",
+                    "avg_blk": "0.6",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "0.9"
                 },
                 {
                     "name": "Tidjane Salaun",
                     "id": 5211176,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/5211176.png",
-                    "position": 4,
-                    "proTeam": 30
+                    "avg_pts": "6.4",
+                    "avg_reb": "4.4",
+                    "avg_ast": "0.8",
+                    "avg_stl": "0.4",
+                    "avg_blk": "0.2",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "1.0"
                 },
                 {
                     "name": "Micah Potter",
                     "id": 4066399,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4066399.png",
-                    "position": 5,
-                    "proTeam": 11
+                    "avg_pts": "6.8",
+                    "avg_reb": "3.8",
+                    "avg_ast": "1.4",
+                    "avg_stl": "0.4",
+                    "avg_blk": "0.3",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "1.2"
                 },
                 {
                     "name": "Harrison Barnes",
                     "id": 6578,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/6578.png",
-                    "position": 4,
-                    "proTeam": 24
+                    "avg_pts": "10.6",
+                    "avg_reb": "2.9",
+                    "avg_ast": "2.1",
+                    "avg_stl": "0.6",
+                    "avg_blk": "0.2",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "1.9"
                 },
                 {
                     "name": "Jakob Poeltl",
                     "id": 3134908,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3134908.png",
-                    "position": 5,
-                    "proTeam": 28
+                    "avg_pts": "9.7",
+                    "avg_reb": "7.7",
+                    "avg_ast": "2.1",
+                    "avg_stl": "0.8",
+                    "avg_blk": "0.5",
+                    "avg_fg_pct": "0.7",
+                    "avg_ft_pct": "0.6",
+                    "avg_3pm": "0.0"
                 },
                 {
                     "name": "Bennedict Mathurin",
                     "id": 4683634,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4683634.png",
-                    "position": 3,
-                    "proTeam": 12
+                    "avg_pts": "17.8",
+                    "avg_reb": "5.4",
+                    "avg_ast": "2.2",
+                    "avg_stl": "0.6",
+                    "avg_blk": "0.1",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "2.1"
                 },
                 {
                     "name": "Ayo Dosunmu",
                     "id": 4397002,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4397002.png",
-                    "position": 2,
-                    "proTeam": 16
+                    "avg_pts": "15.0",
+                    "avg_reb": "3.0",
+                    "avg_ast": "3.6",
+                    "avg_stl": "0.8",
+                    "avg_blk": "0.3",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "1.9"
+                },
+                {
+                    "name": "Sam Merrill",
+                    "id": 4066757,
+                    "img": "https://a.espncdn.com/i/headshots/nba/players/full/4066757.png",
+                    "avg_pts": "13.1",
+                    "avg_reb": "2.2",
+                    "avg_ast": "2.3",
+                    "avg_stl": "0.6",
+                    "avg_blk": "0.1",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "3.3"
                 }
             ]
         },
         {
             "name": "Bang Gangers",
-            "abbrev": "BG",
             "logo": "https://g.espncdn.com/lm-static/fba/images/default_logos/14.svg",
             "players": [
                 {
                     "name": "LaMelo Ball",
                     "id": 4432816,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4432816.png",
-                    "position": 1,
-                    "proTeam": 30
+                    "avg_pts": "19.1",
+                    "avg_reb": "4.8",
+                    "avg_ast": "7.5",
+                    "avg_stl": "1.1",
+                    "avg_blk": "0.2",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "3.3"
                 },
                 {
                     "name": "Chet Holmgren",
                     "id": 4433255,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4433255.png",
-                    "position": 5,
-                    "proTeam": 25
+                    "avg_pts": "17.7",
+                    "avg_reb": "8.7",
+                    "avg_ast": "1.6",
+                    "avg_stl": "0.5",
+                    "avg_blk": "2.0",
+                    "avg_fg_pct": "0.6",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "1.3"
                 },
                 {
                     "name": "VJ Edgecombe",
                     "id": 5124612,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/5124612.png",
-                    "position": 2,
-                    "proTeam": 20
+                    "avg_pts": "15.0",
+                    "avg_reb": "5.4",
+                    "avg_ast": "4.2",
+                    "avg_stl": "1.5",
+                    "avg_blk": "0.5",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "2.1"
                 },
                 {
                     "name": "Michael Porter Jr.",
                     "id": 4278104,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4278104.png",
-                    "position": 3,
-                    "proTeam": 17
+                    "avg_pts": "25.0",
+                    "avg_reb": "7.2",
+                    "avg_ast": "3.2",
+                    "avg_stl": "1.0",
+                    "avg_blk": "0.2",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "3.7"
                 },
                 {
                     "name": "Kristaps Porzingis",
                     "id": 3102531,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3102531.png",
-                    "position": 5,
-                    "proTeam": 9
+                    "avg_pts": "17.1",
+                    "avg_reb": "5.1",
+                    "avg_ast": "2.7",
+                    "avg_stl": "0.5",
+                    "avg_blk": "1.3",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "1.8"
                 },
                 {
                     "name": "Keyonte George",
                     "id": 4433627,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4433627.png",
-                    "position": 1,
-                    "proTeam": 26
+                    "avg_pts": "23.8",
+                    "avg_reb": "3.9",
+                    "avg_ast": "6.5",
+                    "avg_stl": "1.1",
+                    "avg_blk": "0.3",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "2.5"
                 },
                 {
                     "name": "Isaiah Hartenstein",
                     "id": 4222252,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4222252.png",
-                    "position": 5,
-                    "proTeam": 25
+                    "avg_pts": "10.7",
+                    "avg_reb": "9.9",
+                    "avg_ast": "3.4",
+                    "avg_stl": "1.0",
+                    "avg_blk": "0.7",
+                    "avg_fg_pct": "0.6",
+                    "avg_ft_pct": "0.6",
+                    "avg_3pm": "0.0"
                 },
                 {
                     "name": "P.J. Washington",
                     "id": 4278078,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4278078.png",
-                    "position": 4,
-                    "proTeam": 6
+                    "avg_pts": "14.1",
+                    "avg_reb": "7.1",
+                    "avg_ast": "1.9",
+                    "avg_stl": "1.0",
+                    "avg_blk": "1.4",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "1.2"
                 },
                 {
                     "name": "Kel'el Ware",
                     "id": 5105623,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/5105623.png",
-                    "position": 5,
-                    "proTeam": 14
+                    "avg_pts": "11.1",
+                    "avg_reb": "9.1",
+                    "avg_ast": "0.6",
+                    "avg_stl": "0.8",
+                    "avg_blk": "1.0",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "1.1"
                 },
                 {
                     "name": "Santi Aldama",
                     "id": 4593125,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4593125.png",
-                    "position": 4,
-                    "proTeam": 29
+                    "avg_pts": "14.0",
+                    "avg_reb": "6.7",
+                    "avg_ast": "2.9",
+                    "avg_stl": "0.9",
+                    "avg_blk": "0.7",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "1.6"
                 },
                 {
                     "name": "Bub Carrington",
                     "id": 4845374,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4845374.png",
-                    "position": 1,
-                    "proTeam": 27
+                    "avg_pts": "10.1",
+                    "avg_reb": "3.6",
+                    "avg_ast": "4.6",
+                    "avg_stl": "0.6",
+                    "avg_blk": "0.2",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "2.1"
                 },
                 {
                     "name": "Klay Thompson",
                     "id": 6475,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/6475.png",
-                    "position": 2,
-                    "proTeam": 6
+                    "avg_pts": "11.6",
+                    "avg_reb": "2.4",
+                    "avg_ast": "1.4",
+                    "avg_stl": "0.5",
+                    "avg_blk": "0.3",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "2.9"
                 },
                 {
                     "name": "Nikola Jovic",
                     "id": 4997528,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4997528.png",
-                    "position": 4,
-                    "proTeam": 14
+                    "avg_pts": "8.0",
+                    "avg_reb": "3.6",
+                    "avg_ast": "2.4",
+                    "avg_stl": "0.6",
+                    "avg_blk": "0.4",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "1.0"
                 },
                 {
                     "name": "Andre Drummond",
                     "id": 6585,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/6585.png",
-                    "position": 5,
-                    "proTeam": 20
+                    "avg_pts": "6.9",
+                    "avg_reb": "8.8",
+                    "avg_ast": "0.8",
+                    "avg_stl": "0.6",
+                    "avg_blk": "0.9",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.6",
+                    "avg_3pm": "0.5"
                 },
                 {
                     "name": "Royce O'Neale",
                     "id": 2583632,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/2583632.png",
-                    "position": 3,
-                    "proTeam": 21
+                    "avg_pts": "10.3",
+                    "avg_reb": "4.9",
+                    "avg_ast": "2.9",
+                    "avg_stl": "1.2",
+                    "avg_blk": "0.3",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "2.8"
                 },
                 {
                     "name": "Damian Lillard",
                     "id": 6606,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/6606.png",
-                    "position": 1,
-                    "proTeam": 22
+                    "avg_pts": "0.0",
+                    "avg_reb": "0.0",
+                    "avg_ast": "0.0",
+                    "avg_stl": "0.0",
+                    "avg_blk": "0.0",
+                    "avg_fg_pct": "0.0",
+                    "avg_ft_pct": "0.0",
+                    "avg_3pm": "0.0"
                 },
                 {
                     "name": "Jaylin Williams",
                     "id": 4432823,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4432823.png",
-                    "position": 5,
-                    "proTeam": 25
+                    "avg_pts": "6.1",
+                    "avg_reb": "5.0",
+                    "avg_ast": "2.5",
+                    "avg_stl": "0.6",
+                    "avg_blk": "0.6",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "1.2"
                 },
                 {
                     "name": "Brandon Williams",
                     "id": 4397040,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4397040.png",
-                    "position": 1,
-                    "proTeam": 6
+                    "avg_pts": "12.7",
+                    "avg_reb": "2.9",
+                    "avg_ast": "3.6",
+                    "avg_stl": "1.0",
+                    "avg_blk": "0.2",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "0.5"
                 },
                 {
                     "name": "Scotty Pippen Jr.",
                     "id": 4431785,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4431785.png",
-                    "position": 1,
-                    "proTeam": 29
+                    "avg_pts": "13.0",
+                    "avg_reb": "3.0",
+                    "avg_ast": "6.0",
+                    "avg_stl": "1.0",
+                    "avg_blk": "0.0",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "1.0",
+                    "avg_3pm": "1.0"
                 },
                 {
                     "name": "Bruce Brown",
                     "id": 4065670,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4065670.png",
-                    "position": 2,
-                    "proTeam": 7
+                    "avg_pts": "7.6",
+                    "avg_reb": "4.0",
+                    "avg_ast": "2.2",
+                    "avg_stl": "1.1",
+                    "avg_blk": "0.3",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "0.5"
                 },
                 {
                     "name": "Dean Wade",
                     "id": 3912848,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3912848.png",
-                    "position": 4,
-                    "proTeam": 5
+                    "avg_pts": "5.8",
+                    "avg_reb": "4.1",
+                    "avg_ast": "1.6",
+                    "avg_stl": "0.8",
+                    "avg_blk": "0.4",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "1.2"
                 },
                 {
                     "name": "Ben Sheppard",
                     "id": 4433076,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4433076.png",
-                    "position": 2,
-                    "proTeam": 11
+                    "avg_pts": "6.2",
+                    "avg_reb": "3.0",
+                    "avg_ast": "1.7",
+                    "avg_stl": "0.5",
+                    "avg_blk": "0.1",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "1.2"
                 },
                 {
                     "name": "Dennis Schroder",
                     "id": 3032979,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3032979.png",
-                    "position": 1,
-                    "proTeam": 5
+                    "avg_pts": "12.6",
+                    "avg_reb": "3.0",
+                    "avg_ast": "5.3",
+                    "avg_stl": "0.8",
+                    "avg_blk": "0.1",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "1.4"
                 },
                 {
                     "name": "Cam Spencer",
                     "id": 4433083,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4433083.png",
-                    "position": 2,
-                    "proTeam": 29
+                    "avg_pts": "12.0",
+                    "avg_reb": "2.7",
+                    "avg_ast": "5.6",
+                    "avg_stl": "0.7",
+                    "avg_blk": "0.1",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "2.2"
                 },
                 {
                     "name": "Maxime Raynaud",
                     "id": 4898371,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4898371.png",
-                    "position": 5,
-                    "proTeam": 23
+                    "avg_pts": "9.7",
+                    "avg_reb": "6.4",
+                    "avg_ast": "1.0",
+                    "avg_stl": "0.5",
+                    "avg_blk": "0.5",
+                    "avg_fg_pct": "0.6",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "0.2"
                 },
                 {
                     "name": "Jamal Shead",
                     "id": 4432241,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4432241.png",
-                    "position": 1,
-                    "proTeam": 28
+                    "avg_pts": "7.0",
+                    "avg_reb": "1.9",
+                    "avg_ast": "5.5",
+                    "avg_stl": "1.0",
+                    "avg_blk": "0.2",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "1.1"
                 },
                 {
                     "name": "Tobias Harris",
                     "id": 6440,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/6440.png",
-                    "position": 4,
-                    "proTeam": 8
+                    "avg_pts": "13.5",
+                    "avg_reb": "4.7",
+                    "avg_ast": "2.4",
+                    "avg_stl": "0.9",
+                    "avg_blk": "0.2",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "1.4"
                 },
                 {
                     "name": "Steven Adams",
                     "id": 2991235,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/2991235.png",
-                    "position": 5,
-                    "proTeam": 10
+                    "avg_pts": "5.8",
+                    "avg_reb": "8.6",
+                    "avg_ast": "1.5",
+                    "avg_stl": "0.7",
+                    "avg_blk": "0.6",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.6",
+                    "avg_3pm": "0.0"
                 }
             ]
         },
         {
             "name": "Rick's Charity Roster",
-            "abbrev": "RICK",
             "logo": "https://g.espncdn.com/lm-static/logo-packs/core/StadiumFoods-ESPN/stadium-foods_cheeseburger.svg",
             "players": [
                 {
                     "name": "Tyrese Maxey",
                     "id": 4431678,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4431678.png",
-                    "position": 1,
-                    "proTeam": 20
+                    "avg_pts": "28.8",
+                    "avg_reb": "4.2",
+                    "avg_ast": "6.9",
+                    "avg_stl": "2.0",
+                    "avg_blk": "0.8",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "3.4"
                 },
                 {
                     "name": "Tyler Herro",
                     "id": 4395725,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4395725.png",
-                    "position": 2,
-                    "proTeam": 14
+                    "avg_pts": "21.9",
+                    "avg_reb": "4.7",
+                    "avg_ast": "2.7",
+                    "avg_stl": "1.0",
+                    "avg_blk": "0.5",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "2.2"
                 },
                 {
                     "name": "Shaedon Sharpe",
                     "id": 4914336,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4914336.png",
-                    "position": 2,
-                    "proTeam": 22
+                    "avg_pts": "21.4",
+                    "avg_reb": "4.4",
+                    "avg_ast": "2.6",
+                    "avg_stl": "1.4",
+                    "avg_blk": "0.1",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "2.1"
                 },
                 {
                     "name": "OG Anunoby",
                     "id": 3934719,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3934719.png",
-                    "position": 3,
-                    "proTeam": 18
+                    "avg_pts": "16.6",
+                    "avg_reb": "5.5",
+                    "avg_ast": "2.4",
+                    "avg_stl": "1.7",
+                    "avg_blk": "0.7",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "2.1"
                 },
                 {
                     "name": "De'Andre Hunter",
                     "id": 4065732,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4065732.png",
-                    "position": 3,
-                    "proTeam": 23
+                    "avg_pts": "13.7",
+                    "avg_reb": "4.1",
+                    "avg_ast": "2.0",
+                    "avg_stl": "0.7",
+                    "avg_blk": "0.1",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "1.7"
                 },
                 {
                     "name": "Jaden Ivey",
                     "id": 4433218,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4433218.png",
-                    "position": 2,
-                    "proTeam": 4
+                    "avg_pts": "8.4",
+                    "avg_reb": "2.3",
+                    "avg_ast": "1.7",
+                    "avg_stl": "0.6",
+                    "avg_blk": "0.3",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "1.3"
                 },
                 {
                     "name": "Bilal Coulibaly",
                     "id": 5104155,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/5104155.png",
-                    "position": 3,
-                    "proTeam": 27
+                    "avg_pts": "9.7",
+                    "avg_reb": "4.6",
+                    "avg_ast": "2.6",
+                    "avg_stl": "1.4",
+                    "avg_blk": "0.9",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "0.9"
                 },
                 {
                     "name": "Walker Kessler",
                     "id": 4433136,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4433136.png",
-                    "position": 5,
-                    "proTeam": 26
+                    "avg_pts": "14.4",
+                    "avg_reb": "10.8",
+                    "avg_ast": "3.0",
+                    "avg_stl": "1.4",
+                    "avg_blk": "1.8",
+                    "avg_fg_pct": "0.7",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "1.2"
                 },
                 {
                     "name": "Draymond Green",
                     "id": 6589,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/6589.png",
-                    "position": 4,
-                    "proTeam": 9
+                    "avg_pts": "8.3",
+                    "avg_reb": "5.6",
+                    "avg_ast": "5.2",
+                    "avg_stl": "0.8",
+                    "avg_blk": "0.7",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "1.5"
                 },
                 {
                     "name": "Obi Toppin",
                     "id": 4278355,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4278355.png",
-                    "position": 4,
-                    "proTeam": 11
+                    "avg_pts": "14.0",
+                    "avg_reb": "6.7",
+                    "avg_ast": "1.7",
+                    "avg_stl": "1.0",
+                    "avg_blk": "0.0",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "1.0",
+                    "avg_3pm": "1.0"
                 },
                 {
                     "name": "Buddy Hield",
                     "id": 2990984,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/2990984.png",
-                    "position": 2,
-                    "proTeam": 1
+                    "avg_pts": "8.0",
+                    "avg_reb": "2.5",
+                    "avg_ast": "1.5",
+                    "avg_stl": "0.8",
+                    "avg_blk": "0.2",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "1.5"
                 },
                 {
                     "name": "Tristan da Silva",
                     "id": 4702382,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4702382.png",
-                    "position": 3,
-                    "proTeam": 19
+                    "avg_pts": "8.8",
+                    "avg_reb": "3.3",
+                    "avg_ast": "1.2",
+                    "avg_stl": "0.8",
+                    "avg_blk": "0.3",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "1.5"
                 },
                 {
                     "name": "Bradley Beal",
                     "id": 6580,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/6580.png",
-                    "position": 3,
-                    "proTeam": 12
+                    "avg_pts": "8.2",
+                    "avg_reb": "0.8",
+                    "avg_ast": "1.7",
+                    "avg_stl": "0.5",
+                    "avg_blk": "0.0",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "1.2"
                 },
                 {
                     "name": "Simone Fontecchio",
                     "id": 3899664,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3899664.png",
-                    "position": 3,
-                    "proTeam": 14
+                    "avg_pts": "8.5",
+                    "avg_reb": "3.2",
+                    "avg_ast": "1.5",
+                    "avg_stl": "0.5",
+                    "avg_blk": "0.2",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "1.8"
                 },
                 {
                     "name": "Marvin Bagley III",
                     "id": 4277848,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4277848.png",
-                    "position": 4,
-                    "proTeam": 6
+                    "avg_pts": "10.3",
+                    "avg_reb": "5.8",
+                    "avg_ast": "1.5",
+                    "avg_stl": "0.5",
+                    "avg_blk": "0.8",
+                    "avg_fg_pct": "0.6",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "0.2"
                 },
                 {
                     "name": "Patrick Williams",
                     "id": 4431687,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4431687.png",
-                    "position": 4,
-                    "proTeam": 4
+                    "avg_pts": "6.8",
+                    "avg_reb": "3.0",
+                    "avg_ast": "1.2",
+                    "avg_stl": "0.6",
+                    "avg_blk": "0.3",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "1.3"
                 },
                 {
                     "name": "Precious Achiuwa",
                     "id": 4431679,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4431679.png",
-                    "position": 4,
-                    "proTeam": 23
+                    "avg_pts": "7.2",
+                    "avg_reb": "5.5",
+                    "avg_ast": "1.2",
+                    "avg_stl": "0.8",
+                    "avg_blk": "0.5",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.5",
+                    "avg_3pm": "0.3"
                 },
                 {
                     "name": "Mitchell Robinson",
                     "id": 4351852,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4351852.png",
-                    "position": 5,
-                    "proTeam": 18
+                    "avg_pts": "4.8",
+                    "avg_reb": "8.9",
+                    "avg_ast": "1.0",
+                    "avg_stl": "0.8",
+                    "avg_blk": "1.1",
+                    "avg_fg_pct": "0.7",
+                    "avg_ft_pct": "0.4",
+                    "avg_3pm": "0.0"
                 },
                 {
                     "name": "Paolo Banchero",
                     "id": 4432573,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4432573.png",
-                    "position": 4,
-                    "proTeam": 19
+                    "avg_pts": "21.7",
+                    "avg_reb": "8.5",
+                    "avg_ast": "4.9",
+                    "avg_stl": "0.7",
+                    "avg_blk": "0.7",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "1.1"
                 },
                 {
                     "name": "Dillon Brooks",
                     "id": 3155526,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3155526.png",
-                    "position": 3,
-                    "proTeam": 21
+                    "avg_pts": "21.1",
+                    "avg_reb": "3.6",
+                    "avg_ast": "1.8",
+                    "avg_stl": "1.1",
+                    "avg_blk": "0.2",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "2.4"
                 },
                 {
                     "name": "Evan Mobley",
                     "id": 4432158,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4432158.png",
-                    "position": 4,
-                    "proTeam": 5
+                    "avg_pts": "17.9",
+                    "avg_reb": "8.8",
+                    "avg_ast": "4.0",
+                    "avg_stl": "0.9",
+                    "avg_blk": "2.0",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.6",
+                    "avg_3pm": "1.1"
                 },
                 {
                     "name": "Neemias Queta",
                     "id": 4397424,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4397424.png",
-                    "position": 5,
-                    "proTeam": 2
+                    "avg_pts": "9.9",
+                    "avg_reb": "8.4",
+                    "avg_ast": "1.5",
+                    "avg_stl": "0.9",
+                    "avg_blk": "1.3",
+                    "avg_fg_pct": "0.6",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "0.0"
                 },
                 {
                     "name": "Aaron Wiggins",
                     "id": 4397183,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4397183.png",
-                    "position": 2,
-                    "proTeam": 25
+                    "avg_pts": "10.9",
+                    "avg_reb": "3.4",
+                    "avg_ast": "1.8",
+                    "avg_stl": "1.0",
+                    "avg_blk": "0.6",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "1.9"
                 },
                 {
                     "name": "Bones Hyland",
                     "id": 4592492,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4592492.png",
-                    "position": 1,
-                    "proTeam": 16
+                    "avg_pts": "7.2",
+                    "avg_reb": "1.7",
+                    "avg_ast": "2.6",
+                    "avg_stl": "0.6",
+                    "avg_blk": "0.2",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "1.3"
                 },
                 {
                     "name": "Moritz Wagner",
                     "id": 3150844,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3150844.png",
-                    "position": 5,
-                    "proTeam": 19
+                    "avg_pts": "8.5",
+                    "avg_reb": "3.2",
+                    "avg_ast": "0.3",
+                    "avg_stl": "0.4",
+                    "avg_blk": "0.0",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "1.2"
                 },
                 {
                     "name": "Pat Spencer",
                     "id": 4592714,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4592714.png",
-                    "position": 1,
-                    "proTeam": 9
+                    "avg_pts": "6.0",
+                    "avg_reb": "2.2",
+                    "avg_ast": "3.0",
+                    "avg_stl": "0.6",
+                    "avg_blk": "0.1",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "0.8"
                 },
                 {
                     "name": "Kobe Sanders",
                     "id": 4702352,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4702352.png",
-                    "position": 2,
-                    "proTeam": 12
+                    "avg_pts": "7.0",
+                    "avg_reb": "2.5",
+                    "avg_ast": "1.7",
+                    "avg_stl": "0.6",
+                    "avg_blk": "0.1",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "1.0"
                 }
             ]
         },
         {
             "name": "Tanjirul's Tantalizing Team",
-            "abbrev": "TTT",
             "logo": "https://g.espncdn.com/lm-static/logo-packs/core/CatsAndDogs/cats_dogs-11.svg",
             "players": [
                 {
                     "name": "Giannis Antetokounmpo",
                     "id": 3032977,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3032977.png",
-                    "position": 4,
-                    "proTeam": 15
+                    "avg_pts": "28.0",
+                    "avg_reb": "10.0",
+                    "avg_ast": "5.6",
+                    "avg_stl": "0.9",
+                    "avg_blk": "0.7",
+                    "avg_fg_pct": "0.6",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "0.5"
                 },
                 {
                     "name": "Devin Booker",
                     "id": 3136193,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3136193.png",
-                    "position": 1,
-                    "proTeam": 21
+                    "avg_pts": "25.3",
+                    "avg_reb": "4.0",
+                    "avg_ast": "6.3",
+                    "avg_stl": "0.9",
+                    "avg_blk": "0.3",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "1.7"
                 },
                 {
                     "name": "Derrick White",
                     "id": 3078576,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3078576.png",
-                    "position": 2,
-                    "proTeam": 2
+                    "avg_pts": "17.4",
+                    "avg_reb": "4.5",
+                    "avg_ast": "5.5",
+                    "avg_stl": "1.2",
+                    "avg_blk": "1.4",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "2.9"
                 },
                 {
                     "name": "Kevin Durant",
                     "id": 3202,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3202.png",
-                    "position": 4,
-                    "proTeam": 10
+                    "avg_pts": "25.9",
+                    "avg_reb": "5.3",
+                    "avg_ast": "4.4",
+                    "avg_stl": "0.8",
+                    "avg_blk": "0.9",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "2.3"
                 },
                 {
                     "name": "LeBron James",
                     "id": 1966,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/1966.png",
-                    "position": 3,
-                    "proTeam": 13
+                    "avg_pts": "21.8",
+                    "avg_reb": "5.7",
+                    "avg_ast": "6.8",
+                    "avg_stl": "1.1",
+                    "avg_blk": "0.6",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "1.4"
                 },
                 {
                     "name": "Onyeka Okongwu",
                     "id": 4431680,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4431680.png",
-                    "position": 5,
-                    "proTeam": 1
+                    "avg_pts": "16.2",
+                    "avg_reb": "7.9",
+                    "avg_ast": "3.3",
+                    "avg_stl": "1.2",
+                    "avg_blk": "1.0",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "2.0"
                 },
                 {
                     "name": "Jordan Poole",
                     "id": 4277956,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4277956.png",
-                    "position": 2,
-                    "proTeam": 3
+                    "avg_pts": "14.5",
+                    "avg_reb": "1.8",
+                    "avg_ast": "3.1",
+                    "avg_stl": "0.7",
+                    "avg_blk": "0.3",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "2.5"
                 },
                 {
                     "name": "Dylan Harper",
                     "id": 5037871,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/5037871.png",
-                    "position": 1,
-                    "proTeam": 24
+                    "avg_pts": "10.7",
+                    "avg_reb": "3.3",
+                    "avg_ast": "3.5",
+                    "avg_stl": "0.9",
+                    "avg_blk": "0.4",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "0.6"
                 },
                 {
                     "name": "Kawhi Leonard",
                     "id": 6450,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/6450.png",
-                    "position": 3,
-                    "proTeam": 12
+                    "avg_pts": "27.7",
+                    "avg_reb": "6.2",
+                    "avg_ast": "3.7",
+                    "avg_stl": "2.0",
+                    "avg_blk": "0.6",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "2.7"
                 },
                 {
                     "name": "Jabari Smith Jr.",
                     "id": 4432639,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4432639.png",
-                    "position": 4,
-                    "proTeam": 10
+                    "avg_pts": "15.2",
+                    "avg_reb": "6.9",
+                    "avg_ast": "1.9",
+                    "avg_stl": "0.8",
+                    "avg_blk": "1.0",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "2.2"
                 },
                 {
                     "name": "Jonathan Kuminga",
                     "id": 4433247,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4433247.png",
-                    "position": 4,
-                    "proTeam": 1
+                    "avg_pts": "12.1",
+                    "avg_reb": "5.8",
+                    "avg_ast": "2.5",
+                    "avg_stl": "0.4",
+                    "avg_blk": "0.3",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "0.8"
                 },
                 {
                     "name": "Cedric Coward",
                     "id": 4903027,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4903027.png",
-                    "position": 3,
-                    "proTeam": 29
+                    "avg_pts": "13.6",
+                    "avg_reb": "6.3",
+                    "avg_ast": "2.9",
+                    "avg_stl": "0.6",
+                    "avg_blk": "0.4",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "1.5"
                 },
                 {
                     "name": "Zaccharie Risacher",
                     "id": 5211175,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/5211175.png",
-                    "position": 3,
-                    "proTeam": 1
+                    "avg_pts": "10.9",
+                    "avg_reb": "3.5",
+                    "avg_ast": "1.4",
+                    "avg_stl": "0.9",
+                    "avg_blk": "0.6",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.6",
+                    "avg_3pm": "1.6"
                 },
                 {
                     "name": "Kentavious Caldwell-Pope",
                     "id": 2581018,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/2581018.png",
-                    "position": 2,
-                    "proTeam": 29
+                    "avg_pts": "8.3",
+                    "avg_reb": "2.5",
+                    "avg_ast": "2.8",
+                    "avg_stl": "0.8",
+                    "avg_blk": "0.2",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "1.1"
                 },
                 {
                     "name": "Aaron Nesmith",
                     "id": 4396909,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4396909.png",
-                    "position": 3,
-                    "proTeam": 11
+                    "avg_pts": "13.9",
+                    "avg_reb": "4.8",
+                    "avg_ast": "2.2",
+                    "avg_stl": "0.7",
+                    "avg_blk": "0.5",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "2.5"
                 },
                 {
                     "name": "Luguentz Dort",
                     "id": 4397020,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4397020.png",
-                    "position": 2,
-                    "proTeam": 25
+                    "avg_pts": "8.7",
+                    "avg_reb": "3.9",
+                    "avg_ast": "1.2",
+                    "avg_stl": "0.9",
+                    "avg_blk": "0.5",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "2.0"
                 },
                 {
                     "name": "Alex Caruso",
                     "id": 2991350,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/2991350.png",
-                    "position": 2,
-                    "proTeam": 25
+                    "avg_pts": "6.1",
+                    "avg_reb": "2.7",
+                    "avg_ast": "2.1",
+                    "avg_stl": "1.4",
+                    "avg_blk": "0.4",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "1.0"
                 },
                 {
                     "name": "Luke Kornet",
                     "id": 3064560,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3064560.png",
-                    "position": 5,
-                    "proTeam": 24
+                    "avg_pts": "7.5",
+                    "avg_reb": "6.8",
+                    "avg_ast": "2.0",
+                    "avg_stl": "0.5",
+                    "avg_blk": "1.2",
+                    "avg_fg_pct": "0.6",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "0.0"
                 },
                 {
                     "name": "Terance Mann",
                     "id": 3907823,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3907823.png",
-                    "position": 2,
-                    "proTeam": 17
+                    "avg_pts": "7.6",
+                    "avg_reb": "3.3",
+                    "avg_ast": "3.5",
+                    "avg_stl": "0.8",
+                    "avg_blk": "0.2",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "0.8"
                 },
                 {
                     "name": "Tre Mann",
                     "id": 4432819,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4432819.png",
-                    "position": 1,
-                    "proTeam": 30
+                    "avg_pts": "7.3",
+                    "avg_reb": "2.3",
+                    "avg_ast": "2.2",
+                    "avg_stl": "0.4",
+                    "avg_blk": "0.1",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "1.3"
                 },
                 {
                     "name": "Moses Moody",
                     "id": 4432171,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4432171.png",
-                    "position": 2,
-                    "proTeam": 9
+                    "avg_pts": "11.4",
+                    "avg_reb": "3.3",
+                    "avg_ast": "1.4",
+                    "avg_stl": "0.9",
+                    "avg_blk": "0.6",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "2.4"
                 },
                 {
                     "name": "Marcus Smart",
                     "id": 2990992,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/2990992.png",
-                    "position": 2,
-                    "proTeam": 13
+                    "avg_pts": "9.6",
+                    "avg_reb": "3.0",
+                    "avg_ast": "2.8",
+                    "avg_stl": "1.2",
+                    "avg_blk": "0.4",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "1.5"
                 },
                 {
                     "name": "Trendon Watford",
                     "id": 4431675,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4431675.png",
-                    "position": 4,
-                    "proTeam": 20
+                    "avg_pts": "6.0",
+                    "avg_reb": "3.4",
+                    "avg_ast": "2.6",
+                    "avg_stl": "0.3",
+                    "avg_blk": "0.3",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "0.3"
                 },
                 {
                     "name": "Quinten Post",
                     "id": 4593016,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4593016.png",
-                    "position": 5,
-                    "proTeam": 9
+                    "avg_pts": "7.7",
+                    "avg_reb": "3.9",
+                    "avg_ast": "1.3",
+                    "avg_stl": "0.4",
+                    "avg_blk": "0.5",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "1.5"
                 },
                 {
                     "name": "Caleb Love",
                     "id": 4433144,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4433144.png",
-                    "position": 2,
-                    "proTeam": 22
+                    "avg_pts": "11.3",
+                    "avg_reb": "2.6",
+                    "avg_ast": "2.7",
+                    "avg_stl": "0.6",
+                    "avg_blk": "0.1",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "2.0"
                 },
                 {
                     "name": "Quenton Jackson",
                     "id": 4592829,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4592829.png",
-                    "position": 1,
-                    "proTeam": 11
+                    "avg_pts": "7.8",
+                    "avg_reb": "1.8",
+                    "avg_ast": "1.8",
+                    "avg_stl": "0.7",
+                    "avg_blk": "0.2",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "0.8"
                 }
             ]
         },
         {
             "name": "Nathan's Nifty Team",
-            "abbrev": "NNT",
             "logo": "https://g.espncdn.com/lm-static/fba/images/default_logos/5.svg",
             "players": [
                 {
                     "name": "Nikola Jokic",
                     "id": 3112335,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3112335.png",
-                    "position": 5,
-                    "proTeam": 7
+                    "avg_pts": "28.9",
+                    "avg_reb": "12.2",
+                    "avg_ast": "10.7",
+                    "avg_stl": "1.4",
+                    "avg_blk": "0.8",
+                    "avg_fg_pct": "0.6",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "2.1"
                 },
                 {
                     "name": "Scottie Barnes",
                     "id": 4433134,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4433134.png",
-                    "position": 3,
-                    "proTeam": 28
+                    "avg_pts": "19.2",
+                    "avg_reb": "8.3",
+                    "avg_ast": "5.6",
+                    "avg_stl": "1.2",
+                    "avg_blk": "1.5",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "0.9"
                 },
                 {
                     "name": "Austin Reaves",
                     "id": 4066457,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4066457.png",
-                    "position": 2,
-                    "proTeam": 13
+                    "avg_pts": "26.1",
+                    "avg_reb": "5.2",
+                    "avg_ast": "6.0",
+                    "avg_stl": "1.0",
+                    "avg_blk": "0.2",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "2.6"
                 },
                 {
                     "name": "DeMar DeRozan",
                     "id": 3978,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3978.png",
-                    "position": 3,
-                    "proTeam": 23
+                    "avg_pts": "18.9",
+                    "avg_reb": "3.2",
+                    "avg_ast": "3.9",
+                    "avg_stl": "1.2",
+                    "avg_blk": "0.3",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "0.7"
                 },
                 {
                     "name": "Lauri Markkanen",
                     "id": 4066336,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4066336.png",
-                    "position": 4,
-                    "proTeam": 26
+                    "avg_pts": "27.1",
+                    "avg_reb": "6.9",
+                    "avg_ast": "2.1",
+                    "avg_stl": "1.0",
+                    "avg_blk": "0.5",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "2.8"
                 },
                 {
                     "name": "Jimmy Butler III",
                     "id": 6430,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/6430.png",
-                    "position": 3,
-                    "proTeam": 9
+                    "avg_pts": "20.0",
+                    "avg_reb": "5.6",
+                    "avg_ast": "4.9",
+                    "avg_stl": "1.4",
+                    "avg_blk": "0.2",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "0.8"
                 },
                 {
                     "name": "Jrue Holiday",
                     "id": 3995,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3995.png",
-                    "position": 1,
-                    "proTeam": 22
+                    "avg_pts": "14.9",
+                    "avg_reb": "4.4",
+                    "avg_ast": "6.5",
+                    "avg_stl": "1.3",
+                    "avg_blk": "0.1",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "2.2"
                 },
                 {
                     "name": "Russell Westbrook",
                     "id": 3468,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3468.png",
-                    "position": 1,
-                    "proTeam": 23
+                    "avg_pts": "15.3",
+                    "avg_reb": "5.8",
+                    "avg_ast": "6.7",
+                    "avg_stl": "1.3",
+                    "avg_blk": "0.2",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "2.1"
                 },
                 {
                     "name": "Deandre Ayton",
                     "id": 4278129,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4278129.png",
-                    "position": 5,
-                    "proTeam": 13
+                    "avg_pts": "13.4",
+                    "avg_reb": "8.4",
+                    "avg_ast": "0.9",
+                    "avg_stl": "0.6",
+                    "avg_blk": "1.0",
+                    "avg_fg_pct": "0.7",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "0.0"
                 },
                 {
                     "name": "Kyshawn George",
                     "id": 5174563,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/5174563.png",
-                    "position": 2,
-                    "proTeam": 27
+                    "avg_pts": "15.1",
+                    "avg_reb": "5.5",
+                    "avg_ast": "4.9",
+                    "avg_stl": "1.1",
+                    "avg_blk": "0.9",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "2.1"
                 },
                 {
                     "name": "Ryan Rollins",
                     "id": 4591725,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4591725.png",
-                    "position": 2,
-                    "proTeam": 15
+                    "avg_pts": "16.9",
+                    "avg_reb": "4.6",
+                    "avg_ast": "5.5",
+                    "avg_stl": "1.5",
+                    "avg_blk": "0.4",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "2.4"
                 },
                 {
                     "name": "Quentin Grimes",
                     "id": 4397014,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4397014.png",
-                    "position": 2,
-                    "proTeam": 20
+                    "avg_pts": "12.7",
+                    "avg_reb": "3.8",
+                    "avg_ast": "3.6",
+                    "avg_stl": "0.9",
+                    "avg_blk": "0.4",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "1.8"
                 },
                 {
                     "name": "Ryan Kalkbrenner",
                     "id": 4576060,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4576060.png",
-                    "position": 5,
-                    "proTeam": 30
+                    "avg_pts": "8.4",
+                    "avg_reb": "6.0",
+                    "avg_ast": "0.7",
+                    "avg_stl": "0.6",
+                    "avg_blk": "1.5",
+                    "avg_fg_pct": "0.8",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "0.0"
                 },
                 {
                     "name": "Wendell Carter Jr.",
                     "id": 4277847,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4277847.png",
-                    "position": 5,
-                    "proTeam": 19
+                    "avg_pts": "11.9",
+                    "avg_reb": "7.3",
+                    "avg_ast": "2.1",
+                    "avg_stl": "0.8",
+                    "avg_blk": "0.7",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "1.2"
                 },
                 {
                     "name": "Max Christie",
                     "id": 4432582,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4432582.png",
-                    "position": 2,
-                    "proTeam": 6
+                    "avg_pts": "13.3",
+                    "avg_reb": "3.4",
+                    "avg_ast": "2.2",
+                    "avg_stl": "0.5",
+                    "avg_blk": "0.3",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "2.5"
                 },
                 {
                     "name": "Jake LaRavia",
                     "id": 4592691,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4592691.png",
-                    "position": 4,
-                    "proTeam": 13
+                    "avg_pts": "9.3",
+                    "avg_reb": "4.1",
+                    "avg_ast": "2.0",
+                    "avg_stl": "1.4",
+                    "avg_blk": "0.5",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "1.1"
                 },
                 {
                     "name": "Collin Gillespie",
                     "id": 4278585,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4278585.png",
-                    "position": 1,
-                    "proTeam": 21
+                    "avg_pts": "13.6",
+                    "avg_reb": "4.1",
+                    "avg_ast": "4.7",
+                    "avg_stl": "1.4",
+                    "avg_blk": "0.2",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "3.1"
                 },
                 {
                     "name": "Miles McBride",
                     "id": 4431823,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4431823.png",
-                    "position": 1,
-                    "proTeam": 18
+                    "avg_pts": "12.9",
+                    "avg_reb": "2.6",
+                    "avg_ast": "2.8",
+                    "avg_stl": "0.9",
+                    "avg_blk": "0.2",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "2.9"
                 },
                 {
                     "name": "Andrew Nembhard",
                     "id": 4395712,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4395712.png",
-                    "position": 1,
-                    "proTeam": 11
+                    "avg_pts": "17.4",
+                    "avg_reb": "2.9",
+                    "avg_ast": "7.5",
+                    "avg_stl": "0.9",
+                    "avg_blk": "0.2",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "1.9"
                 },
                 {
                     "name": "Jarace Walker",
                     "id": 5106060,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/5106060.png",
-                    "position": 4,
-                    "proTeam": 11
+                    "avg_pts": "10.2",
+                    "avg_reb": "4.4",
+                    "avg_ast": "2.0",
+                    "avg_stl": "0.8",
+                    "avg_blk": "0.3",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "1.6"
                 },
                 {
                     "name": "Dylan Cardwell",
                     "id": 4433174,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4433174.png",
-                    "position": 5,
-                    "proTeam": 23
+                    "avg_pts": "5.3",
+                    "avg_reb": "7.5",
+                    "avg_ast": "1.2",
+                    "avg_stl": "0.7",
+                    "avg_blk": "1.7",
+                    "avg_fg_pct": "0.6",
+                    "avg_ft_pct": "0.6",
+                    "avg_3pm": "0.0"
                 },
                 {
                     "name": "Gui Santos",
                     "id": 4997536,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4997536.png",
-                    "position": 3,
-                    "proTeam": 9
+                    "avg_pts": "5.4",
+                    "avg_reb": "2.8",
+                    "avg_ast": "1.4",
+                    "avg_stl": "0.6",
+                    "avg_blk": "0.3",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.6",
+                    "avg_3pm": "0.9"
                 },
                 {
                     "name": "Pete Nance",
                     "id": 4397233,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4397233.png",
-                    "position": 4,
-                    "proTeam": 15
+                    "avg_pts": "5.0",
+                    "avg_reb": "2.0",
+                    "avg_ast": "0.6",
+                    "avg_stl": "0.3",
+                    "avg_blk": "0.1",
+                    "avg_fg_pct": "0.6",
+                    "avg_ft_pct": "0.0",
+                    "avg_3pm": "0.9"
                 },
                 {
                     "name": "Luka Garza",
                     "id": 4277951,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4277951.png",
-                    "position": 5,
-                    "proTeam": 2
+                    "avg_pts": "8.0",
+                    "avg_reb": "4.3",
+                    "avg_ast": "1.1",
+                    "avg_stl": "0.4",
+                    "avg_blk": "0.5",
+                    "avg_fg_pct": "0.6",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "0.7"
                 },
                 {
                     "name": "Baylor Scheierman",
                     "id": 4593841,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4593841.png",
-                    "position": 2,
-                    "proTeam": 2
+                    "avg_pts": "3.6",
+                    "avg_reb": "2.5",
+                    "avg_ast": "0.9",
+                    "avg_stl": "0.6",
+                    "avg_blk": "0.1",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "0.8"
                 }
             ]
         },
         {
             "name": "Daiki's Big D's",
-            "abbrev": "DDT",
             "logo": "https://g.espncdn.com/lm-static/fba/images/default_logos/1.svg",
             "players": [
                 {
                     "name": "Cade Cunningham",
                     "id": 4432166,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4432166.png",
-                    "position": 1,
-                    "proTeam": 8
+                    "avg_pts": "25.1",
+                    "avg_reb": "5.5",
+                    "avg_ast": "9.7",
+                    "avg_stl": "1.4",
+                    "avg_blk": "0.8",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "1.8"
                 },
                 {
                     "name": "Jalen Williams",
                     "id": 4593803,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4593803.png",
-                    "position": 4,
-                    "proTeam": 25
+                    "avg_pts": "16.8",
+                    "avg_reb": "4.8",
+                    "avg_ast": "5.6",
+                    "avg_stl": "1.3",
+                    "avg_blk": "0.4",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "0.8"
                 },
                 {
                     "name": "Julius Randle",
                     "id": 3064514,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3064514.png",
-                    "position": 4,
-                    "proTeam": 16
+                    "avg_pts": "22.2",
+                    "avg_reb": "6.9",
+                    "avg_ast": "5.4",
+                    "avg_stl": "1.1",
+                    "avg_blk": "0.2",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "1.5"
                 },
                 {
                     "name": "Anthony Davis",
                     "id": 6583,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/6583.png",
-                    "position": 5,
-                    "proTeam": 27
+                    "avg_pts": "20.4",
+                    "avg_reb": "11.1",
+                    "avg_ast": "2.8",
+                    "avg_stl": "1.1",
+                    "avg_blk": "1.6",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "0.5"
                 },
                 {
                     "name": "Zion Williamson",
                     "id": 4395628,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4395628.png",
-                    "position": 4,
-                    "proTeam": 3
+                    "avg_pts": "21.6",
+                    "avg_reb": "6.2",
+                    "avg_ast": "3.4",
+                    "avg_stl": "1.0",
+                    "avg_blk": "0.6",
+                    "avg_fg_pct": "0.6",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "0.0"
                 },
                 {
                     "name": "Kon Knueppel",
                     "id": 5061575,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/5061575.png",
-                    "position": 2,
-                    "proTeam": 30
+                    "avg_pts": "18.9",
+                    "avg_reb": "5.5",
+                    "avg_ast": "3.6",
+                    "avg_stl": "0.7",
+                    "avg_blk": "0.2",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "3.3"
                 },
                 {
                     "name": "Grayson Allen",
                     "id": 3135045,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3135045.png",
-                    "position": 2,
-                    "proTeam": 21
+                    "avg_pts": "17.0",
+                    "avg_reb": "3.0",
+                    "avg_ast": "4.0",
+                    "avg_stl": "1.4",
+                    "avg_blk": "0.3",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "3.3"
                 },
                 {
                     "name": "Paul George",
                     "id": 4251,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4251.png",
-                    "position": 3,
-                    "proTeam": 20
+                    "avg_pts": "16.0",
+                    "avg_reb": "5.2",
+                    "avg_ast": "3.7",
+                    "avg_stl": "1.5",
+                    "avg_blk": "0.5",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "2.4"
                 },
                 {
                     "name": "Duncan Robinson",
                     "id": 3157465,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3157465.png",
-                    "position": 3,
-                    "proTeam": 8
+                    "avg_pts": "12.1",
+                    "avg_reb": "2.7",
+                    "avg_ast": "1.8",
+                    "avg_stl": "0.7",
+                    "avg_blk": "0.3",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "3.0"
                 },
                 {
                     "name": "Saddiq Bey",
                     "id": 4397136,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4397136.png",
-                    "position": 3,
-                    "proTeam": 3
+                    "avg_pts": "16.7",
+                    "avg_reb": "5.8",
+                    "avg_ast": "2.5",
+                    "avg_stl": "1.0",
+                    "avg_blk": "0.0",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "1.9"
                 },
                 {
                     "name": "Jordan Goodwin",
                     "id": 4278402,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4278402.png",
-                    "position": 1,
-                    "proTeam": 21
+                    "avg_pts": "8.7",
+                    "avg_reb": "4.8",
+                    "avg_ast": "2.2",
+                    "avg_stl": "1.5",
+                    "avg_blk": "0.2",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "1.5"
                 },
                 {
                     "name": "Jaden McDaniels",
                     "id": 4431671,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4431671.png",
-                    "position": 3,
-                    "proTeam": 16
+                    "avg_pts": "15.1",
+                    "avg_reb": "4.3",
+                    "avg_ast": "2.9",
+                    "avg_stl": "0.9",
+                    "avg_blk": "0.9",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "1.5"
                 },
                 {
                     "name": "Derrick Jones Jr.",
                     "id": 3936099,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3936099.png",
-                    "position": 3,
-                    "proTeam": 12
+                    "avg_pts": "10.3",
+                    "avg_reb": "2.6",
+                    "avg_ast": "1.1",
+                    "avg_stl": "0.8",
+                    "avg_blk": "1.0",
+                    "avg_fg_pct": "0.6",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "1.2"
                 },
                 {
                     "name": "Stephen Curry",
                     "id": 3975,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3975.png",
-                    "position": 1,
-                    "proTeam": 9
+                    "avg_pts": "27.2",
+                    "avg_reb": "3.5",
+                    "avg_ast": "4.8",
+                    "avg_stl": "1.1",
+                    "avg_blk": "0.4",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "4.5"
                 },
                 {
                     "name": "Donovan Clingan",
                     "id": 5105565,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/5105565.png",
-                    "position": 5,
-                    "proTeam": 22
+                    "avg_pts": "11.4",
+                    "avg_reb": "11.5",
+                    "avg_ast": "2.0",
+                    "avg_stl": "0.5",
+                    "avg_blk": "1.3",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "0.9"
                 },
                 {
                     "name": "Jalen Brunson",
                     "id": 3934672,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3934672.png",
-                    "position": 1,
-                    "proTeam": 18
+                    "avg_pts": "27.1",
+                    "avg_reb": "3.3",
+                    "avg_ast": "6.1",
+                    "avg_stl": "0.7",
+                    "avg_blk": "0.1",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "2.9"
                 },
                 {
                     "name": "Herbert Jones",
                     "id": 4277813,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4277813.png",
-                    "position": 3,
-                    "proTeam": 3
+                    "avg_pts": "9.0",
+                    "avg_reb": "3.5",
+                    "avg_ast": "2.5",
+                    "avg_stl": "1.6",
+                    "avg_blk": "0.5",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "1.3"
                 },
                 {
                     "name": "Day'Ron Sharpe",
                     "id": 4432194,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4432194.png",
-                    "position": 5,
-                    "proTeam": 17
+                    "avg_pts": "8.3",
+                    "avg_reb": "6.6",
+                    "avg_ast": "2.3",
+                    "avg_stl": "1.1",
+                    "avg_blk": "0.4",
+                    "avg_fg_pct": "0.6",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "0.1"
                 },
                 {
                     "name": "Jordan Miller",
                     "id": 4396818,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4396818.png",
-                    "position": 3,
-                    "proTeam": 12
+                    "avg_pts": "9.3",
+                    "avg_reb": "3.3",
+                    "avg_ast": "1.6",
+                    "avg_stl": "0.8",
+                    "avg_blk": "0.2",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "0.8"
                 },
                 {
                     "name": "Pelle Larsson",
                     "id": 4601025,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4601025.png",
-                    "position": 2,
-                    "proTeam": 14
+                    "avg_pts": "10.2",
+                    "avg_reb": "3.3",
+                    "avg_ast": "3.3",
+                    "avg_stl": "0.6",
+                    "avg_blk": "0.2",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "0.9"
                 },
                 {
                     "name": "Will Riley",
                     "id": 5144126,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/5144126.png",
-                    "position": 3,
-                    "proTeam": 27
+                    "avg_pts": "7.0",
+                    "avg_reb": "2.2",
+                    "avg_ast": "1.4",
+                    "avg_stl": "0.6",
+                    "avg_blk": "0.1",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "0.8"
                 },
                 {
                     "name": "Nic Claxton",
                     "id": 4278067,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4278067.png",
-                    "position": 5,
-                    "proTeam": 17
+                    "avg_pts": "12.2",
+                    "avg_reb": "7.2",
+                    "avg_ast": "4.0",
+                    "avg_stl": "0.7",
+                    "avg_blk": "1.3",
+                    "avg_fg_pct": "0.6",
+                    "avg_ft_pct": "0.6",
+                    "avg_3pm": "0.0"
                 },
                 {
                     "name": "Taylor Hendricks",
                     "id": 4684806,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4684806.png",
-                    "position": 4,
-                    "proTeam": 29
+                    "avg_pts": "5.0",
+                    "avg_reb": "3.0",
+                    "avg_ast": "0.7",
+                    "avg_stl": "0.4",
+                    "avg_blk": "0.2",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "0.7"
                 },
                 {
                     "name": "Josh Hart",
                     "id": 3062679,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3062679.png",
-                    "position": 3,
-                    "proTeam": 18
+                    "avg_pts": "12.1",
+                    "avg_reb": "7.6",
+                    "avg_ast": "5.0",
+                    "avg_stl": "1.2",
+                    "avg_blk": "0.3",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "1.6"
                 },
                 {
                     "name": "Rudy Gobert",
                     "id": 3032976,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3032976.png",
-                    "position": 5,
-                    "proTeam": 16
+                    "avg_pts": "10.7",
+                    "avg_reb": "11.4",
+                    "avg_ast": "1.7",
+                    "avg_stl": "0.8",
+                    "avg_blk": "1.7",
+                    "avg_fg_pct": "0.7",
+                    "avg_ft_pct": "0.5",
+                    "avg_3pm": "0.0"
                 },
                 {
                     "name": "Isaiah Jackson",
                     "id": 4432170,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4432170.png",
-                    "position": 4,
-                    "proTeam": 12
+                    "avg_pts": "6.4",
+                    "avg_reb": "5.6",
+                    "avg_ast": "0.8",
+                    "avg_stl": "0.7",
+                    "avg_blk": "0.8",
+                    "avg_fg_pct": "0.6",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "0.0"
                 },
                 {
                     "name": "Guerschon Yabusele",
                     "id": 4017844,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4017844.png",
-                    "position": 4,
-                    "proTeam": 4
+                    "avg_pts": "3.2",
+                    "avg_reb": "2.3",
+                    "avg_ast": "0.5",
+                    "avg_stl": "0.2",
+                    "avg_blk": "0.2",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "0.6"
+                },
+                {
+                    "name": "Nolan Traore",
+                    "id": 5279130,
+                    "img": "https://a.espncdn.com/i/headshots/nba/players/full/5279130.png",
+                    "avg_pts": "6.8",
+                    "avg_reb": "1.5",
+                    "avg_ast": "3.0",
+                    "avg_stl": "0.4",
+                    "avg_blk": "0.3",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "1.0"
                 }
             ]
         },
         {
             "name": "Kenneth's Top-Notch Team",
-            "abbrev": "KTT",
             "logo": "https://mystique-api.fantasy.espn.com/apis/v1/domains/lm/images/6db586d0-d2fc-11f0-8306-0b32d1884cc7",
             "players": [
                 {
                     "name": "Domantas Sabonis",
                     "id": 3155942,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3155942.png",
-                    "position": 5,
-                    "proTeam": 23
+                    "avg_pts": "15.8",
+                    "avg_reb": "11.4",
+                    "avg_ast": "4.1",
+                    "avg_stl": "0.9",
+                    "avg_blk": "0.2",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "0.3"
                 },
                 {
                     "name": "Josh Giddey",
                     "id": 4871145,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4871145.png",
-                    "position": 2,
-                    "proTeam": 4
+                    "avg_pts": "18.6",
+                    "avg_reb": "8.6",
+                    "avg_ast": "8.8",
+                    "avg_stl": "0.9",
+                    "avg_blk": "0.3",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "1.7"
                 },
                 {
                     "name": "De'Aaron Fox",
                     "id": 4066259,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4066259.png",
-                    "position": 1,
-                    "proTeam": 24
+                    "avg_pts": "19.5",
+                    "avg_reb": "4.0",
+                    "avg_ast": "6.2",
+                    "avg_stl": "1.2",
+                    "avg_blk": "0.3",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "2.0"
                 },
                 {
                     "name": "Franz Wagner",
                     "id": 4566434,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4566434.png",
-                    "position": 3,
-                    "proTeam": 19
+                    "avg_pts": "22.2",
+                    "avg_reb": "6.1",
+                    "avg_ast": "3.6",
+                    "avg_stl": "1.1",
+                    "avg_blk": "0.3",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "1.5"
                 },
                 {
                     "name": "Ja Morant",
                     "id": 4279888,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4279888.png",
-                    "position": 1,
-                    "proTeam": 29
+                    "avg_pts": "19.4",
+                    "avg_reb": "3.2",
+                    "avg_ast": "8.1",
+                    "avg_stl": "1.0",
+                    "avg_blk": "0.3",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "1.0"
                 },
                 {
                     "name": "Naz Reid",
                     "id": 4396971,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4396971.png",
-                    "position": 5,
-                    "proTeam": 16
+                    "avg_pts": "14.5",
+                    "avg_reb": "6.4",
+                    "avg_ast": "2.5",
+                    "avg_stl": "1.0",
+                    "avg_blk": "0.9",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "2.5"
                 },
                 {
                     "name": "Brandon Ingram",
                     "id": 3913176,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3913176.png",
-                    "position": 3,
-                    "proTeam": 28
+                    "avg_pts": "22.2",
+                    "avg_reb": "5.9",
+                    "avg_ast": "3.7",
+                    "avg_stl": "0.8",
+                    "avg_blk": "0.8",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "1.9"
                 },
                 {
                     "name": "RJ Barrett",
                     "id": 4395625,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4395625.png",
-                    "position": 3,
-                    "proTeam": 28
+                    "avg_pts": "18.6",
+                    "avg_reb": "5.2",
+                    "avg_ast": "3.5",
+                    "avg_stl": "0.8",
+                    "avg_blk": "0.3",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "1.8"
                 },
                 {
                     "name": "CJ McCollum",
                     "id": 2490149,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/2490149.png",
-                    "position": 2,
-                    "proTeam": 1
+                    "avg_pts": "18.4",
+                    "avg_reb": "3.4",
+                    "avg_ast": "3.5",
+                    "avg_stl": "0.7",
+                    "avg_blk": "0.4",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "2.6"
                 },
                 {
                     "name": "Joel Embiid",
                     "id": 3059318,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3059318.png",
-                    "position": 5,
-                    "proTeam": 20
+                    "avg_pts": "26.6",
+                    "avg_reb": "7.5",
+                    "avg_ast": "3.9",
+                    "avg_stl": "0.6",
+                    "avg_blk": "1.1",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "1.3"
                 },
                 {
                     "name": "Collin Sexton",
                     "id": 4277811,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4277811.png",
-                    "position": 2,
-                    "proTeam": 4
+                    "avg_pts": "14.3",
+                    "avg_reb": "1.9",
+                    "avg_ast": "3.7",
+                    "avg_stl": "0.8",
+                    "avg_blk": "0.2",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "1.3"
                 },
                 {
                     "name": "Malik Monk",
                     "id": 4066262,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4066262.png",
-                    "position": 2,
-                    "proTeam": 23
+                    "avg_pts": "12.4",
+                    "avg_reb": "2.0",
+                    "avg_ast": "2.6",
+                    "avg_stl": "0.7",
+                    "avg_blk": "0.4",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "2.1"
                 },
                 {
                     "name": "Brice Sensabaugh",
                     "id": 5105839,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/5105839.png",
-                    "position": 3,
-                    "proTeam": 26
+                    "avg_pts": "12.1",
+                    "avg_reb": "2.9",
+                    "avg_ast": "1.6",
+                    "avg_stl": "0.7",
+                    "avg_blk": "0.1",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "1.7"
                 },
                 {
                     "name": "Chris Boucher",
                     "id": 3948153,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3948153.png",
-                    "position": 4,
-                    "proTeam": 0
+                    "avg_pts": "2.3",
+                    "avg_reb": "2.0",
+                    "avg_ast": "0.3",
+                    "avg_stl": "0.6",
+                    "avg_blk": "0.8",
+                    "avg_fg_pct": "0.3",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "0.2"
                 },
                 {
                     "name": "T.J. McConnell",
                     "id": 2530530,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/2530530.png",
-                    "position": 1,
-                    "proTeam": 11
+                    "avg_pts": "9.5",
+                    "avg_reb": "2.2",
+                    "avg_ast": "4.8",
+                    "avg_stl": "1.2",
+                    "avg_blk": "0.2",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "0.3"
                 },
                 {
                     "name": "Khris Middleton",
                     "id": 6609,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/6609.png",
-                    "position": 3,
-                    "proTeam": 6
+                    "avg_pts": "10.3",
+                    "avg_reb": "3.9",
+                    "avg_ast": "3.3",
+                    "avg_stl": "0.8",
+                    "avg_blk": "0.3",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "1.0"
                 },
                 {
                     "name": "Collin Murray-Boyles",
                     "id": 5093267,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/5093267.png",
-                    "position": 4,
-                    "proTeam": 28
+                    "avg_pts": "8.0",
+                    "avg_reb": "5.1",
+                    "avg_ast": "2.1",
+                    "avg_stl": "0.9",
+                    "avg_blk": "0.9",
+                    "avg_fg_pct": "0.6",
+                    "avg_ft_pct": "0.6",
+                    "avg_3pm": "0.4"
                 },
                 {
                     "name": "Cam Whitmore",
                     "id": 5105592,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/5105592.png",
-                    "position": 3,
-                    "proTeam": 27
+                    "avg_pts": "9.2",
+                    "avg_reb": "2.8",
+                    "avg_ast": "0.7",
+                    "avg_stl": "0.7",
+                    "avg_blk": "0.4",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "0.8"
                 },
                 {
                     "name": "Tim Hardaway Jr.",
                     "id": 2528210,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/2528210.png",
-                    "position": 2,
-                    "proTeam": 7
+                    "avg_pts": "14.0",
+                    "avg_reb": "2.7",
+                    "avg_ast": "1.4",
+                    "avg_stl": "0.5",
+                    "avg_blk": "0.2",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.9",
+                    "avg_3pm": "2.8"
                 },
                 {
                     "name": "Lonzo Ball",
                     "id": 4066421,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4066421.png",
-                    "position": 1,
-                    "proTeam": 0
+                    "avg_pts": "4.6",
+                    "avg_reb": "4.0",
+                    "avg_ast": "3.9",
+                    "avg_stl": "1.3",
+                    "avg_blk": "0.3",
+                    "avg_fg_pct": "0.3",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "1.1"
                 },
                 {
                     "name": "Caris LeVert",
                     "id": 2991043,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/2991043.png",
-                    "position": 2,
-                    "proTeam": 8
+                    "avg_pts": "7.8",
+                    "avg_reb": "1.8",
+                    "avg_ast": "2.9",
+                    "avg_stl": "0.9",
+                    "avg_blk": "0.6",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.7",
+                    "avg_3pm": "1.1"
                 },
                 {
                     "name": "Jonathan Isaac",
                     "id": 4065654,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4065654.png",
-                    "position": 4,
-                    "proTeam": 19
+                    "avg_pts": "2.8",
+                    "avg_reb": "2.5",
+                    "avg_ast": "0.4",
+                    "avg_stl": "0.4",
+                    "avg_blk": "0.6",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.6",
+                    "avg_3pm": "0.2"
                 },
                 {
                     "name": "Josh Okogie",
                     "id": 4065663,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4065663.png",
-                    "position": 3,
-                    "proTeam": 10
+                    "avg_pts": "5.3",
+                    "avg_reb": "2.9",
+                    "avg_ast": "0.9",
+                    "avg_stl": "0.9",
+                    "avg_blk": "0.2",
+                    "avg_fg_pct": "0.4",
+                    "avg_ft_pct": "0.6",
+                    "avg_3pm": "0.9"
                 },
                 {
                     "name": "Tristan Vukcevic",
                     "id": 4997537,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4997537.png",
-                    "position": 4,
-                    "proTeam": 27
+                    "avg_pts": "7.3",
+                    "avg_reb": "2.4",
+                    "avg_ast": "1.1",
+                    "avg_stl": "0.3",
+                    "avg_blk": "0.7",
+                    "avg_fg_pct": "0.5",
+                    "avg_ft_pct": "0.8",
+                    "avg_3pm": "0.5"
                 }
             ]
         }

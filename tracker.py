@@ -70,36 +70,64 @@ def get_season_trades(year):
         return []
 
 def get_current_rosters():
-    print("--- Fetching Current Rosters ---")
-    # We only need the current year for rosters
+    print("--- Fetching Current Rosters & Season Averages ---")
     url = f"https://lm-api-reads.fantasy.espn.com/apis/v3/games/fba/seasons/2026/segments/0/leagues/{LEAGUE_ID}"
     cookies = {"espn_s2": ESPN_S2, "SWID": SWID}
-    params = {"view": ["mRoster", "mTeam", "mSettings"]}
     
-    response = requests.get(url, params=params, cookies=cookies)
+    # We must include kona_player_info to get the 'stats' key in the response
+    params = {"view": ["mRoster", "mTeam", "kona_player_info"]}
+    
+    # This header is REQUIRED to get stats. 
+    # It tells ESPN: "Give me actual stats (0) for the current season."
+    filters = {
+        "players": {
+            "filterStatsForSourceIds": {"value": [0]},
+            "filterStatsForSplitTypeIds": {"value": [0]} 
+        }
+    }
+    headers = {'X-Fantasy-Filter': json.dumps(filters)}
+
+    response = requests.get(url, params=params, cookies=cookies, headers=headers)
     data = response.json()
     
     rosters = []
     for team in data.get('teams', []):
         team_info = {
             "name": team.get('name'),
-            "abbrev": team.get('abbrev'),
             "logo": team.get('logo'),
             "players": []
         }
         
         for entry in team.get('roster', {}).get('entries', []):
-            player = entry.get('playerPoolEntry', {}).get('player', {})
-            p_id = player.get('id')
+            player_obj = entry.get('playerPoolEntry', {}).get('player', {})
+            p_id = player_obj.get('id')
             
-            team_info["players"].append({
-                "name": player.get('fullName'),
+            # Extract Season Averages from the stats list
+            stats = {}
+            for stat_entry in player_obj.get('stats', []):
+                # 002026 usually represents the 2026 Season Actuals
+                if stat_entry.get('statSourceId') == 0 and stat_entry.get('statSplitTypeId') == 0:
+                    avg = stat_entry.get('averageStats', {})
+                    stats = {
+                        "avg_pts": f"{avg.get('0', 0):.1f}",
+                        "avg_reb": f"{avg.get('6', 0):.1f}",
+                        "avg_ast": f"{avg.get('3', 0):.1f}",
+                        "avg_stl": f"{avg.get('2', 0):.1f}",
+                        "avg_blk": f"{avg.get('1', 0):.1f}",
+                        "avg_fg_pct": f"{avg.get('19', 0):.1f}",
+                        "avg_ft_pct": f"{avg.get('20', 0):.1f}",
+                        "avg_3pm": f"{avg.get('17', 0):.1f}"
+                    }
+
+            player_data = {
+                "name": player_obj.get('fullName'),
                 "id": p_id,
-                # ESPN standard player image URL
-                "img": f"https://a.espncdn.com/i/headshots/nba/players/full/{p_id}.png",
-                "position": player.get('defaultPositionId'), # You can map these to "PG", "SG", etc.
-                "proTeam": player.get('proTeamId')
-            })
+                "img": f"https://a.espncdn.com/i/headshots/nba/players/full/{p_id}.png"
+            }
+            # Merge the stats into the player object
+            player_data.update(stats)
+            team_info["players"].append(player_data)
+            
         rosters.append(team_info)
     return rosters
 
