@@ -1,0 +1,101 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0f1113; /* Deep Slate */
+}
+
+.card {
+    border-radius: 12px;
+}
+
+.bg-secondary-subtle {
+    background-color: #1a1d21 !important;
+}
+
+.text-primary {
+    color: #00d1ff !important; /* Bright Neon Blue */
+}
+
+/* DataTables Styling */
+.dataTables_wrapper .dataTables_length, 
+.dataTables_wrapper .dataTables_filter {
+    color: #adb5bd;
+    margin-bottom: 1rem;
+}
+
+.table.dataTable {
+    border-color: #2d3238;
+}
+
+#trade-block-list .list-group-item {
+    border-color: #2d3238;
+    color: #e9ecef;
+    padding: 0.75rem 0;
+}
+
+
+.border-secondary {
+    border-color: #343a40 !important;
+}
+
+.x-small {
+    font-size: 0.65rem;
+}
+
+/* Container for the whole trade card */
+.trade-assets-container {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    padding: 15px;
+    position: relative; /* Necessary for absolute divider */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* The vertical line in the middle */
+.vertical-divider {
+    position: absolute;
+    left: 50%;
+    top: 10%; /* Adjust to start line below handshake */
+    bottom: 10%;
+    width: 1px;
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateX(-50%);
+}
+
+/* Ensure badges don't wrap and stay clean */
+.badge {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+.handshake-icon {
+    font-size: 1.2rem;
+    display: inline-block;
+    min-width: 40px; /* Ensures space is reserved in the center */
+}
+
+#footer-status {
+    position: fixed;
+    bottom: 10px;
+    left: 15px;
+    background: rgba(0, 0, 0, 0.7); /* Slight dark background for readability */
+    padding: 4px 10px;
+    border-radius: 4px;
+    border-left: 3px solid #0d6efd; /* UCI blue accent */
+    z-index: 1000;
+    pointer-events: none; /* Allows clicks to pass through to the table below */
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+}
+
+/* Ensure the table doesn't get covered by the footer on mobile */
+@media (max-width: 768px) {
+    #footer-status {
+        position: static;
+        margin-top: 20px;
+        margin-left: 15px;
+        background: transparent;
+        border: none;
+    }
+}
