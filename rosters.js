@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    fetch('league_data.json')
+    fetch('league_data.json?v=${new Date().getTime()}')
         .then(res => {
             if (!res.ok) throw new Error("Could not load league_data.json");
             return res.json();
