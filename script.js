@@ -1,7 +1,8 @@
 let allData = {}; 
 
 $(document).ready(function() {
-    fetch('league_data.json?v=${new Date().getTime()}')
+    // Cache-busting prevents old data from appearing after GitHub Actions updates
+    fetch(`league_data.json?v=${new Date().getTime()}`)
         .then(response => {
             if (!response.ok) throw new Error("Could not load league_data.json");
             return response.json();
@@ -90,7 +91,7 @@ function loadYearData(year) {
         columns: [
             { 
                 data: 'date', 
-                width: '18%', 
+                width: '15%', 
                 render: (data, type, row) => type === 'sort' ? (row.sort_date || data) : data 
             },
             { 
@@ -102,30 +103,45 @@ function loadYearData(year) {
 
                     const tA = row.teams[0];
                     const tB = row.teams[1];
+
+                    const getAbbr = (fullName) => {
+                        const team = allData.rosters.find(r => r.name === fullName);
+                        return team ? team.abbrev : fullName.substring(0, 3).toUpperCase();
+                    };
+
+                    const abbrA = getAbbr(tA);
+                    const abbrB = getAbbr(tB);
                     const assetsA = (row.assets || []).filter(a => a.from === tA).map(a => a.player).join("<br>");
                     const assetsB = (row.assets || []).filter(a => a.from === tB).map(a => a.player).join("<br>");
 
                     return `
-                        <div class="trade-assets-container">
-                            <div class="row align-items-center mb-2 g-0">
-                                <div class="col text-end">
-                                    <span class="badge bg-primary text-uppercase">${tA}</span>
+                        <div class="trade-assets-container p-2">
+                            <div class="row g-0 position-relative mb-3 align-items-center d-none d-md-flex pt-2">
+                                <div class="col-6 text-center pe-2">
+                                    <span class="badge bg-primary text-uppercase team-badge">${tA}</span>
                                 </div>
-                                <div class="col-auto px-2 text-center handshake-icon">🤝</div>
-                                <div class="col text-start">
-                                    <span class="badge bg-info text-dark text-uppercase">${tB}</span>
+                                
+                                <div class="col-6 text-center ps-2">
+                                    <span class="badge bg-info text-dark text-uppercase team-badge">${tB}</span>
                                 </div>
                             </div>
 
                             <div class="row text-center position-relative g-0">
                                 <div class="vertical-divider d-none d-md-block"></div>
                                 
-                                <div class="col-12 col-md-6 border-bottom-mobile pb-2 pb-md-0">
-                                    <div class="text-primary x-small fw-bold mb-1">SENT TO ${tB}:</div>
+                                <div class="col-12 col-md-6 border-bottom-mobile pb-3 pb-md-0">
+                                    <div class="d-md-none mb-2">
+                                        <span class="badge bg-primary text-uppercase team-badge w-100">${tA}</span>
+                                    </div>
+                                    <div class="text-primary x-small fw-bold mb-1">SENT TO ${abbrB}:</div>
                                     <div class="small fw-bold text-white">${assetsA || 'None'}</div>
                                 </div>
-                                <div class="col-12 col-md-6 pt-2 pt-md-0">
-                                    <div class="text-info x-small fw-bold mb-1">SENT TO ${tA}:</div>
+
+                                <div class="col-12 col-md-6 pt-3 pt-md-0">
+                                    <div class="d-md-none mb-2">
+                                        <span class="badge bg-info text-dark text-uppercase team-badge w-100">${tB}</span>
+                                    </div>
+                                    <div class="text-info x-small fw-bold mb-1">SENT TO ${abbrA}:</div>
                                     <div class="small fw-bold text-white">${assetsB || 'None'}</div>
                                 </div>
                             </div>
@@ -136,7 +152,7 @@ function loadYearData(year) {
         ],
         order: [[0, 'desc']],
         responsive: true,
-        dom: '<"top"f>rtp', // 'f' enables the search bar
+        dom: '<"top"f>rtp',
         language: {
             search: "",
             searchPlaceholder: "Search players or teams..."

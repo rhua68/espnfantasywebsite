@@ -95,7 +95,8 @@ def get_current_rosters():
         team_info = {
             "name": team.get('name'),
             "logo": team.get('logo'),
-            "players": []
+            "players": [],
+            "abbrev": team.get('abbrev')
         }
         
         for entry in team.get('roster', {}).get('entries', []):

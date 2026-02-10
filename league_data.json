@@ -1,5 +1,5 @@
 {
-    "updated": "02/09/2026 03:54 PM",
+    "updated": "02/09/2026 04:36 PM",
     "seasons": {
         "2025": [],
         "2026": [
@@ -340,10 +340,10 @@
                     "id": 4684742,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4684742.png",
                     "avg_pts": "10.4",
-                    "avg_reb": "6.0",
-                    "avg_ast": "2.7",
+                    "avg_reb": "5.9",
+                    "avg_ast": "2.6",
                     "avg_stl": "1.9",
-                    "avg_blk": "0.9",
+                    "avg_blk": "0.8",
                     "avg_fg_pct": "0.51",
                     "avg_ft_pct": "0.58",
                     "avg_3pm": "0.1"
@@ -443,8 +443,8 @@
                     "name": "Moussa Diabate",
                     "id": 4433249,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4433249.png",
-                    "avg_pts": "8.4",
-                    "avg_reb": "8.7",
+                    "avg_pts": "8.2",
+                    "avg_reb": "8.5",
                     "avg_ast": "1.6",
                     "avg_stl": "0.7",
                     "avg_blk": "1.0",
@@ -495,9 +495,9 @@
                     "name": "Daniss Jenkins",
                     "id": 5107199,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/5107199.png",
-                    "avg_pts": "8.2",
+                    "avg_pts": "8.0",
                     "avg_reb": "1.8",
-                    "avg_ast": "3.3",
+                    "avg_ast": "3.2",
                     "avg_stl": "0.9",
                     "avg_blk": "0.2",
                     "avg_fg_pct": "0.43",
@@ -608,7 +608,8 @@
                     "avg_ft_pct": "0.88",
                     "avg_3pm": "1.2"
                 }
-            ]
+            ],
+            "abbrev": "RH"
         },
         {
             "name": "Collin's Competitive Team",
@@ -926,7 +927,8 @@
                     "avg_ft_pct": "0.58",
                     "avg_3pm": "0.0"
                 }
-            ]
+            ],
+            "abbrev": "CCT"
         },
         {
             "name": "darrin's Dirty Team",
@@ -1053,14 +1055,14 @@
                     "name": "Brandon Miller",
                     "id": 4433287,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4433287.png",
-                    "avg_pts": "20.2",
-                    "avg_reb": "4.7",
+                    "avg_pts": "19.9",
+                    "avg_reb": "4.6",
                     "avg_ast": "3.3",
                     "avg_stl": "1.0",
-                    "avg_blk": "0.9",
+                    "avg_blk": "0.8",
                     "avg_fg_pct": "0.43",
                     "avg_ft_pct": "0.88",
-                    "avg_3pm": "2.9"
+                    "avg_3pm": "2.8"
                 },
                 {
                     "name": "Reed Sheppard",
@@ -1283,7 +1285,8 @@
                     "avg_ft_pct": "0.80",
                     "avg_3pm": "1.4"
                 }
-            ]
+            ],
+            "abbrev": "DDT"
         },
         {
             "name": "Ho's Hoopers",
@@ -1653,7 +1656,8 @@
                     "avg_ft_pct": "0.89",
                     "avg_3pm": "0.4"
                 }
-            ]
+            ],
+            "abbrev": "HH"
         },
         {
             "name": "Aidan's Astounding Team",
@@ -1702,8 +1706,8 @@
                     "name": "Jalen Duren",
                     "id": 4433621,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4433621.png",
-                    "avg_pts": "17.7",
-                    "avg_reb": "10.5",
+                    "avg_pts": "17.4",
+                    "avg_reb": "10.4",
                     "avg_ast": "1.7",
                     "avg_stl": "0.9",
                     "avg_blk": "0.8",
@@ -2010,7 +2014,8 @@
                     "avg_ft_pct": "0.73",
                     "avg_3pm": "0.1"
                 }
-            ]
+            ],
+            "abbrev": "AAT"
         },
         {
             "name": "Ryan's Remarkable Team",
@@ -2059,14 +2064,14 @@
                     "name": "Miles Bridges",
                     "id": 4066383,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4066383.png",
-                    "avg_pts": "18.4",
-                    "avg_reb": "6.1",
+                    "avg_pts": "18.1",
+                    "avg_reb": "6.0",
                     "avg_ast": "3.5",
                     "avg_stl": "0.5",
                     "avg_blk": "0.5",
                     "avg_fg_pct": "0.45",
                     "avg_ft_pct": "0.84",
-                    "avg_3pm": "2.2"
+                    "avg_3pm": "2.1"
                 },
                 {
                     "name": "Payton Pritchard",
@@ -2176,9 +2181,9 @@
                     "name": "Isaiah Stewart",
                     "id": 4432810,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4432810.png",
-                    "avg_pts": "10.1",
-                    "avg_reb": "5.3",
-                    "avg_ast": "1.2",
+                    "avg_pts": "9.9",
+                    "avg_reb": "5.1",
+                    "avg_ast": "1.1",
                     "avg_stl": "0.3",
                     "avg_blk": "1.7",
                     "avg_fg_pct": "0.54",
@@ -2367,7 +2372,8 @@
                     "avg_ft_pct": "0.78",
                     "avg_3pm": "1.1"
                 }
-            ]
+            ],
+            "abbrev": "RRT"
         },
         {
             "name": "Bang Gangers",
@@ -2377,9 +2383,9 @@
                     "name": "LaMelo Ball",
                     "id": 4432816,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4432816.png",
-                    "avg_pts": "19.1",
+                    "avg_pts": "18.8",
                     "avg_reb": "4.8",
-                    "avg_ast": "7.5",
+                    "avg_ast": "7.3",
                     "avg_stl": "1.1",
                     "avg_blk": "0.2",
                     "avg_fg_pct": "0.40",
@@ -2715,10 +2721,10 @@
                     "name": "Tobias Harris",
                     "id": 6440,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/6440.png",
-                    "avg_pts": "13.5",
-                    "avg_reb": "4.7",
+                    "avg_pts": "13.2",
+                    "avg_reb": "4.6",
                     "avg_ast": "2.4",
-                    "avg_stl": "0.9",
+                    "avg_stl": "0.8",
                     "avg_blk": "0.2",
                     "avg_fg_pct": "0.46",
                     "avg_ft_pct": "0.88",
@@ -2737,7 +2743,8 @@
                     "avg_ft_pct": "0.58",
                     "avg_3pm": "0.0"
                 }
-            ]
+            ],
+            "abbrev": "BG"
         },
         {
             "name": "Rick's Charity Roster",
@@ -3094,7 +3101,8 @@
                     "avg_ft_pct": "0.71",
                     "avg_3pm": "0.9"
                 }
-            ]
+            ],
+            "abbrev": "RICK"
         },
         {
             "name": "Tanjirul's Tantalizing Team",
@@ -3438,7 +3446,8 @@
                     "avg_ft_pct": "0.76",
                     "avg_3pm": "0.8"
                 }
-            ]
+            ],
+            "abbrev": "TTT"
         },
         {
             "name": "Nathan's Nifty Team",
@@ -3604,9 +3613,9 @@
                     "name": "Ryan Kalkbrenner",
                     "id": 4576060,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4576060.png",
-                    "avg_pts": "8.4",
-                    "avg_reb": "6.0",
-                    "avg_ast": "0.7",
+                    "avg_pts": "8.2",
+                    "avg_reb": "5.9",
+                    "avg_ast": "0.6",
                     "avg_stl": "0.6",
                     "avg_blk": "1.5",
                     "avg_fg_pct": "0.76",
@@ -3769,7 +3778,8 @@
                     "avg_ft_pct": "0.87",
                     "avg_3pm": "1.1"
                 }
-            ]
+            ],
+            "abbrev": "NNT"
         },
         {
             "name": "Daiki's Big D's",
@@ -3779,9 +3789,9 @@
                     "name": "Cade Cunningham",
                     "id": 4432166,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4432166.png",
-                    "avg_pts": "25.1",
+                    "avg_pts": "24.7",
                     "avg_reb": "5.5",
-                    "avg_ast": "9.7",
+                    "avg_ast": "9.5",
                     "avg_stl": "1.4",
                     "avg_blk": "0.8",
                     "avg_fg_pct": "0.46",
@@ -3844,12 +3854,12 @@
                     "name": "Kon Knueppel",
                     "id": 5061575,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/5061575.png",
-                    "avg_pts": "18.9",
-                    "avg_reb": "5.5",
-                    "avg_ast": "3.6",
+                    "avg_pts": "18.6",
+                    "avg_reb": "5.4",
+                    "avg_ast": "3.5",
                     "avg_stl": "0.7",
                     "avg_blk": "0.2",
-                    "avg_fg_pct": "0.49",
+                    "avg_fg_pct": "0.48",
                     "avg_ft_pct": "0.90",
                     "avg_3pm": "3.3"
                 },
@@ -3883,14 +3893,14 @@
                     "name": "Duncan Robinson",
                     "id": 3157465,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3157465.png",
-                    "avg_pts": "12.1",
-                    "avg_reb": "2.7",
+                    "avg_pts": "12.0",
+                    "avg_reb": "2.6",
                     "avg_ast": "1.8",
-                    "avg_stl": "0.7",
+                    "avg_stl": "0.6",
                     "avg_blk": "0.3",
-                    "avg_fg_pct": "0.43",
+                    "avg_fg_pct": "0.44",
                     "avg_ft_pct": "0.75",
-                    "avg_3pm": "3.0"
+                    "avg_3pm": "2.9"
                 },
                 {
                     "name": "Saddiq Bey",
@@ -4139,7 +4149,8 @@
                     "avg_ft_pct": "0.87",
                     "avg_3pm": "0.8"
                 }
-            ]
+            ],
+            "abbrev": "DDT"
         },
         {
             "name": "Kenneth's Top-Notch Team",
@@ -4409,14 +4420,14 @@
                     "name": "Caris LeVert",
                     "id": 2991043,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/2991043.png",
-                    "avg_pts": "7.8",
-                    "avg_reb": "1.8",
+                    "avg_pts": "7.6",
+                    "avg_reb": "1.7",
                     "avg_ast": "2.9",
                     "avg_stl": "0.9",
                     "avg_blk": "0.6",
                     "avg_fg_pct": "0.43",
                     "avg_ft_pct": "0.69",
-                    "avg_3pm": "1.1"
+                    "avg_3pm": "1.0"
                 },
                 {
                     "name": "Jonathan Isaac",
@@ -4457,7 +4468,8 @@
                     "avg_ft_pct": "0.77",
                     "avg_3pm": "0.6"
                 }
-            ]
+            ],
+            "abbrev": "KTT"
         }
     ],
     "trade_block": []
