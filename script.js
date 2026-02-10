@@ -116,11 +116,11 @@ function loadYearData(year) {
 
                     return `
                         <div class="trade-assets-container p-2">
-                            <div class="row g-0 position-relative mb-3 align-items-center d-none d-md-flex pt-2">
+                            <div class="row g-0 position-relative mb-3 align-items-center d-none d-md-flex">
                                 <div class="col-6 text-center pe-2">
                                     <span class="badge bg-primary text-uppercase team-badge">${tA}</span>
                                 </div>
-                                
+                             
                                 <div class="col-6 text-center ps-2">
                                     <span class="badge bg-info text-dark text-uppercase team-badge">${tB}</span>
                                 </div>

@@ -1,7 +1,7 @@
 :root {
     --glass-bg: rgba(255, 255, 255, 0.03);
     --glass-border: rgba(255, 255, 255, 0.08);
-    --accent-blue: #0d6efd;
+    --accent-blue: #00d1ff;
     --blur-val: blur(12px);
 }
 
