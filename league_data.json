@@ -1,5 +1,5 @@
 {
-    "updated": "02/10/2026 02:26 PM",
+    "updated": "02/10/2026 03:05 PM",
     "seasons": {
         "2025": [],
         "2026": [
@@ -222,12 +222,12 @@
             {
                 "date": "Nov 19, 2025",
                 "teams": [
-                    "Nathan's Nifty Team",
+                    "No Buckets ",
                     "Bang Gangers"
                 ],
                 "assets": [
                     {
-                        "from": "Nathan's Nifty Team",
+                        "from": "No Buckets ",
                         "player": "Dennis Schroder"
                     },
                     {
@@ -242,7 +242,7 @@
     "rosters": [
         {
             "name": "rhua",
-            "logo": "https://mystique-api.fantasy.espn.com/apis/v1/domains/lm/images/15fb07a0-c431-11f0-9d0e-d3c969c03a65",
+            "logo": "https://g.espncdn.com/lm-static/logo-packs/core/StadiumFoods-ESPN/stadium-foods_corn-dog.svg",
             "players": [
                 {
                     "name": "Victor Wembanyama",
@@ -3450,8 +3450,8 @@
             "abbrev": "TTT"
         },
         {
-            "name": "Nathan's Nifty Team",
-            "logo": "https://g.espncdn.com/lm-static/fba/images/default_logos/5.svg",
+            "name": "No Buckets ",
+            "logo": "https://g.espncdn.com/lm-static/logo-packs/core/OldTimeMickeyAndFriends/Basketball_Donald_CLEAN.svg",
             "players": [
                 {
                     "name": "Nikola Jokic",
@@ -3740,19 +3740,6 @@
                     "avg_3pm": "0.9"
                 },
                 {
-                    "name": "Pete Nance",
-                    "id": 4397233,
-                    "img": "https://a.espncdn.com/i/headshots/nba/players/full/4397233.png",
-                    "avg_pts": "5.0",
-                    "avg_reb": "1.9",
-                    "avg_ast": "0.6",
-                    "avg_stl": "0.3",
-                    "avg_blk": "0.1",
-                    "avg_fg_pct": "0.61",
-                    "avg_ft_pct": "0.00",
-                    "avg_3pm": "1.0"
-                },
-                {
                     "name": "Baylor Scheierman",
                     "id": 4593841,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4593841.png",
@@ -3790,9 +3777,22 @@
                     "avg_fg_pct": "0.44",
                     "avg_ft_pct": "0.72",
                     "avg_3pm": "0.7"
+                },
+                {
+                    "name": "Jeremy Sochan",
+                    "id": 4610139,
+                    "img": "https://a.espncdn.com/i/headshots/nba/players/full/4610139.png",
+                    "avg_pts": "4.1",
+                    "avg_reb": "2.6",
+                    "avg_ast": "1.0",
+                    "avg_stl": "0.4",
+                    "avg_blk": "0.2",
+                    "avg_fg_pct": "0.47",
+                    "avg_ft_pct": "0.69",
+                    "avg_3pm": "0.3"
                 }
             ],
-            "abbrev": "NNT"
+            "abbrev": "NB"
         },
         {
             "name": "Daiki's Big D's",
