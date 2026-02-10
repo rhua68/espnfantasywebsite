@@ -11,9 +11,9 @@ jobs:
       TZ: 'America/Los_Angeles' 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4 # Updated to v4 for latest Node support
+        uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Fetches all history so rebase works correctly
+          fetch-depth: 0 
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -27,7 +27,8 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
       - name: Run tracker
-        run: python tracker.py
+        # FIX: Point to the new scripts folder
+        run: python scripts/tracker.py
 
       - name: Commit and Push
         run: |
@@ -36,10 +37,8 @@ jobs:
           
           git add league_data.json
           
-          # Check if there are changes to commit
           if ! git diff --cached --quiet; then
             git commit -m "Auto-update fantasy data"
-            # Pull with rebase to handle any concurrent changes
             git pull --rebase origin main
             git push origin main
           else

@@ -93,6 +93,7 @@ def get_current_rosters():
     rosters = []
     for team in data.get('teams', []):
         team_info = {
+            "id": team.get('id'),
             "name": team.get('name'),
             "logo": team.get('logo'),
             "players": [],
@@ -117,7 +118,9 @@ def get_current_rosters():
                         "avg_blk": f"{avg.get('1', 0):.1f}",
                         "avg_fg_pct": f"{avg.get('19', 0):.2f}",
                         "avg_ft_pct": f"{avg.get('20', 0):.2f}",
-                        "avg_3pm": f"{avg.get('17', 0):.1f}"
+                        "avg_3pm": f"{avg.get('17', 0):.1f}",
+                        "avg_mpg": f"{avg.get('40', 0):.1f}"
+                        
                     }
 
             player_data = {
@@ -173,6 +176,22 @@ def main():
         json.dump(master_data, f, indent=4)
     
     print("\n--- Done! Rosters and Trades updated ---")
+    
+    league = League(league_id=LEAGUE_ID, year=2026, espn_s2=ESPN_S2, swid=SWID)
+    
+    print("\n--- LEAGUE TEAM MAPPING ---")
+    for team in league.teams:
+        print(f"Name: {team.team_name} | ID: {team.team_id}")
+    print("---------------------------\n")
+
+    master_data = {
+        "updated": datetime.now().strftime("%m/%d/%Y %I:%M %p"),
+        "seasons": {},
+        "rosters": get_current_rosters(),
+        "trade_block": get_trade_block()
+    }
+    
+
 
 if __name__ == "__main__":
     main()

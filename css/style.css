@@ -112,3 +112,33 @@ body {
 
     .vertical-divider { display: none; }
 }
+
+.asset-selector-area {
+    max-height: 300px;
+    overflow-y: auto;
+    padding: 10px;
+    background: #111;
+    border-radius: 8px;
+}
+
+.asset-item {
+    padding: 8px 12px;
+    margin-bottom: 5px;
+    background: #222;
+    border: 1px solid #333;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: 0.2s;
+}
+
+.asset-item:hover {
+    background: #333;
+}
+
+.asset-item.active {
+    background: #0d6efd;
+    border-color: #0d6efd;
+    color: white;
+    font-weight: bold;
+}
