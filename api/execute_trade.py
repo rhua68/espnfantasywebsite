@@ -19,7 +19,7 @@ class handler(BaseHTTPRequestHandler):
             
             league_id = os.environ.get('LEAGUE_ID')
             # Updated to the current standard v3 transactions endpoint
-            url = f"https://fantasy.espn.com/apis/v3/games/fba/seasons/2026/segments/0/leagues/{league_id}/transactions/"
+            url = f"https://lm-api-reads.fantasy.espn.com/apis/v3/games/fba/seasons/2026/segments/0/leagues/{league_id}/transactions/"
 
             # 3. Build the ESPN Payload
             espn_payload = {
@@ -40,7 +40,9 @@ class handler(BaseHTTPRequestHandler):
             # 4. Critical: Add Browser Headers to bypass 403 blocks
             headers = {
                 'Content-Type': 'application/json',
-                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+                'Referer': 'https://fantasy.espn.com/basketball/league/trades',
+                'Origin': 'https://fantasy.espn.com'
             }
             
             # Send request to ESPN
