@@ -2,6 +2,7 @@ from http.server import BaseHTTPRequestHandler
 import requests
 import json
 import os
+from datetime import datetime, timedelta
 
 class handler(BaseHTTPRequestHandler):
     def do_POST(self):
@@ -15,51 +16,86 @@ class handler(BaseHTTPRequestHandler):
                 'SWID': os.environ.get('SWID')
             }
             league_id = os.environ.get('LEAGUE_ID')
+            swid = os.environ.get('SWID')
             
-            # 2. THE FIX: Dedicated LM API endpoint for transactions 
-            url = f"https://lm-api-reads.fantasy.espn.com/apis/v3/games/fba/seasons/2026/segments/0/leagues/{league_id}/transactions/"
+            # 2. CRITICAL: Use lm-api-WRITES endpoint (not reads!)
+            url = f"https://lm-api-writes.fantasy.espn.com/apis/v3/games/fba/seasons/2026/segments/0/leagues/{league_id}/transactions/?platformVersion=939dee45e5bc09d6156830875454f77275346525"
 
-            # 3. THE FIX: Scoring Period 16 (Current NBA Week as of Feb 11, 2026)
+            # 3. Calculate expiration (2 days from now)
+            expiration = (datetime.utcnow() + timedelta(days=2)).strftime("%Y-%m-%dT%H:%M:%S.%f")[:-3] + "Z"
+            
+            # 4. CORRECT ESPN payload structure (from browser capture)
             espn_payload = {
-                "type": "PROPOSE",
-                "scoringPeriodId": 16, 
-                "teams": [
-                    {
-                        "teamId": int(data['senderId']),
-                        "players": [{"id": int(pid), "action": "DROP"} for pid in data['senderPlayerIds']]
-                    },
-                    {
-                        "teamId": int(data['receiverId']),
-                        "players": [{"id": int(pid), "action": "ADD"} for pid in data['receiverPlayerIds']]
-                    }
-                ]
+                "isLeagueManager": False,
+                "teamId": int(data['receiverId']),  # Team being proposed TO
+                "type": "TRADE_PROPOSAL",
+                "comment": "",
+                "executionType": "EXECUTE",
+                "expirationDate": expiration,
+                "items": [],
+                "memberId": swid,
+                "scoringPeriodId": 114  # Adjust if needed
             }
+            
+            # 5. Build items array with correct structure
+            # Players from sender team
+            for player_id in data['senderPlayerIds']:
+                espn_payload["items"].append({
+                    "playerId": int(player_id),
+                    "type": "TRADE",
+                    "fromTeamId": int(data['senderId']),
+                    "toTeamId": int(data['receiverId'])
+                })
+            
+            # Players from receiver team
+            for player_id in data['receiverPlayerIds']:
+                espn_payload["items"].append({
+                    "playerId": int(player_id),
+                    "type": "TRADE",
+                    "fromTeamId": int(data['receiverId']),
+                    "toTeamId": int(data['senderId'])
+                })
 
             headers = {
                 'Content-Type': 'application/json',
-                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
-                'Referer': 'https://fantasy.espn.com/basketball/league/trades'
+                'Accept': 'application/json',
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+                'Origin': 'https://fantasy.espn.com',
+                'Referer': f'https://fantasy.espn.com/basketball/league/trade?leagueId={league_id}'
             }
             
+            # Make the request to ESPN
             response = requests.post(url, json=espn_payload, cookies=cookies, headers=headers)
 
-            # ADD THESE FOR DEBUGGING:
+            # Debugging logs (visible in Vercel logs)
             print(f"DEBUG: Status {response.status_code}")
-            print(f"DEBUG: Headers: {response.headers}")
-            print(f"DEBUG: Raw Body: {response.text[:500]}") # This will show the real error message
+            print(f"DEBUG: Payload sent: {json.dumps(espn_payload, indent=2)}")
+            print(f"DEBUG: Response: {response.text[:500]}")
 
+            # Send response back to frontend
             self.send_response(200)
             self.send_header('Content-type', 'application/json')
+            self.send_header('Access-Control-Allow-Origin', '*')  # Allow CORS
             self.end_headers()
 
-            # Pass the REAL response from ESPN back to your browser console for debugging
             self.wfile.write(json.dumps({
                 "status": "success" if response.status_code == 200 else "failed",
                 "code": response.status_code,
-                "espn_msg": response.text[:250]
+                "espn_msg": response.text[:250] if response.status_code != 200 else "Trade proposed successfully!"
             }).encode())
 
         except Exception as e:
+            print(f"ERROR: {str(e)}")
             self.send_response(500)
+            self.send_header('Content-type', 'application/json')
+            self.send_header('Access-Control-Allow-Origin', '*')
             self.end_headers()
             self.wfile.write(json.dumps({"error": str(e)}).encode())
+    
+    def do_OPTIONS(self):
+        """Handle CORS preflight requests"""
+        self.send_response(200)
+        self.send_header('Access-Control-Allow-Origin', '*')
+        self.send_header('Access-Control-Allow-Methods', 'POST, OPTIONS')
+        self.send_header('Access-Control-Allow-Headers', 'Content-Type')
+        self.end_headers()
