@@ -43,6 +43,11 @@ class handler(BaseHTTPRequestHandler):
             
             response = requests.post(url, json=espn_payload, cookies=cookies, headers=headers)
 
+            # ADD THESE FOR DEBUGGING:
+            print(f"DEBUG: Status {response.status_code}")
+            print(f"DEBUG: Headers: {response.headers}")
+            print(f"DEBUG: Raw Body: {response.text[:500]}") # This will show the real error message
+
             self.send_response(200)
             self.send_header('Content-type', 'application/json')
             self.end_headers()
