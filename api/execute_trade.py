@@ -6,25 +6,23 @@ import os
 class handler(BaseHTTPRequestHandler):
     def do_POST(self):
         try:
-            # 1. Parse incoming data from your website
             content_length = int(self.headers['Content-Length'])
-            post_data = self.rfile.read(content_length)
-            data = json.loads(post_data)
+            data = json.loads(self.rfile.read(content_length))
 
-            # 2. Setup ESPN Auth from Vercel Env Variables
             cookies = {
                 'espn_s2': os.environ.get('ESPN_S2'),
                 'SWID': os.environ.get('SWID')
             }
             
             league_id = os.environ.get('LEAGUE_ID')
-            # Updated to the current standard v3 transactions endpoint
+            
+            # 1. UPDATED ENDPOINT: Using the stable LM-Reads subdomain
             url = f"https://lm-api-reads.fantasy.espn.com/apis/v3/games/fba/seasons/2026/segments/0/leagues/{league_id}/transactions/"
 
-            # 3. Build the ESPN Payload
+            # 2. UPDATED PAYLOAD: Scoring Period 16 is mid-February
             espn_payload = {
                 "type": "PROPOSE",
-                "scoringPeriodId": 1, 
+                "scoringPeriodId": 16, 
                 "teams": [
                     {
                         "teamId": data['senderId'],
@@ -37,42 +35,31 @@ class handler(BaseHTTPRequestHandler):
                 ]
             }
 
-            # 4. Critical: Add Browser Headers to bypass 403 blocks
+            # 3. BROWSER HEADERS: To stop ESPN from thinking you are a bot
             headers = {
                 'Content-Type': 'application/json',
                 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-                'Referer': 'https://fantasy.espn.com/basketball/league/trades',
-                'Origin': 'https://fantasy.espn.com'
+                'Referer': 'https://fantasy.espn.com/'
             }
             
-            # Send request to ESPN
             response = requests.post(url, json=espn_payload, cookies=cookies, headers=headers)
 
-            # 5. Handle Response without crashing
+            # Send a 200 back to the browser so it can read our custom error message
             self.send_response(200)
             self.send_header('Content-type', 'application/json')
             self.end_headers()
 
-            # Only attempt to parse JSON if ESPN actually returned it
-            if response.status_code == 200 and 'application/json' in response.headers.get('Content-Type', ''):
-                self.wfile.write(json.dumps({
-                    "status": "success", 
-                    "espn_response": response.json()
-                }).encode())
+            if response.status_code == 200:
+                self.wfile.write(json.dumps({"status": "success", "espn_response": response.json()}).encode())
             else:
-                # This catches the 403 and returns a readable error instead of crashing
-                error_msg = f"ESPN Error {response.status_code}"
-                if response.status_code == 403:
-                    error_msg += ": Forbidden. Check cookies (S2/SWID) or if players are locked."
-                
+                # This returns the REAL error code from ESPN to your website alert
                 self.wfile.write(json.dumps({
                     "status": "failed", 
-                    "error": error_msg,
-                    "debug_info": response.text[:100] # Send first bit of error for debugging
+                    "error": f"ESPN Error {response.status_code}",
+                    "details": response.text[:150] # Shows the first bit of the real error
                 }).encode())
 
         except Exception as e:
-            # Fallback for code-level errors
             self.send_response(500)
             self.send_header('Content-type', 'application/json')
             self.end_headers()
