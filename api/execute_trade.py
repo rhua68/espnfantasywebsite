@@ -25,12 +25,12 @@ class handler(BaseHTTPRequestHandler):
                 "scoringPeriodId": 16, 
                 "teams": [
                     {
-                        "teamId": data['senderId'],
-                        "players": [{"id": pid, "action": "SEND"} for pid in data['senderPlayerIds']]
+                        "teamId": int(data['senderId']),
+                        "players": [{"id": int(pid), "action": "DROP"} for pid in data['senderPlayerIds']]
                     },
                     {
-                        "teamId": data['receiverId'],
-                        "players": [{"id": pid, "action": "RECEIVE"} for pid in data['receiverPlayerIds']]
+                        "teamId": int(data['receiverId']),
+                        "players": [{"id": int(pid), "action": "ADD"} for pid in data['receiverPlayerIds']]
                     }
                 ]
             }
