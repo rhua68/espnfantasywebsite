@@ -21,6 +21,7 @@
                 <ul class="navbar-nav mx-auto align-items-center">
                     <li class="nav-item"><a class="nav-link active" href="../views/index.html">Trades</a></li>
                     <li class="nav-item"><a class="nav-link" href="../views/rosters.html">Rosters</a></li>
+                    <li class="nav-item"><a id="admin-link" href="../views/admin.html" class="nav-link text-warning fw-bold d-none">🛠️ Admin</a></li>
                 </ul>
                 <div class="d-flex">
                     <button id="login-nav-btn" class="btn btn-outline-primary btn-sm fw-bold px-3">Login</button>
@@ -38,15 +39,27 @@
         </div>
 
         <div class="row mb-4">
-    <div class="col-12">
-        <div id="incoming-trades-section" class="card bg-primary-subtle border-primary d-none shadow-sm">
-            <div class="card-body">
-                <h5 class="card-title fw-bold text-primary">📩 Pending Trade Offers</h5>
-                <div id="incoming-trades-list" class="row g-3 mt-2"></div>
+            <div class="col-12">
+                <div id="incoming-trades-section" class="card bg-primary-subtle border-primary d-none shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold text-primary">📩 Pending Trade Offers</h5>
+                        <div id="incoming-trades-list" class="row g-3 mt-2"></div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
+
+        <div class="row mb-4">
+            <div class="col-12">
+                <div id="league-polls-section" class="card bg-black border border-sakura d-none shadow-lg">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold text-white">⚖️ Active League Polls</h5>
+                        <p class="small text-secondary">Trades require 6 approvals to be officially processed on ESPN.</p>
+                        <div id="polls-list" class="row g-3 mt-2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div class="modal fade" id="tradeModal" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -68,7 +81,10 @@
                         </div>
                     </div>
                     <div class="modal-footer border-secondary bg-dark bg-opacity-25">
-                        <button class="btn btn-primary w-100 fw-bold py-2" id="submitTrade">Send Trade Request</button>
+                        <button class="btn btn-primary w-100 fw-bold py-2" id="submitTrade">
+                            <span id="submitSpinner" class="spinner-border spinner-border-sm d-none me-2"></span>
+                            <span id="submitText">Send Trade Request</span>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -139,8 +155,6 @@
     <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
 
     <script type="module" src="../scripts/auth.js"></script>
-    
     <script type="module" src="../scripts/script.js"></script>
-
 </body>
 </html>

@@ -90,14 +90,20 @@ def get_current_rosters():
     response = requests.get(url, params=params, cookies=cookies, headers=headers)
     data = response.json()
     
+    members = {m['id']: f"{m['firstName']} {m['lastName']}" for m in data.get('members', [])}
+    
     rosters = []
     for team in data.get('teams', []):
+        
+        owner_ids = team.get('owners',[])
+        primary_owner = members.get(owner_ids[0], "Unknown Owner") if owner_ids else "No Owner"
         team_info = {
             "id": team.get('id'),
             "name": team.get('name'),
             "logo": team.get('logo'),
             "players": [],
-            "abbrev": team.get('abbrev')
+            "abbrev": team.get('abbrev'),
+            "owner": primary_owner
         }
         
         for entry in team.get('roster', {}).get('entries', []):

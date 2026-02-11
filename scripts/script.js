@@ -8,7 +8,8 @@ import {
     serverTimestamp, 
     doc, 
     updateDoc, 
-    deleteDoc 
+    deleteDoc,
+    orderBy 
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 /* ============================================================
@@ -18,22 +19,19 @@ window.allData = window.allData || {};
 let selectedAssets = { mine: [], theirs: [] };
 
 $(document).ready(function() {
-    // Cache-busting prevents old data from appearing after updates
+    // Cache-busting ensures fresh data on every load
     fetch(`../league_data.json?v=${new Date().getTime()}`)
         .then(response => {
             if (!response.ok) throw new Error("Could not load league_data.json");
             return response.json();
         })
         .then(data => {
-            // Save to window so the Trade Modal can access it from any page
             window.allData = data;
             
-            // Update Footer
-            if (data.updated) {
-                $('#last-updated').text(data.updated);
-            }
+            // Update Footer Timestamp
+            if (data.updated) $('#last-updated').text(data.updated);
 
-            // Render components (Checks if elements exist on current page)
+            // Render Page Components
             if ($('#trade-block-list').length) renderTradeBlock(data.trade_block);
             if ($('#year-dropdown-menu').length) setupYearDropdown(data.seasons);
         })
@@ -41,17 +39,10 @@ $(document).ready(function() {
             console.error("Error loading JSON:", err);
             $('#last-updated').text("Sync Error");
         });
-
-    // Link Login Modal Button
-    $('#doLogin').on('click', function() {
-        const email = $('#loginEmail').val();
-        const password = $('#loginPassword').val();
-        if (window.handleLogin) window.handleLogin(email, password);
-    });
 });
 
 /* ============================================================
-   2. TRADE MODAL LOGIC (New Additions)
+   2. TRADE MODAL & VERCEL/ESPN SYNC
    ============================================================ */
 
 // Open Modal
@@ -73,15 +64,9 @@ $(document).on('click', '.open-trade-modal', async function() {
     populateTradeAssets(receiverId, '#their-assets-list', 'theirs');
 });
 
-// Fetch Assets for Modal
+// Fetch Assets for Modal with Sorting
 async function populateTradeAssets(teamId, containerId, side) {
     const container = $(containerId).empty().append('<div class="text-center py-3"><div class="spinner-border text-primary spinner-border-sm"></div></div>');
-    
-    if (!window.allData || !window.allData.rosters) {
-        container.html('<div class="text-danger small">Data not loaded.</div>');
-        return;
-    }
-
     const teamData = window.allData.rosters.find(r => r.id == teamId);
     let html = `<div class="fw-bold text-primary small mb-2 uppercase">Players</div>`;
     
@@ -92,7 +77,12 @@ async function populateTradeAssets(teamId, containerId, side) {
     }
 
     try {
-        const q = query(collection(window.db, "draft_picks"), where("currentOwnerId", "==", parseInt(teamId)));
+        const q = query(
+            collection(window.db, "draft_picks"), 
+            where("currentOwnerId", "==", parseInt(teamId)),
+            orderBy("year", "asc"),
+            orderBy("round", "asc")
+        );
         const snapshot = await getDocs(q);
         html += `<div class="fw-bold text-primary small mt-3 mb-2 uppercase">Draft Picks</div>`;
         
@@ -106,7 +96,7 @@ async function populateTradeAssets(teamId, containerId, side) {
     container.html(html);
 }
 
-// Asset Selection Toggle
+// Toggle Asset Selection
 $(document).on('click', '.asset-item', function() {
     const name = $(this).data('name');
     const side = $(this).data('side');
@@ -119,11 +109,55 @@ $(document).on('click', '.asset-item', function() {
     }
 });
 
-// Submit Trade
+// Helper: Map Player Name to ESPN ID
+const getPlayerId = (name) => {
+    if (!window.allData.rosters) return null;
+    const team = window.allData.rosters.find(r => r.players.some(p => p.name === name));
+    return team ? team.players.find(p => p.name === name).id : null;
+};
+
+// Vercel Backend Communication
+async function sendTradeToESPN(tradeData) {
+    try {
+        const response = await fetch('/api/execute_trade', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(tradeData)
+        });
+        return response.ok;
+    } catch (error) {
+        console.error("Vercel Sync Error:", error);
+        return false;
+    }
+}
+
+window.sendTradeToESPN = async function(tradeData) {
+    try {
+        const response = await fetch('/api/execute_trade', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                senderId: tradeData.senderId,
+                receiverId: tradeData.receiverId,
+                senderPlayerIds: tradeData.senderPlayerIds,
+                receiverPlayerIds: tradeData.receiverPlayerIds
+            })
+        });
+        return response.ok;
+    } catch (error) {
+        console.error("Vercel Sync Error:", error);
+        return false;
+    }
+};
+// Submit Trade to Firestore & ESPN
 $('#submitTrade').on('click', async function() {
-    const receiverId = $(this).data('receiver-id');
+    const btn = $(this);
+    const receiverId = btn.data('receiver-id');
+    const spinner = $('#submitSpinner');
+    const btnText = $('#submitText');
+
     if (selectedAssets.mine.length === 0 && selectedAssets.theirs.length === 0) {
-        alert("Please select at least one asset."); return;
+        alert("Please select assets."); return;
     }
 
     const tradeData = {
@@ -131,31 +165,38 @@ $('#submitTrade').on('click', async function() {
         receiverId: parseInt(receiverId),
         senderAssets: selectedAssets.mine,
         receiverAssets: selectedAssets.theirs,
-        status: "pending",
+        senderPlayerIds: selectedAssets.mine.map(n => getPlayerId(n)).filter(id => id),
+        receiverPlayerIds: selectedAssets.theirs.map(n => getPlayerId(n)).filter(id => id),
+        status: "voting",
         timestamp: serverTimestamp()
     };
 
+    // UI Feedback: Syncing State
+    btn.prop('disabled', true);
+    if(spinner.length) spinner.removeClass('d-none');
+    if(btnText.length) btnText.text('Syncing with ESPN...'); else btn.text('Syncing...');
+
     try {
+        // 1. Log in your local Firestore
         await addDoc(collection(window.db, "pending_trades"), tradeData);
-        alert("Trade Request Sent!");
+        
+        // 2. Propose on official ESPN site
+        const espnSync = await sendTradeToESPN(tradeData);
+        
+        alert(espnSync ? "✅ Trade Proposed on Site & ESPN!" : "⚠️ Trade saved on site, but ESPN Sync failed.");
         $('#tradeModal').modal('hide');
-    } catch (e) { console.error("Error:", e); }
-});
-
-// Accept/Decline UI
-$(document).on('click', '.decline-btn', async function() {
-    const tradeId = $(this).data('id');
-    if(confirm("Decline this trade?")) await deleteDoc(doc(window.db, "pending_trades", tradeId));
-});
-
-$(document).on('click', '.accept-btn', async function() {
-    const tradeId = $(this).data('id');
-    await updateDoc(doc(window.db, "pending_trades", tradeId), { status: "accepted" });
-    alert("Trade accepted!");
+    } catch (e) {
+        console.error(e);
+        alert("❌ Error processing trade.");
+    } finally { 
+        btn.prop('disabled', false); 
+        if(spinner.length) spinner.addClass('d-none');
+        if(btnText.length) btnText.text('Send Trade Request'); else btn.text('Submit Trade');
+    }
 });
 
 /* ============================================================
-   3. RECENT TRADES & TRADE BLOCK FUNCTIONS (Preserved)
+   3. UI COMPONENTS (Trade Block & Year Dropdown)
    ============================================================ */
 
 function renderTradeBlock(players) {
@@ -183,21 +224,24 @@ function renderTradeBlock(players) {
 function setupYearDropdown(seasons) {
     const years = Object.keys(seasons).sort().reverse();
     const menu = $('#year-dropdown-menu').empty();
+    
     years.forEach((year, i) => {
         const label = `${parseInt(year) - 1}-${year.slice(-2)}`;
         menu.append(`<li><a class="dropdown-item ${i === 0 ? 'active' : ''}" href="#" data-year="${year}">${label} Season</a></li>`);
-        if (i === 0) {
-            $('#yearDropdown').text(`📅 ${label}`);
-            loadYearData(year);
+        
+        if (i === 0) { 
+            $('#yearDropdown').text(`📅 ${label} Season`);
+            loadYearData(year); 
         }
     });
+
     menu.on('click', '.dropdown-item', function(e) {
         e.preventDefault();
-        const selectedYear = $(this).attr('data-year');
+        const yr = $(this).attr('data-year');
         $('.dropdown-item').removeClass('active');
         $(this).addClass('active');
-        $('#yearDropdown').text(`📅 ${$(this).text().replace(' Season','')}`);
-        loadYearData(selectedYear);
+        $('#yearDropdown').text(`📅 ${$(this).text()}`);
+        loadYearData(yr);
     });
 }
 
@@ -207,74 +251,27 @@ function loadYearData(year) {
     
     $('#trades-table').DataTable({
         data: trades,
-        columnDefs: [{ "defaultContent": "-", "targets": "_all" }],
         columns: [
-            { 
-                data: 'date', 
-                width: '15%', 
-                render: (data, type, row) => type === 'sort' ? (row.sort_date || data) : data 
-            },
+            { data: 'date', width: '15%' },
             { 
                 data: null,
-                render: function(row) {
-                    if (!row.teams || row.teams.length < 2) {
-                        return `<div class="p-2 text-center text-secondary italic small">System Transaction</div>`;
-                    }
-
-                    const tA = row.teams[0];
-                    const tB = row.teams[1];
-
-                    const getAbbr = (fullName) => {
-                        const team = window.allData.rosters.find(r => r.name === fullName);
-                        return team ? team.abbrev : fullName.substring(0, 3).toUpperCase();
-                    };
-
-                    const abbrA = getAbbr(tA);
-                    const abbrB = getAbbr(tB);
-                    const assetsA = (row.assets || []).filter(a => a.from === tA).map(a => a.player).join("<br>");
-                    const assetsB = (row.assets || []).filter(a => a.from === tB).map(a => a.player).join("<br>");
-
-                    return `
-                        <div class="trade-assets-container p-2">
-                            <div class="row g-0 position-relative mb-3 align-items-center d-none d-md-flex">
-                                <div class="col-6 text-center pe-2">
-                                    <span class="badge bg-primary text-uppercase team-badge">${tA}</span>
-                                </div>
-                                <div class="col-6 text-center ps-2">
-                                    <span class="badge bg-info text-dark text-uppercase team-badge">${tB}</span>
-                                </div>
+                render: row => `
+                    <div class="trade-assets-container p-2">
+                        <div class="row text-center position-relative g-0">
+                            <div class="col-12 col-md-6 pb-3 pb-md-0 border-bottom-mobile">
+                                <div class="text-primary x-small fw-bold mb-1">${row.teams[0]} SENT:</div>
+                                <div class="small fw-bold text-white">${row.assets.filter(a => a.from === row.teams[0]).map(a => a.player).join("<br>")}</div>
                             </div>
-
-                            <div class="row text-center position-relative g-0">
-                                <div class="vertical-divider d-none d-md-block"></div>
-                                
-                                <div class="col-12 col-md-6 border-bottom-mobile pb-3 pb-md-0">
-                                    <div class="d-md-none mb-2">
-                                        <span class="badge bg-primary text-uppercase team-badge w-100">${tA}</span>
-                                    </div>
-                                    <div class="text-primary x-small fw-bold mb-1">SENT TO ${abbrB}:</div>
-                                    <div class="small fw-bold text-white">${assetsA || 'None'}</div>
-                                </div>
-
-                                <div class="col-12 col-md-6 pt-3 pt-md-0">
-                                    <div class="d-md-none mb-2">
-                                        <span class="badge bg-info text-dark text-uppercase team-badge w-100">${tB}</span>
-                                    </div>
-                                    <div class="text-info x-small fw-bold mb-1">SENT TO ${abbrA}:</div>
-                                    <div class="small fw-bold text-white">${assetsB || 'None'}</div>
-                                </div>
+                            <div class="col-12 col-md-6 pt-3 pt-md-0">
+                                <div class="text-info x-small fw-bold mb-1">${row.teams[1]} SENT:</div>
+                                <div class="small fw-bold text-white">${row.assets.filter(a => a.from === row.teams[1]).map(a => a.player).join("<br>")}</div>
                             </div>
                         </div>
-                    `;
-                }
+                    </div>`
             }
         ],
         order: [[0, 'desc']],
         responsive: true,
-        dom: '<"top"f>rtp',
-        language: {
-            search: "",
-            searchPlaceholder: "Search players or teams..."
-        }
+        dom: 'rtp'
     });
 }

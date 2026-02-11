@@ -142,3 +142,53 @@ body {
     color: white;
     font-weight: bold;
 }
+
+/* --- LEAGUE POLL GLOW ANIMATIONS --- */
+
+/* High-Intensity Sakura Pulse (Pink) */
+@keyframes sakura-pulse {
+    0% { 
+        border: 2px solid rgba(255, 183, 197, 0.4) !important; 
+        box-shadow: 0 0 12px rgba(255, 183, 197, 0.2), inset 0 0 5px rgba(255, 183, 197, 0.1); 
+    }
+    50% { 
+        border: 2px solid rgba(255, 183, 197, 1) !important; 
+        /* Sharp Neon Core + Large Aura + Internal Bleed */
+        box-shadow: 0 0 25px rgba(255, 183, 197, 0.8), 0 0 45px rgba(255, 183, 197, 0.4), inset 0 0 10px rgba(255, 183, 197, 0.3);
+    }
+    100% { 
+        border: 2px solid rgba(255, 183, 197, 0.4) !important; 
+        box-shadow: 0 0 12px rgba(255, 183, 197, 0.2), inset 0 0 5px rgba(255, 183, 197, 0.1); 
+    }
+}
+
+/* High-Intensity Veto Pulse (Red) */
+@keyframes veto-pulse {
+    0% { 
+        border: 2px solid rgba(220, 53, 69, 0.4) !important; 
+        box-shadow: 0 0 12px rgba(220, 53, 69, 0.2), inset 0 0 5px rgba(220, 53, 69, 0.1); 
+    }
+    50% { 
+        border: 2px solid rgba(220, 53, 69, 1) !important; 
+        box-shadow: 0 0 25px rgba(220, 53, 69, 0.8), 0 0 45px rgba(220, 53, 69, 0.4), inset 0 0 10px rgba(220, 53, 69, 0.3);
+    }
+    100% { 
+        border: 2px solid rgba(220, 53, 69, 0.4) !important; 
+        box-shadow: 0 0 12px rgba(220, 53, 69, 0.2), inset 0 0 5px rgba(220, 53, 69, 0.1); 
+    }
+}
+
+/* Specificity Boost: Forces .card to pulse when these classes are present */
+.card.border-sakura {
+    animation: sakura-pulse 2s infinite ease-in-out !important;
+    background-color: rgba(10, 10, 10, 0.95) !important;
+    overflow: visible !important;
+    z-index: 5;
+}
+
+.card.border-veto {
+    animation: veto-pulse 1.5s infinite ease-in-out !important;
+    background-color: rgba(20, 5, 5, 0.95) !important;
+    overflow: visible !important;
+    z-index: 5;
+}

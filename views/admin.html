@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | DynastyHQ</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        /* Security: Hide body by default to prevent UI flashing for non-admins */
+        body { display: none; }
+        
+        .border-sakura {
+            border: 2px solid #ffb7c5 !important;
+            box-shadow: 0 0 15px rgba(255, 183, 197, 0.2);
+        }
+        
+        .admin-card {
+            background: rgba(20, 20, 20, 0.6) !important;
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            border-radius: 16px !important;
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black py-3 sticky-top border-bottom border-secondary">
+        <div class="container">
+            <a class="navbar-brand fw-bolder text-primary" href="index.html">🏀 DYNASTYHQ</a>
+            <div class="d-flex gap-3">
+                <a href="rosters.html" class="btn btn-outline-light btn-sm">Back to Rosters</a>
+                <button id="login-nav-btn" class="btn btn-primary btn-sm fw-bold">Login</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <h2 class="fw-bold mb-4">🛠️ League Management</h2>
+
+                <div class="card admin-card mb-4 shadow-lg border-sakura">
+                    <div class="card-header bg-black py-3 border-bottom border-secondary">
+                        <h5 class="mb-0 text-primary fw-bold">Draft Generation</h5>
+                    </div>
+                    <div class="card-body p-4">
+                        <p class="text-secondary small">
+                            Assign 3 rounds of rookie picks to all teams for a specific season. 
+                            This script checks for existing picks to prevent duplicates.
+                        </p>
+                        
+                        <div class="d-flex flex-wrap gap-3 align-items-center">
+                            <div class="flex-grow-1">
+                                <label class="small fw-bold text-secondary mb-1">Select Draft Year</label>
+                                <select id="seedYearSelect" class="form-select bg-dark text-white border-secondary">
+                                    <option value="2026">2026</option>
+                                    <option value="2027">2027</option>
+                                    <option value="2028" selected>2028</option>
+                                    <option value="2029">2029</option>
+                                    <option value="2030">2030</option>
+                                </select>
+                            </div>
+                            <div class="align-self-end">
+                                <button id="runSeederBtn" class="btn btn-primary fw-bold px-4 py-2">
+                                    <span id="seederSpinner" class="spinner-border spinner-border-sm d-none me-2"></span>
+                                    Populate Picks
+                                </button>
+                            </div>
+                        </div>
+
+                        <div id="seederStatus" class="mt-4 p-3 rounded bg-black border border-secondary d-none">
+                            <div class="d-flex align-items-center gap-2">
+                                <div id="statusMessage" class="small fw-bold"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card border-danger bg-danger-subtle bg-opacity-10 mt-5">
+                    <div class="card-body p-4">
+                        <h6 class="text-danger fw-bold">Danger Zone</h6>
+                        <p class="small text-secondary">Be careful: These actions are permanent and affect the entire league database.</p>
+                        <button class="btn btn-outline-danger btn-sm" onclick="alert('Module locked. Contact developer.')">Reset All Pending Trades</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="footer-status" class="fixed-bottom p-3 bg-black border-top border-secondary text-center small">
+        <span class="text-secondary">Admin Mode Active</span> | 
+        <span id="last-updated" class="text-info">Ready</span>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script type="module" src="../scripts/auth.js"></script>
+    <script type="module" src="../scripts/script.js"></script>
+
+    <script type="module">
+        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+        import { collection, addDoc, query, where, getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+        const auth = getAuth();
+        // --- 1. SET YOUR UID HERE ---
+        const ADMIN_UID = "KTbGiCum1sdWftINswO89nVax0a2"; 
+
+        // --- 2. THE GATEKEEPER ---
+        onAuthStateChanged(auth, (user) => {
+            if (!user || user.uid !== ADMIN_UID) {
+                console.warn("Unauthorized access. Redirecting...");
+                window.location.href = "index.html"; 
+            } else {
+                console.log("Welcome, Admin.");
+                // Smoothly show the page only for the Admin
+                $('body').fadeIn(); 
+            }
+        });
+
+        // --- 3. SEEDER LOGIC ---
+        $(document).on('click', '#runSeederBtn', async function() {
+            const year = parseInt($('#seedYearSelect').val());
+            const btn = $(this);
+            const spinner = $('#seederSpinner');
+            const statusBox = $('#seederStatus');
+            const statusMsg = $('#statusMessage');
+
+            // Double-check UID before starting
+            if (auth.currentUser.uid !== ADMIN_UID) {
+                alert("Unauthorized.");
+                return;
+            }
+
+            if (!confirm(`Generate 3 rounds for ${year}? Existing picks for this year will be skipped.`)) return;
+
+            // UI Feedback
+            btn.prop('disabled', true);
+            spinner.removeClass('d-none');
+            statusBox.removeClass('d-none').removeClass('border-success border-danger');
+            statusMsg.removeClass('text-success text-danger').text(`Working on ${year} Draft...`);
+
+            try {
+                // Wait for script.js to populate window.allData
+                if (!window.allData || !window.allData.rosters) {
+                    throw new Error("League data not loaded yet. Refresh and try again.");
+                }
+
+                const teams = window.allData.rosters;
+                const rounds = [1, 2, 3];
+                let added = 0;
+                let skipped = 0;
+
+                for (const team of teams) {
+                    for (const round of rounds) {
+                        // Check for existing pick to prevent duplicates
+                        const q = query(
+                            collection(window.db, "draft_picks"),
+                            where("year", "==", year),
+                            where("round", "==", round),
+                            where("originalOwner", "==", team.name)
+                        );
+                        
+                        const snap = await getDocs(q);
+                        
+                        if (snap.empty) {
+                            await addDoc(collection(window.db, "draft_picks"), {
+                                year: year,
+                                round: round,
+                                originalOwner: team.name,
+                                currentOwnerId: team.id,
+                                type: "Rookie"
+                            });
+                            added++;
+                        } else {
+                            skipped++;
+                        }
+                    }
+                }
+                statusBox.addClass('border-success');
+                statusMsg.addClass('text-success').text(`Success! Added ${added} new picks. ${skipped} already existed.`);
+            } catch (err) {
+                statusBox.addClass('border-danger');
+                statusMsg.addClass('text-danger').text(`Error: ${err.message}`);
+            } finally {
+                btn.prop('disabled', false);
+                spinner.addClass('d-none');
+            }
+        });
+    </script>
+</body>
+</html>

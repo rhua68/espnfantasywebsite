@@ -31,23 +31,25 @@ $(document).ready(function() {
                             Trade
                        </button>`;
 
-                // 3. Generate the Player List HTML with your specific new stats
+                // 3. Generate the Player List HTML with mobile-friendly scroll wrapper
                 let playerListHtml = team.players.map(p => `
                     <div class="player-strip d-flex align-items-center justify-content-between border-bottom border-secondary-subtle">
-                        <div class="d-flex align-items-center" style="flex: 1; min-width: 0;"> 
+                        <div class="player-info-fixed d-flex align-items-center"> 
                             <img src="${p.img}" class="player-img me-2 flex-shrink-0" style="width: 38px; height: 38px; border-radius: 50%; object-fit: cover; background: #222;" onerror="this.src='../icons/noPic.png'">
                             <div class="text-white small fw-bold text-truncate pe-2" title="${p.name}">${p.name}</div>
                         </div>
-                        <div class="stats-grid d-flex flex-wrap gap-1 justify-content-end" style="width: 65%;">
-                            <div class="stat-box"><span class="stat-label">MPG</span><span class="stat-val">${p.avg_mpg || '-'}</span></div>
-                            <div class="stat-box"><span class="stat-label">PTS</span><span class="stat-val">${p.avg_pts || '-'}</span></div>
-                            <div class="stat-box"><span class="stat-label">REB</span><span class="stat-val">${p.avg_reb || '-'}</span></div>
-                            <div class="stat-box"><span class="stat-label">AST</span><span class="stat-val">${p.avg_ast || '-'}</span></div>
-                            <div class="stat-box"><span class="stat-label">STL</span><span class="stat-val">${p.avg_stl || '-'}</span></div>
-                            <div class="stat-box"><span class="stat-label">BLK</span><span class="stat-val">${p.avg_blk || '-'}</span></div>
-                            <div class="stat-box"><span class="stat-label">3PM</span><span class="stat-val">${p.avg_3pm || '-'}</span></div>
-                            <div class="stat-box"><span class="stat-label">FG%</span><span class="stat-val">${p.avg_fg_pct || '-'}</span></div>
-                            <div class="stat-box"><span class="stat-label">FT%</span><span class="stat-val">${p.avg_ft_pct || '-'}</span></div>
+                        <div class="stats-scroll-wrapper">
+                            <div class="stats-grid-compact d-flex gap-1">
+                                <div class="stat-box"><span class="stat-label">MPG</span><span class="stat-val">${p.avg_mpg || '-'}</span></div>
+                                <div class="stat-box"><span class="stat-label">PTS</span><span class="stat-val">${p.avg_pts || '-'}</span></div>
+                                <div class="stat-box"><span class="stat-label">REB</span><span class="stat-val">${p.avg_reb || '-'}</span></div>
+                                <div class="stat-box"><span class="stat-label">AST</span><span class="stat-val">${p.avg_ast || '-'}</span></div>
+                                <div class="stat-box"><span class="stat-label">STL</span><span class="stat-val">${p.avg_stl || '-'}</span></div>
+                                <div class="stat-box"><span class="stat-label">BLK</span><span class="stat-val">${p.avg_blk || '-'}</span></div>
+                                <div class="stat-box"><span class="stat-label">3PM</span><span class="stat-val">${p.avg_3pm || '-'}</span></div>
+                                <div class="stat-box"><span class="stat-label">FG%</span><span class="stat-val">${p.avg_fg_pct || '-'}</span></div>
+                                <div class="stat-box"><span class="stat-label">FT%</span><span class="stat-val">${p.avg_ft_pct || '-'}</span></div>
+                            </div>
                         </div>
                     </div>
                 `).join('');
@@ -58,7 +60,10 @@ $(document).ready(function() {
                             <div class="card-header d-flex align-items-center justify-content-between py-3 bg-black">
                                 <div class="d-flex align-items-center">
                                     <img src="${team.logo}" style="width:40px; height:40px; border-radius: 50%;" class="me-3">
-                                    <h6 class="mb-0 text-primary fw-bold">${team.name}</h6>
+                                    <div>
+                                        <h6 class="mb-0 text-primary fw-bold">${team.name}</h6>
+                                        <small class="text-secondary x-small">${team.owner || ''}</small>
+                                    </div>
                                 </div>
                                 <div class="d-flex gap-2 align-items-center">
                                     <button class="btn btn-outline-info btn-sm fw-bold view-toggle" data-mode="players">View Picks</button>
@@ -79,10 +84,9 @@ $(document).ready(function() {
             });
         });
 
-    // --- SEARCH LOGIC (Preserved) ---
+    // --- SEARCH LOGIC ---
     $('#rosterSearch').on('keyup', function() {
         const searchTerm = $(this).val().toLowerCase();
-
         $('.team-card').each(function() {
             const card = $(this);
             const teamName = card.data('team-name');
@@ -98,23 +102,13 @@ $(document).ready(function() {
                 }
             });
 
-            card.find('.pick-item').each(function() {
-                const pickText = $(this).text().toLowerCase();
-                if (pickText.includes(searchTerm) || teamName.includes(searchTerm)) {
-                    $(this).show();
-                    hasVisibleContent = true;
-                } else {
-                    $(this).hide();
-                }
-            });
-
             if (teamName.includes(searchTerm)) hasVisibleContent = true;
             if (hasVisibleContent) card.show(); else card.hide();
         });
     });
 });
 
-// --- TOGGLE LOGIC (Preserved) ---
+// --- TOGGLE LOGIC ---
 $(document).on('click', '.view-toggle', function() {
     const btn = $(this);
     const card = btn.closest('.team-card');
@@ -135,9 +129,19 @@ $(document).on('click', '.view-toggle', function() {
     }
 });
 
+// --- FETCH PICKS FROM FIRESTORE ---
 async function fetchPicksForTeam(teamId, teamName, targetContainer) {
     try {
-        const q = query(collection(window.db, "draft_picks"), where("currentOwnerId", "==", parseInt(teamId)), orderBy("year", "asc"));
+        // Ensure we are querying with a number since ESPN IDs in Firestore should be numbers
+        const numericId = typeof teamId === 'string' ? parseInt(teamId) : teamId;
+        
+        const q = query(
+            collection(window.db, "draft_picks"), 
+            where("currentOwnerId", "==", numericId), 
+            orderBy("year", "asc"),
+            orderBy("round", "asc")
+        );
+        
         const snapshot = await getDocs(q);
         targetContainer.empty();
 
@@ -152,17 +156,15 @@ async function fetchPicksForTeam(teamId, teamName, targetContainer) {
                 <div class="pick-item d-flex justify-content-between align-items-center border-bottom border-secondary py-3">
                     <div>
                         <div class="text-white fw-bold">${pick.year} Round ${pick.round}</div>
-                        <div class="x-small text-secondary">Original: ${pick.originalOwner}</div>
+                        <div class="x-small text-secondary italic">Original: ${pick.originalOwner}</div>
                     </div>
                     <span class="badge bg-dark border border-secondary text-info">ASSET</span>
                 </div>
             `);
         });
-        
-        const currentSearch = $('#rosterSearch').val().toLowerCase();
-        if(currentSearch) $('#rosterSearch').trigger('keyup');
 
     } catch (err) {
-        targetContainer.html('<div class="text-danger small text-center">Error loading database.</div>');
+        console.error("Firestore Error:", err);
+        targetContainer.html('<div class="text-danger small text-center">Error loading database. Make sure you are logged in.</div>');
     }
 }
