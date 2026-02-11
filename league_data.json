@@ -1,5 +1,5 @@
 {
-    "updated": "02/10/2026 09:21 PM",
+    "updated": "02/10/2026 10:36 PM",
     "seasons": {
         "2025": [],
         "2026": [
@@ -1159,12 +1159,12 @@
                     "name": "Carter Bryant",
                     "id": 5061568,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/5061568.png",
-                    "avg_pts": "3.2",
+                    "avg_pts": "3.3",
                     "avg_reb": "1.9",
                     "avg_ast": "0.3",
                     "avg_stl": "0.2",
                     "avg_blk": "0.2",
-                    "avg_fg_pct": "0.38",
+                    "avg_fg_pct": "0.37",
                     "avg_ft_pct": "0.67",
                     "avg_3pm": "0.6"
                 },
@@ -1569,7 +1569,7 @@
                     "name": "Keldon Johnson",
                     "id": 4395723,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4395723.png",
-                    "avg_pts": "13.3",
+                    "avg_pts": "13.4",
                     "avg_reb": "5.9",
                     "avg_ast": "1.4",
                     "avg_stl": "0.7",
@@ -3205,8 +3205,8 @@
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/5037871.png",
                     "avg_pts": "10.8",
                     "avg_reb": "3.3",
-                    "avg_ast": "3.5",
-                    "avg_stl": "0.8",
+                    "avg_ast": "3.6",
+                    "avg_stl": "0.9",
                     "avg_blk": "0.4",
                     "avg_fg_pct": "0.46",
                     "avg_ft_pct": "0.75",
@@ -3769,13 +3769,13 @@
                     "name": "Dalton Knecht",
                     "id": 4897943,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4897943.png",
-                    "avg_pts": "4.5",
+                    "avg_pts": "4.7",
                     "avg_reb": "1.5",
                     "avg_ast": "0.4",
                     "avg_stl": "0.2",
                     "avg_blk": "0.2",
                     "avg_fg_pct": "0.45",
-                    "avg_ft_pct": "0.72",
+                    "avg_ft_pct": "0.70",
                     "avg_3pm": "0.7"
                 },
                 {
