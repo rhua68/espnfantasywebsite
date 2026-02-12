@@ -92,7 +92,7 @@ class handler(BaseHTTPRequestHandler):
             print(f"DEBUG: ESPN Response: {response.text[:500]}")
 
             self.wfile.write(json.dumps({
-                "status": "success" if response.status_code == 200 else "failed",
+                "status": "success" if 200 <= response.status_code < 300 else "failed",
                 "code": response.status_code,
                 "espn_msg": response.text[:250] if response.status_code != 200 else "Trade proposed successfully!"
             }).encode())

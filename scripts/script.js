@@ -158,10 +158,9 @@ window.sendTradeToESPN = async function(tradeData) {
 
         const result = await response.json();
         
-        if (result.status === 'success') {
-            console.log("✅ ESPN Sync Successful:", result);
-            return true;
-        } else {
+        if (response.ok || result.code === 201 || result.status === 'success') {
+            return true; 
+}        else {
             console.error("❌ ESPN Sync Rejected:", result.espn_msg || result.error);
             // Optional: Alert the specific reason (like "Invalid Input") to the user
             return false;
