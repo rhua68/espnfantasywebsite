@@ -119,24 +119,34 @@ const getPlayerId = (name) => {
 // ESPN Trade Execution (called by voting system in auth.js when consensus is reached)
 window.sendTradeToESPN = async function(tradeData) {
     try {
+        console.log('=== SENDING TO ESPN ===');
+        console.log('Trade Data:', tradeData);
+        
+        const payload = {
+            senderId: tradeData.senderId,
+            receiverId: tradeData.receiverId,
+            senderPlayerIds: tradeData.senderPlayerIds,
+            receiverPlayerIds: tradeData.receiverPlayerIds
+        };
+        
+        console.log('Payload being sent to Vercel:', payload);
+        
         const response = await fetch('/api/execute_trade', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                senderId: tradeData.senderId,
-                receiverId: tradeData.receiverId,
-                senderPlayerIds: tradeData.senderPlayerIds,
-                receiverPlayerIds: tradeData.receiverPlayerIds
-            })
+            body: JSON.stringify(payload)
         });
         
+        console.log('Vercel Response Status:', response.status);
+        
+        const result = await response.json();
+        console.log('Vercel Response Body:', result);
+        
         if (!response.ok) {
-            console.error('ESPN API Error:', await response.text());
+            console.error('ESPN API Error:', result);
             return false;
         }
         
-        const result = await response.json();
-        console.log('ESPN Response:', result);
         return result.status === 'success';
     } catch (error) {
         console.error("ESPN Sync Error:", error);
