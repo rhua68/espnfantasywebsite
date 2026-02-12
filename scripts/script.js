@@ -42,7 +42,7 @@ $(document).ready(function() {
 });
 
 /* ============================================================
-   2. TRADE MODAL & VERCEL/ESPN SYNC
+   2. TRADE MODAL & LEAGUE VOTING SYSTEM
    ============================================================ */
 
 // Open Modal
@@ -116,21 +116,7 @@ const getPlayerId = (name) => {
     return team ? team.players.find(p => p.name === name).id : null;
 };
 
-// Vercel Backend Communication
-async function sendTradeToESPN(tradeData) {
-    try {
-        const response = await fetch('/api/execute_trade', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(tradeData)
-        });
-        return response.ok;
-    } catch (error) {
-        console.error("Vercel Sync Error:", error);
-        return false;
-    }
-}
-
+// ESPN Trade Execution (called by voting system in auth.js when consensus is reached)
 window.sendTradeToESPN = async function(tradeData) {
     try {
         const response = await fetch('/api/execute_trade', {
@@ -143,13 +129,22 @@ window.sendTradeToESPN = async function(tradeData) {
                 receiverPlayerIds: tradeData.receiverPlayerIds
             })
         });
-        return response.ok;
+        
+        if (!response.ok) {
+            console.error('ESPN API Error:', await response.text());
+            return false;
+        }
+        
+        const result = await response.json();
+        console.log('ESPN Response:', result);
+        return result.status === 'success';
     } catch (error) {
-        console.error("Vercel Sync Error:", error);
+        console.error("ESPN Sync Error:", error);
         return false;
     }
 };
-// Submit Trade to Firestore & ESPN
+
+// Submit Trade to Firestore for League Voting (NOT directly to ESPN)
 $('#submitTrade').on('click', async function() {
     const btn = $(this);
     const receiverId = btn.data('receiver-id');
@@ -157,7 +152,8 @@ $('#submitTrade').on('click', async function() {
     const btnText = $('#submitText');
 
     if (selectedAssets.mine.length === 0 && selectedAssets.theirs.length === 0) {
-        alert("Please select assets."); return;
+        alert("Please select assets."); 
+        return;
     }
 
     const tradeData = {
@@ -167,31 +163,31 @@ $('#submitTrade').on('click', async function() {
         receiverAssets: selectedAssets.theirs,
         senderPlayerIds: selectedAssets.mine.map(n => getPlayerId(n)).filter(id => id),
         receiverPlayerIds: selectedAssets.theirs.map(n => getPlayerId(n)).filter(id => id),
-        status: "voting",
-        timestamp: serverTimestamp()
+        status: "voting",  // Trade goes to league poll
+        timestamp: serverTimestamp(),
+        votes: {}  // Initialize empty votes object
     };
 
-    // UI Feedback: Syncing State
+    // UI Feedback
     btn.prop('disabled', true);
     if(spinner.length) spinner.removeClass('d-none');
-    if(btnText.length) btnText.text('Syncing with ESPN...'); else btn.text('Syncing...');
+    if(btnText.length) btnText.text('Submitting to League Poll...'); 
+    else btn.text('Submitting...');
 
     try {
-        // 1. Log in your local Firestore
+        // Save to Firestore - this triggers the league poll system
         await addDoc(collection(window.db, "pending_trades"), tradeData);
         
-        // 2. Propose on official ESPN site
-        const espnSync = await sendTradeToESPN(tradeData);
-        
-        alert(espnSync ? "✅ Trade Proposed on Site & ESPN!" : "⚠️ Trade saved on site, but ESPN Sync failed.");
+        alert("✅ Trade submitted to league poll! Managers will vote on it.");
         $('#tradeModal').modal('hide');
     } catch (e) {
         console.error(e);
-        alert("❌ Error processing trade.");
+        alert("❌ Error submitting trade.");
     } finally { 
         btn.prop('disabled', false); 
         if(spinner.length) spinner.addClass('d-none');
-        if(btnText.length) btnText.text('Send Trade Request'); else btn.text('Submit Trade');
+        if(btnText.length) btnText.text('Send Trade Request'); 
+        else btn.text('Submit Trade');
     }
 });
 

@@ -1,302 +1,170 @@
-import { 
-    collection, 
-    addDoc, 
-    query, 
-    where, 
-    getDocs, 
-    onSnapshot, 
-    serverTimestamp, 
-    doc, 
-    updateDoc, 
-    deleteDoc,
-    orderBy 
-} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-
-/* ============================================================
-   1. GLOBAL STATE & INITIALIZATION
-   ============================================================ */
-window.allData = window.allData || {}; 
-let selectedAssets = { mine: [], theirs: [] };
+import { collection, query, where, getDocs, orderBy } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 $(document).ready(function() {
-    // Cache-busting ensures fresh data on every load
     fetch(`../league_data.json?v=${new Date().getTime()}`)
-        .then(response => {
-            if (!response.ok) throw new Error("Could not load league_data.json");
-            return response.json();
+        .then(res => {
+            if (!res.ok) throw new Error("Could not load league_data.json");
+            return res.json();
         })
         .then(data => {
             window.allData = data;
-            
-            // Update Footer Timestamp
             if (data.updated) $('#last-updated').text(data.updated);
 
-            // Render Page Components
-            if ($('#trade-block-list').length) renderTradeBlock(data.trade_block);
-            if ($('#year-dropdown-menu').length) setupYearDropdown(data.seasons);
-            
-            // Apply League Poll Status Animations
-            updateLeaguePollStatus();
-        })
-        .catch(err => {
-            console.error("Error loading JSON:", err);
-            $('#last-updated').text("Sync Error");
+            const container = $('#rosters-container');
+            if (!data.rosters || data.rosters.length === 0) {
+                container.html('<div class="col-12 text-center text-secondary">No roster data found.</div>');
+                return;
+            }
+
+            container.empty();
+
+            data.rosters.forEach(team => {
+                // 1. Determine if this card belongs to the logged-in user
+                const isMyTeam = window.currentUserTeamId && (team.id == window.currentUserTeamId);
+
+                // 2. Build the Trade button or "Sakura Pink" Your Team label
+                const tradeActionHtml = isMyTeam 
+                    ? `<span class="badge badge-sakura px-3 py-2 your-team-label">🌸 YOUR TEAM</span>` 
+                    : `<button class="btn btn-primary btn-sm fw-bold open-trade-modal" 
+                                data-team-id="${team.id}" 
+                                data-team-name="${team.name}">
+                            Trade
+                       </button>`;
+
+                // 3. Generate the Player List HTML with mobile-friendly scroll wrapper
+                let playerListHtml = team.players.map(p => `
+                    <div class="player-strip d-flex align-items-center justify-content-between border-bottom border-secondary-subtle">
+                        <div class="player-info-fixed d-flex align-items-center"> 
+                            <img src="${p.img}" class="player-img me-2 flex-shrink-0" style="width: 38px; height: 38px; border-radius: 50%; object-fit: cover; background: #222;" onerror="this.src='../icons/noPic.png'">
+                            <div class="text-white small fw-bold text-truncate pe-2" title="${p.name}">${p.name}</div>
+                        </div>
+                        <div class="stats-scroll-wrapper">
+                            <div class="stats-grid-compact d-flex gap-1">
+                                <div class="stat-box"><span class="stat-label">MPG</span><span class="stat-val">${p.avg_mpg || '-'}</span></div>
+                                <div class="stat-box"><span class="stat-label">PTS</span><span class="stat-val">${p.avg_pts || '-'}</span></div>
+                                <div class="stat-box"><span class="stat-label">REB</span><span class="stat-val">${p.avg_reb || '-'}</span></div>
+                                <div class="stat-box"><span class="stat-label">AST</span><span class="stat-val">${p.avg_ast || '-'}</span></div>
+                                <div class="stat-box"><span class="stat-label">STL</span><span class="stat-val">${p.avg_stl || '-'}</span></div>
+                                <div class="stat-box"><span class="stat-label">BLK</span><span class="stat-val">${p.avg_blk || '-'}</span></div>
+                                <div class="stat-box"><span class="stat-label">3PM</span><span class="stat-val">${p.avg_3pm || '-'}</span></div>
+                                <div class="stat-box"><span class="stat-label">FG%</span><span class="stat-val">${p.avg_fg_pct || '-'}</span></div>
+                                <div class="stat-box"><span class="stat-label">FT%</span><span class="stat-val">${p.avg_ft_pct || '-'}</span></div>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+
+                container.append(`
+                    <div class="col-12 col-xl-6 mb-4 team-card" data-team-id="${team.id}" data-team-name="${team.name.toLowerCase()}">
+                        <div class="card h-100 shadow-sm border-0 bg-secondary-subtle ${isMyTeam ? 'border-sakura' : ''}">
+                            <div class="card-header d-flex align-items-center justify-content-between py-3 bg-black">
+                                <div class="d-flex align-items-center">
+                                    <img src="${team.logo}" style="width:40px; height:40px; border-radius: 50%;" class="me-3">
+                                    <div>
+                                        <h6 class="mb-0 text-primary fw-bold">${team.name}</h6>
+                                        <small class="text-secondary x-small">${team.owner || ''}</small>
+                                    </div>
+                                </div>
+                                <div class="d-flex gap-2 align-items-center">
+                                    <button class="btn btn-outline-info btn-sm fw-bold view-toggle" data-mode="players">View Picks</button>
+                                    ${tradeActionHtml}
+                                </div>
+                            </div>
+                            <div class="card-body p-2 roster-scroll-area" style="height: 550px; overflow-y: auto;">
+                                <div class="view-players">${playerListHtml}</div>
+                                <div class="view-picks d-none p-3">
+                                    <div class="picks-list">
+                                        <div class="text-center py-4"><div class="spinner-border text-primary spinner-border-sm"></div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `);
+            });
         });
+
+    // --- SEARCH LOGIC ---
+    $('#rosterSearch').on('keyup', function() {
+        const searchTerm = $(this).val().toLowerCase();
+        $('.team-card').each(function() {
+            const card = $(this);
+            const teamName = card.data('team-name');
+            let hasVisibleContent = false;
+
+            card.find('.player-strip').each(function() {
+                const playerName = $(this).find('.text-white').text().toLowerCase();
+                if (playerName.includes(searchTerm) || teamName.includes(searchTerm)) {
+                    $(this).show();
+                    hasVisibleContent = true;
+                } else {
+                    $(this).hide();
+                }
+            });
+
+            if (teamName.includes(searchTerm)) hasVisibleContent = true;
+            if (hasVisibleContent) card.show(); else card.hide();
+        });
+    });
 });
 
-/* ============================================================
-   2. LEAGUE POLL STATUS ANIMATIONS
-   ============================================================ */
+// --- TOGGLE LOGIC ---
+$(document).on('click', '.view-toggle', function() {
+    const btn = $(this);
+    const card = btn.closest('.team-card');
+    const teamId = card.data('team-id');
+    const teamName = card.data('team-name');
+    const playerView = card.find('.view-players');
+    const picksView = card.find('.view-picks');
 
-function updateLeaguePollStatus() {
-    // Target the poll card - adjust selector based on your HTML structure
-    const pollCard = $('.card.league-poll-card, .league-poll, [data-poll-card]');
-    
-    if (pollCard.length === 0) {
-        console.warn('No league poll card found - check your selector');
-        return;
+    if (btn.data('mode') === 'players') {
+        btn.data('mode', 'picks').text('View Roster').removeClass('btn-outline-info').addClass('btn-outline-warning');
+        playerView.addClass('d-none');
+        picksView.removeClass('d-none');
+        fetchPicksForTeam(teamId, teamName, card.find('.picks-list'));
+    } else {
+        btn.data('mode', 'players').text('View Picks').removeClass('btn-outline-warning').addClass('btn-outline-info');
+        playerView.removeClass('d-none');
+        picksView.addClass('d-none');
     }
-    
-    // Remove existing animation classes
-    pollCard.removeClass('border-sakura border-veto');
-    
-    // Check poll status from your data structure
-    const pollStatus = window.allData?.poll_status || window.allData?.league_poll?.status;
-    
-    if (!pollStatus) {
-        console.warn('No poll_status found in data');
-        return;
-    }
-    
-    // Apply appropriate animation class
-    if (pollStatus === 'active' || pollStatus === 'trading_open' || pollStatus === 'open') {
-        pollCard.addClass('border-sakura'); // Pink pulsing for active trading
-        console.log('Applied border-sakura animation');
-    } else if (pollStatus === 'veto' || pollStatus === 'voting' || pollStatus === 'veto_period') {
-        pollCard.addClass('border-veto'); // Red pulsing for veto period
-        console.log('Applied border-veto animation');
-    }
-}
-
-/* ============================================================
-   3. TRADE MODAL & VERCEL/ESPN SYNC
-   ============================================================ */
-
-// Open Modal
-$(document).on('click', '.open-trade-modal', async function() {
-    if (!window.currentUserTeamId) {
-        alert("Please log in to propose a trade!");
-        return;
-    }
-    const receiverId = $(this).data('team-id');
-    const receiverName = $(this).data('team-name');
-    
-    $('#receiver-name').text(receiverName);
-    $('#submitTrade').data('receiver-id', receiverId);
-    
-    selectedAssets = { mine: [], theirs: [] };
-    $('#tradeModal').modal('show');
-
-    populateTradeAssets(window.currentUserTeamId, '#my-assets-list', 'mine');
-    populateTradeAssets(receiverId, '#their-assets-list', 'theirs');
 });
 
-// Fetch Assets for Modal with Sorting
-async function populateTradeAssets(teamId, containerId, side) {
-    const container = $(containerId).empty().append('<div class="text-center py-3"><div class="spinner-border text-primary spinner-border-sm"></div></div>');
-    const teamData = window.allData.rosters.find(r => r.id == teamId);
-    let html = `<div class="fw-bold text-primary small mb-2 uppercase">Players</div>`;
-    
-    if(teamData && teamData.players) {
-        teamData.players.forEach(p => {
-            html += `<div class="asset-item" data-name="${p.name}" data-side="${side}">${p.name}</div>`;
-        });
-    }
-
+// --- FETCH PICKS FROM FIRESTORE ---
+async function fetchPicksForTeam(teamId, teamName, targetContainer) {
     try {
+        // Ensure we are querying with a number since ESPN IDs in Firestore should be numbers
+        const numericId = typeof teamId === 'string' ? parseInt(teamId) : teamId;
+        
         const q = query(
             collection(window.db, "draft_picks"), 
-            where("currentOwnerId", "==", parseInt(teamId)),
+            where("currentOwnerId", "==", numericId), 
             orderBy("year", "asc"),
             orderBy("round", "asc")
         );
+        
         const snapshot = await getDocs(q);
-        html += `<div class="fw-bold text-primary small mt-3 mb-2 uppercase">Draft Picks</div>`;
-        
-        snapshot.forEach(docSnap => {
-            const p = docSnap.data();
-            html += `<div class="asset-item" data-name="${p.year} Rd ${p.round}" data-side="${side}">${p.year} Rd ${p.round}</div>`;
-        });
-    } catch (e) {
-        console.error("Error fetching picks:", e);
-    }
-    container.html(html);
-}
+        targetContainer.empty();
 
-// Toggle Asset Selection
-$(document).on('click', '.asset-item', function() {
-    const name = $(this).data('name');
-    const side = $(this).data('side');
-    $(this).toggleClass('active');
-    
-    if (selectedAssets[side].includes(name)) {
-        selectedAssets[side] = selectedAssets[side].filter(a => a !== name);
-    } else {
-        selectedAssets[side].push(name);
-    }
-});
-
-// Helper: Map Player Name to ESPN ID
-const getPlayerId = (name) => {
-    if (!window.allData.rosters) return null;
-    const team = window.allData.rosters.find(r => r.players.some(p => p.name === name));
-    return team ? team.players.find(p => p.name === name).id : null;
-};
-
-// ESPN Trade Execution (called by voting system when consensus is reached)
-window.sendTradeToESPN = async function(tradeData) {
-    try {
-        const response = await fetch('/api/execute_trade', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(tradeData)
-        });
-        
-        if (!response.ok) {
-            console.error('ESPN API Error:', await response.text());
-            return false;
+        if (snapshot.empty) {
+            targetContainer.html('<div class="text-center text-secondary py-5">No future picks owned.</div>');
+            return;
         }
-        
-        const result = await response.json();
-        console.log('ESPN Response:', result);
-        return result.status === 'success';
-    } catch (error) {
-        console.error("ESPN Sync Error:", error);
-        return false;
-    }
-};
 
-// Submit Trade to Firestore for League Voting (NOT directly to ESPN)
-$('#submitTrade').on('click', async function() {
-    const btn = $(this);
-    const receiverId = btn.data('receiver-id');
-    const spinner = $('#submitSpinner');
-    const btnText = $('#submitText');
-
-    if (selectedAssets.mine.length === 0 && selectedAssets.theirs.length === 0) {
-        alert("Please select assets."); return;
-    }
-
-    const tradeData = {
-        senderId: window.currentUserTeamId,
-        receiverId: parseInt(receiverId),
-        senderAssets: selectedAssets.mine,
-        receiverAssets: selectedAssets.theirs,
-        senderPlayerIds: selectedAssets.mine.map(n => getPlayerId(n)).filter(id => id),
-        receiverPlayerIds: selectedAssets.theirs.map(n => getPlayerId(n)).filter(id => id),
-        status: "voting",  // Changed from "pending" to "voting"
-        timestamp: serverTimestamp(),
-        votes: {}  // Initialize empty votes object
-    };
-
-    // UI Feedback: Submitting State
-    btn.prop('disabled', true);
-    if(spinner.length) spinner.removeClass('d-none');
-    if(btnText.length) btnText.text('Submitting to League Poll...'); else btn.text('Submitting...');
-
-    try {
-        // Save to Firestore - this will trigger the league poll system
-        await addDoc(collection(window.db, "pending_trades"), tradeData);
-        
-        alert("✅ Trade submitted to league poll! Other managers will vote on it.");
-        $('#tradeModal').modal('hide');
-    } catch (e) {
-        console.error(e);
-        alert("❌ Error submitting trade.");
-    } finally { 
-        btn.prop('disabled', false); 
-        if(spinner.length) spinner.addClass('d-none');
-        if(btnText.length) btnText.text('Send Trade Request'); else btn.text('Submit Trade');
-    }
-});
-
-/* ============================================================
-   4. UI COMPONENTS (Trade Block & Year Dropdown)
-   ============================================================ */
-
-function renderTradeBlock(players) {
-    const list = $('#trade-block-list').empty();
-    if (!players || players.length === 0) {
-        list.append('<li class="list-group-item bg-transparent text-secondary italic small">No players on block.</li>');
-        return;
-    }
-    players.forEach(p => {
-        const badgeClass = p.status === "Likely" ? "bg-primary" : "bg-dark border border-secondary text-secondary";
-        list.append(`
-            <li class="list-group-item bg-transparent border-bottom border-secondary-subtle px-0 py-2">
-                <div class="d-flex justify-content-between align-items-center">
+        snapshot.forEach(doc => {
+            const pick = doc.data();
+            targetContainer.append(`
+                <div class="pick-item d-flex justify-content-between align-items-center border-bottom border-secondary py-3">
                     <div>
-                        <div class="fw-bold text-white small">${p.name}</div>
-                        <div class="text-primary x-small text-uppercase fw-bold">${p.team}</div>
+                        <div class="text-white fw-bold">${pick.year} Round ${pick.round}</div>
+                        <div class="x-small text-secondary italic">Original: ${pick.originalOwner}</div>
                     </div>
-                    <span class="badge rounded-pill ${badgeClass}" style="font-size: 0.55rem;">${p.status.toUpperCase()}</span>
+                    <span class="badge bg-dark border border-secondary text-info">ASSET</span>
                 </div>
-            </li>
-        `);
-    });
-}
+            `);
+        });
 
-function setupYearDropdown(seasons) {
-    const years = Object.keys(seasons).sort().reverse();
-    const menu = $('#year-dropdown-menu').empty();
-    
-    years.forEach((year, i) => {
-        const label = `${parseInt(year) - 1}-${year.slice(-2)}`;
-        menu.append(`<li><a class="dropdown-item ${i === 0 ? 'active' : ''}" href="#" data-year="${year}">${label} Season</a></li>`);
-        
-        if (i === 0) { 
-            $('#yearDropdown').text(`📅 ${label} Season`);
-            loadYearData(year); 
-        }
-    });
-
-    menu.on('click', '.dropdown-item', function(e) {
-        e.preventDefault();
-        const yr = $(this).attr('data-year');
-        $('.dropdown-item').removeClass('active');
-        $(this).addClass('active');
-        $('#yearDropdown').text(`📅 ${$(this).text()}`);
-        loadYearData(yr);
-    });
-}
-
-function loadYearData(year) {
-    const trades = window.allData.seasons[year] || [];
-    if ($.fn.DataTable.isDataTable('#trades-table')) $('#trades-table').DataTable().destroy();
-    
-    $('#trades-table').DataTable({
-        data: trades,
-        columns: [
-            { data: 'date', width: '15%' },
-            { 
-                data: null,
-                render: row => `
-                    <div class="trade-assets-container p-2">
-                        <div class="row text-center position-relative g-0">
-                            <div class="col-12 col-md-6 pb-3 pb-md-0 border-bottom-mobile">
-                                <div class="text-primary x-small fw-bold mb-1">${row.teams[0]} SENT:</div>
-                                <div class="small fw-bold text-white">${row.assets.filter(a => a.from === row.teams[0]).map(a => a.player).join("<br>")}</div>
-                            </div>
-                            <div class="col-12 col-md-6 pt-3 pt-md-0">
-                                <div class="text-info x-small fw-bold mb-1">${row.teams[1]} SENT:</div>
-                                <div class="small fw-bold text-white">${row.assets.filter(a => a.from === row.teams[1]).map(a => a.player).join("<br>")}</div>
-                            </div>
-                        </div>
-                    </div>`
-            }
-        ],
-        order: [[0, 'desc']],
-        responsive: true,
-        dom: 'rtp'
-    });
+    } catch (err) {
+        console.error("Firestore Error:", err);
+        targetContainer.html('<div class="text-danger small text-center">Error loading database. Make sure you are logged in.</div>');
+    }
 }
