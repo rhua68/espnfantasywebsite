@@ -202,9 +202,9 @@ $('#submitTrade').on('click', async function() {
         await addDoc(collection(window.db, "pending_trades"), tradeData);
         
         // 2. Propose on official ESPN site
-        const espnSync = await sendTradeToESPN(tradeData);
+        // const espnSync = await sendTradeToESPN(tradeData);
         
-        alert(espnSync ? "✅ Trade Proposed on Site & ESPN!" : "⚠️ Trade saved on site, but ESPN Sync failed.");
+        alert(espnSync ? "✅ Trade Proposed on Site!" : "⚠️ Trade saved locally, but failed to sync with ESPN. Please contact the commissioner.");
         $('#tradeModal').modal('hide');
     } catch (e) {
         console.error(e);
