@@ -42,7 +42,7 @@ $(document).ready(function() {
 });
 
 /* ============================================================
-   2. TRADE MODAL & LEAGUE VOTING SYSTEM
+   2. TRADE MODAL & VERCEL/ESPN SYNC
    ============================================================ */
 
 // Open Modal
@@ -116,45 +116,62 @@ const getPlayerId = (name) => {
     return team ? team.players.find(p => p.name === name).id : null;
 };
 
-// ESPN Trade Execution (called by voting system in auth.js when consensus is reached)
+// Vercel Backend Communication
+async function sendTradeToESPN(tradeData) {
+    try {
+        const response = await fetch('/api/execute_trade', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(tradeData)
+        });
+        return response.ok;
+    } catch (error) {
+        console.error("Vercel Sync Error:", error);
+        return false;
+    }
+}
+
 window.sendTradeToESPN = async function(tradeData) {
     try {
-        console.log('=== SENDING TO ESPN ===');
-        console.log('Trade Data:', tradeData);
-        
+        // 1. Clean and Map the payload to match the Python handler's expectations
         const payload = {
-            senderId: tradeData.senderId,
-            receiverId: tradeData.receiverId,
-            senderPlayerIds: tradeData.senderPlayerIds,
-            receiverPlayerIds: tradeData.receiverPlayerIds
+            senderId: parseInt(tradeData.senderId),
+            receiverId: parseInt(tradeData.receiverId),
+            // Ensure these are arrays of pure integers
+            senderPlayerIds: Array.isArray(tradeData.senderPlayerIds) 
+                ? tradeData.senderPlayerIds.map(id => parseInt(id)) 
+                : [],
+            receiverPlayerIds: Array.isArray(tradeData.receiverPlayerIds) 
+                ? tradeData.receiverPlayerIds.map(id => parseInt(id)) 
+                : []
         };
-        
-        console.log('Payload being sent to Vercel:', payload);
-        
+
+        console.log("=== PRE-SYNC PAYLOAD CHECK ===");
+        console.table(payload);
+
+        // 2. Post to your Vercel API
         const response = await fetch('/api/execute_trade', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload)
         });
-        
-        console.log('Vercel Response Status:', response.status);
-        
+
         const result = await response.json();
-        console.log('Vercel Response Body:', result);
         
-        if (!response.ok) {
-            console.error('ESPN API Error:', result);
+        if (result.status === 'success') {
+            console.log("✅ ESPN Sync Successful:", result);
+            return true;
+        } else {
+            console.error("❌ ESPN Sync Rejected:", result.espn_msg || result.error);
+            // Optional: Alert the specific reason (like "Invalid Input") to the user
             return false;
         }
-        
-        return result.status === 'success';
     } catch (error) {
-        console.error("ESPN Sync Error:", error);
+        console.error("🚨 Vercel Communication Error:", error);
         return false;
     }
 };
-
-// Submit Trade to Firestore for League Voting (NOT directly to ESPN)
+// Submit Trade to Firestore & ESPN
 $('#submitTrade').on('click', async function() {
     const btn = $(this);
     const receiverId = btn.data('receiver-id');
@@ -162,8 +179,7 @@ $('#submitTrade').on('click', async function() {
     const btnText = $('#submitText');
 
     if (selectedAssets.mine.length === 0 && selectedAssets.theirs.length === 0) {
-        alert("Please select assets."); 
-        return;
+        alert("Please select assets."); return;
     }
 
     const tradeData = {
@@ -173,31 +189,31 @@ $('#submitTrade').on('click', async function() {
         receiverAssets: selectedAssets.theirs,
         senderPlayerIds: selectedAssets.mine.map(n => getPlayerId(n)).filter(id => id),
         receiverPlayerIds: selectedAssets.theirs.map(n => getPlayerId(n)).filter(id => id),
-        status: "voting",  // Trade goes to league poll
-        timestamp: serverTimestamp(),
-        votes: {}  // Initialize empty votes object
+        status: "voting",
+        timestamp: serverTimestamp()
     };
 
-    // UI Feedback
+    // UI Feedback: Syncing State
     btn.prop('disabled', true);
     if(spinner.length) spinner.removeClass('d-none');
-    if(btnText.length) btnText.text('Submitting to League Poll...'); 
-    else btn.text('Submitting...');
+    if(btnText.length) btnText.text('Syncing with ESPN...'); else btn.text('Syncing...');
 
     try {
-        // Save to Firestore - this triggers the league poll system
+        // 1. Log in your local Firestore
         await addDoc(collection(window.db, "pending_trades"), tradeData);
         
-        alert("✅ Trade submitted to league poll! Managers will vote on it.");
+        // 2. Propose on official ESPN site
+        const espnSync = await sendTradeToESPN(tradeData);
+        
+        alert(espnSync ? "✅ Trade Proposed on Site & ESPN!" : "⚠️ Trade saved on site, but ESPN Sync failed.");
         $('#tradeModal').modal('hide');
     } catch (e) {
         console.error(e);
-        alert("❌ Error submitting trade.");
+        alert("❌ Error processing trade.");
     } finally { 
         btn.prop('disabled', false); 
         if(spinner.length) spinner.addClass('d-none');
-        if(btnText.length) btnText.text('Send Trade Request'); 
-        else btn.text('Submit Trade');
+        if(btnText.length) btnText.text('Send Trade Request'); else btn.text('Submit Trade');
     }
 });
 
