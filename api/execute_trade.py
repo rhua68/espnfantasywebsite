@@ -6,9 +6,19 @@ from datetime import datetime, timedelta
 
 class handler(BaseHTTPRequestHandler):
     def do_POST(self):
+        # Add CORS headers immediately
+        self.send_response(200)
+        self.send_header('Content-type', 'application/json')
+        self.send_header('Access-Control-Allow-Origin', '*')
+        self.send_header('Access-Control-Allow-Methods', 'POST, OPTIONS')
+        self.send_header('Access-Control-Allow-Headers', 'Content-Type')
+        self.end_headers()
+        
         try:
             content_length = int(self.headers['Content-Length'])
             data = json.loads(self.rfile.read(content_length))
+            
+            print(f"DEBUG: Received data: {json.dumps(data, indent=2)}")
 
             # 1. Credentials
             cookies = {
@@ -17,6 +27,15 @@ class handler(BaseHTTPRequestHandler):
             }
             league_id = os.environ.get('LEAGUE_ID')
             swid = os.environ.get('SWID')
+            
+            # Check if credentials exist
+            if not cookies['espn_s2'] or not swid or not league_id:
+                print("ERROR: Missing environment variables!")
+                self.wfile.write(json.dumps({
+                    "status": "failed",
+                    "error": "Missing ESPN credentials in Vercel environment"
+                }).encode())
+                return
             
             # 2. CRITICAL: Use lm-api-WRITES endpoint (not reads!)
             url = f"https://lm-api-writes.fantasy.espn.com/apis/v3/games/fba/seasons/2026/segments/0/leagues/{league_id}/transactions/?platformVersion=939dee45e5bc09d6156830875454f77275346525"
@@ -68,15 +87,9 @@ class handler(BaseHTTPRequestHandler):
             response = requests.post(url, json=espn_payload, cookies=cookies, headers=headers)
 
             # Debugging logs (visible in Vercel logs)
-            print(f"DEBUG: Status {response.status_code}")
+            print(f"DEBUG: ESPN Status {response.status_code}")
             print(f"DEBUG: Payload sent: {json.dumps(espn_payload, indent=2)}")
-            print(f"DEBUG: Response: {response.text[:500]}")
-
-            # Send response back to frontend
-            self.send_response(200)
-            self.send_header('Content-type', 'application/json')
-            self.send_header('Access-Control-Allow-Origin', '*')  # Allow CORS
-            self.end_headers()
+            print(f"DEBUG: ESPN Response: {response.text[:500]}")
 
             self.wfile.write(json.dumps({
                 "status": "success" if response.status_code == 200 else "failed",
@@ -86,11 +99,9 @@ class handler(BaseHTTPRequestHandler):
 
         except Exception as e:
             print(f"ERROR: {str(e)}")
-            self.send_response(500)
-            self.send_header('Content-type', 'application/json')
-            self.send_header('Access-Control-Allow-Origin', '*')
-            self.end_headers()
-            self.wfile.write(json.dumps({"error": str(e)}).encode())
+            import traceback
+            traceback.print_exc()
+            self.wfile.write(json.dumps({"status": "failed", "error": str(e)}).encode())
     
     def do_OPTIONS(self):
         """Handle CORS preflight requests"""

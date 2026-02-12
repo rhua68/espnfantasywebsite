@@ -188,22 +188,38 @@ $(document).on('click', '.vote-btn', async function() {
     const approves = Object.values(data.votes || {}).filter(v => v === 'approve').length;
     const vetoes = Object.values(data.votes || {}).filter(v => v === 'veto').length;
 
+    console.log(`Vote recorded. Approves: ${approves}, Vetoes: ${vetoes}`);
+
     // Threshold Check
     if (vetoes >= 6) {
+        // Trade is vetoed - delete it
         alert("🚨 Trade Vetoed. It will be removed from the league polls.");
         await deleteDoc(tradeRef);
-    } else if (approves >= 2) { // ❗❗FOR TESTING CHANGE BACK TO 6 FOR PRODUCTION❗❗
+    } else if (vetoes > 0) {
+        // There are vetoes but not enough to reject - trade stays in voting
+        console.log(`Trade has ${vetoes} veto(s) and ${approves} approval(s). Waiting for more votes...`);
+    } else if (approves >= 2) { // ❗❗FOR TESTING - CHANGE BACK TO 6 FOR PRODUCTION❗❗
+        // Consensus reached with NO vetoes - push to ESPN
+        console.log('✅ Consensus reached! Pushing to ESPN...');
+        
         await updateDoc(tradeRef, { status: "accepted", finalizedAt: serverTimestamp() });
         
         // Push to ESPN
         if (window.sendTradeToESPN) {
+            console.log('Calling window.sendTradeToESPN with data:', data);
             const success = await window.sendTradeToESPN(data);
+            
             if (success) {
                 alert("✅ Consensus met! Trade pushed to ESPN.");
                 await sendDiscordNotification(data, "finalized");
+                await deleteDoc(tradeRef); // Remove from polls after successful push
             } else {
-                alert("⚠️ Consensus met, but ESPN sync failed. Check Vercel logs.");
+                alert("⚠️ Consensus met, but ESPN sync failed. Check browser console and Vercel logs.");
+                console.error('ESPN sync failed for trade:', data);
             }
+        } else {
+            console.error('window.sendTradeToESPN function not found! Make sure app.js is loaded.');
+            alert("❌ Error: ESPN sync function not available.");
         }
     }
 });
