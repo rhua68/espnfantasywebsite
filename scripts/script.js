@@ -118,17 +118,17 @@ const getPlayerId = (name) => {
 
 // Vercel Backend Communication
 async function sendTradeToESPN(tradeData) {
-    try {
-        const response = await fetch('/api/execute_trade', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(tradeData)
-        });
-        return response.ok;
-    } catch (error) {
-        console.error("Vercel Sync Error:", error);
-        return false;
-    }
+    const payload = {
+        ...tradeData,
+        user_espn_s2: localStorage.getItem('espn_s2'),
+        user_swid: localStorage.getItem('swid')
+    };
+
+    const response = await fetch('/api/execute_trade', {
+        method: 'POST',
+        body: JSON.stringify(payload)
+    });
+
 }
 
 window.sendTradeToESPN = async function(tradeData) {

@@ -13,6 +13,10 @@ class handler(BaseHTTPRequestHandler):
         espn_s2 = os.environ.get('ESPN_S2')
         cookies = {'espn_s2': espn_s2, 'SWID': swid}
         
+        # YOUR Team ID (Owner of the SWID above). 
+        # For you, this is Team 1 (Rhua).
+        admin_team_id = 1 
+
         headers = {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
@@ -25,7 +29,6 @@ class handler(BaseHTTPRequestHandler):
             content_length = int(self.headers['Content-Length'])
             data = json.loads(self.rfile.read(content_length))
             
-            # --- LOGGING: INPUT DATA ---
             print(f"DEBUG: Trade Data Received: {json.dumps(data)}", file=sys.stderr)
 
             # --- START: PICK-ONLY PROTECTION ---
@@ -41,28 +44,21 @@ class handler(BaseHTTPRequestHandler):
                 return
             # --- END: PICK-ONLY PROTECTION ---
 
-            # 3. Fetch current league status
-            current_period = 114 # Keep as a hard fallback
+            # 3. Fetch current league status for dynamic scoringPeriod
+            current_period = 114
             try:
                 status_url = f"https://lm-api-reads.fantasy.espn.com/apis/v3/games/fba/seasons/2026/segments/0/leagues/{league_id}?view=mStatus"
                 status_res = requests.get(status_url, cookies=cookies, headers=headers, timeout=5)
                 
                 if status_res.status_code == 200:
                     status_data = status_res.json().get('status', {})
-                    
-                    # Priority: isActive > currentScoringPeriod > latestScoringPeriod
-                    # This handles the 'Overnight Rollover' window specifically
                     period_options = [
                         status_data.get('isActiveScoringPeriod'),
                         status_data.get('currentScoringPeriod'),
                         status_data.get('latestScoringPeriod')
                     ]
-                    
-                    # Pick the first one that isn't None/0
                     current_period = next((p for p in period_options if p), 114)
                     print(f"DEBUG: Selected Scoring Period: {current_period}", file=sys.stderr)
-                else:
-                    print(f"DEBUG: Status API Failed ({status_res.status_code}). Using 114.", file=sys.stderr)
             except Exception as e:
                 print(f"ERROR Fetching Status: {e}", file=sys.stderr)
 
@@ -70,9 +66,13 @@ class handler(BaseHTTPRequestHandler):
             url = f"https://lm-api-writes.fantasy.espn.com/apis/v3/games/fba/seasons/2026/segments/0/leagues/{league_id}/transactions/?platformVersion=939dee45e5bc09d6156830875454f77275346525"
             expiration = (datetime.utcnow() + timedelta(days=2)).strftime("%Y-%m-%dT%H:%M:%S.%f")[:-3] + "Z"
             
+            # CRITICAL CHANGE: 
+            # 1. isLeagueManager = True
+            # 2. teamId = admin_team_id (Matches the SWID owner)
+            # 3. executionType = "EXECUTE" (Forces the trade now)
             espn_payload = {
                 "isLeagueManager": False,
-                "teamId": int(data['senderId']),
+                "teamId": admin_team_id,
                 "type": "TRADE_PROPOSAL",
                 "executionType": "INITIAL",
                 "expirationDate": expiration,
@@ -81,6 +81,7 @@ class handler(BaseHTTPRequestHandler):
                 "scoringPeriodId": current_period
             }
             
+            # Map the actual player movements
             for p_id in sender_p_ids:
                 espn_payload["items"].append({
                     "playerId": int(p_id), "type": "TRADE",
@@ -93,13 +94,11 @@ class handler(BaseHTTPRequestHandler):
                     "fromTeamId": int(data['receiverId']), "toTeamId": int(data['senderId'])
                 })
 
-            # --- LOGGING: PAYLOAD GOING TO ESPN ---
             print(f"DEBUG: Sending to ESPN: {json.dumps(espn_payload)}", file=sys.stderr)
 
             # 5. Execute to ESPN
             response = requests.post(url, json=espn_payload, cookies=cookies, headers=headers)
 
-            # --- LOGGING: ESPN RESPONSE ---
             print(f"DEBUG: ESPN Response Status: {response.status_code}", file=sys.stderr)
             print(f"DEBUG: ESPN Response Body: {response.text}", file=sys.stderr)
 
