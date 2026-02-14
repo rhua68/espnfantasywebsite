@@ -52,7 +52,7 @@ async function sendDiscordNotification(tradeData, type = "finalized") {
     }
 
     const senderName = getTeamName(tradeData.senderId);
-    const receiverName = getTeamName(tradeData.receiver.Id);
+    const receiverName = getTeamName(tradeData.receiverId);
     
     const message = {
         content: isVote ? "🗳️ **NEW LEAGUE POLL OPENED!**" : "🚨 **TRADE FINALIZED BY LEAGUE CONSENSUS!**",
@@ -243,6 +243,13 @@ $(document).on('click', '.vote-btn', async function() {
         await deleteDoc(tradeRef);
     } else if (approves >= 2) { // ❗❗FOR TESTING CHANGE BACK TO 6 FOR PRODUCTION❗❗
         
+        //hide trading modal after trade concluded
+        $('.modal').modal('hide');
+
+        // Update trade status to accepted
+        await updateDoc(tradeRef, { status: "accepted", finalizedAt: serverTimestamp() });
+
+        
         // --- NEW: UPDATE DRAFT PICK OWNERSHIP IN FIRESTORE ---
         try {
             await processDraftPickTransfer(data);
@@ -263,8 +270,7 @@ $(document).on('click', '.vote-btn', async function() {
             }
         }
 
-        //hide trading modal after trade concluded
-        $('.modal').modal('hide');
+        
 
         // write to firebase trade_history collection
         await addDoc(collection(db, "trade_history"), {
@@ -275,8 +281,7 @@ $(document).on('click', '.vote-btn', async function() {
             finalizedAt: serverTimestamp()
         });
 
-        // Update trade status to accepted
-        await updateDoc(tradeRef, { status: "accepted", finalizedAt: serverTimestamp() });
+        
         
         
     }
