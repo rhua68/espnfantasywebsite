@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-import { getFirestore, doc, getDoc, collection, query, where, onSnapshot, updateDoc, deleteDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { getFirestore, doc, addDoc, getDoc, collection, query, where, onSnapshot, updateDoc, deleteDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyBb9gMG8_QbHApFJ9wWIBANAd05qWrPTZw",
@@ -42,7 +42,7 @@ export async function handleLogout() {
 // --- NOTIFICATION & FINALIZATION LOGIC ---
 
 async function sendDiscordNotification(tradeData, type = "finalized") {
-    const webhookURL = "YOUR_DISCORD_WEBHOOK_URL"; // Replace with your URL
+    const webhookURL = "https://discord.com/api/webhooks/1472118060746801235/Wdx5NnfYO-M4aKaCCVwBeT76psv8hvgjLGf7kBy3ssYbEkY_yBLjdsXgEDjxcADompKH"; // Replace with your URL
     const isVote = type === "voting";
     
     const message = {
@@ -202,7 +202,7 @@ $(document).on('click', '.vote-btn', async function() {
             console.error("❌ Error transferring picks:", pickErr);
         }
 
-        
+
         // Push Players to ESPN
         if (window.sendTradeToESPN) {
             const success = await window.sendTradeToESPN(data);
@@ -213,6 +213,9 @@ $(document).on('click', '.vote-btn', async function() {
                 alert("⚠️ Consensus met, but ESPN player sync failed. Check Vercel logs.");
             }
         }
+
+        //hide trading modal after trade concluded
+        $('.modal').modal('hide');
 
         // write to firebase trade_history collection
         await addDoc(collection(db, "trade_history"), {
