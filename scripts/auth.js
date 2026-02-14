@@ -62,8 +62,9 @@ async function sendDiscordNotification(tradeData, type = "finalized") {
         content: isVote ? "🗳️ **NEW LEAGUE POLL OPENED!**" : "🚨 **TRADE FINALIZED BY LEAGUE CONSENSUS!**",
         embeds: [{
             title: isVote ? "Vote Required" : "Consensus Reached",
+            url: "https://espnfantasywebsite-igh9kbiuk-rhua68s-projects.vercel.app/",
             description: isVote 
-                ? `${senderName} and ${receiverName} have proposed a deal.\n\n🔗 **[Cast your vote on the website](https://espnfantasywebsite-igh9kbiuk-rhua68s-projects.vercel.app/)**` 
+                ? `${senderName} and ${receiverName} have proposed a deal.` 
                 : "The trade has been officially pushed to ESPN.",
             fields: [
                 { 
