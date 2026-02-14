@@ -38,7 +38,9 @@ async function generateAnnualPicks(newYear) {
                     collection(db, "draft_picks"),
                     where("year", "==", newYear),
                     where("round", "==", round),
-                    where("originalOwner", "==", team.name)
+                    where("originalOwner", "==", team.name),
+                    where("originalOwnerId", "==", team.id)
+
                 );
                 
                 const existing = await getDocs(q);
@@ -51,7 +53,8 @@ async function generateAnnualPicks(newYear) {
                 await addDoc(collection(db, "draft_picks"), {
                     year: newYear,
                     round: round,
-                    originalOwner: team.name,
+                    originalOwnerId: team.id,
+                    originalOwnerName: team.name,
                     currentOwnerId: team.id, // Defaults to the original owner
                     type: "Rookie"
                 });
