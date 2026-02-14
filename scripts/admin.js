@@ -1,4 +1,30 @@
-import { collection, addDoc, query, where, getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { 
+    getFirestore, 
+    doc, 
+    addDoc, 
+    getDocs, 
+    collection, 
+    query, 
+    where, 
+    deleteDoc, 
+    serverTimestamp 
+} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+// --- INITIALIZATION ---
+// This assumes window.db is already initialized in auth.js. 
+// If not, uncomment the config below:
+/*
+const firebaseConfig = { ... };
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+*/
+
+const db = window.db;
+
+/* ============================================================
+   1. DRAFT PICK SEEDER LOGIC
+   ============================================================ */
 
 $(document).on('click', '#runSeederBtn', async function() {
     const year = parseInt($('#seedYearSelect').val());
@@ -21,23 +47,25 @@ $(document).on('click', '#runSeederBtn', async function() {
 
         for (const team of teams) {
             for (const round of rounds) {
-                // Check if this specific pick already exists
+                // Safety Check: Use ID for duplicate prevention
                 const q = query(
-                    collection(window.db, "draft_picks"),
+                    collection(db, "draft_picks"),
                     where("year", "==", year),
                     where("round", "==", round),
-                    where("originalOwner", "==", team.name)
+                    where("originalOwnerId", "==", team.id)
                 );
                 
                 const existing = await getDocs(q);
                 
                 if (existing.empty) {
-                    await addDoc(collection(window.db, "draft_picks"), {
+                    await addDoc(collection(db, "draft_picks"), {
                         year: year,
                         round: round,
-                        originalOwner: team.name,
+                        originalOwnerId: team.id,     // Robust ID reference
+                        originalOwnerName: team.name, // Display reference
                         currentOwnerId: team.id,
-                        type: "Rookie"
+                        type: "Rookie",
+                        createdAt: serverTimestamp()
                     });
                     addedCount++;
                 } else {
@@ -45,11 +73,53 @@ $(document).on('click', '#runSeederBtn', async function() {
                 }
             }
         }
-
-        status.addClass('text-success').text(`Done! Added ${addedCount} picks. (Skipped ${skipCount} duplicates)`);
+        status.removeClass('text-info').addClass('text-success').text(`Done! Added ${addedCount} picks. (Skipped ${skipCount} duplicates)`);
     } catch (err) {
         console.error(err);
-        status.addClass('text-danger').text('Error: ' + err.message);
+        status.removeClass('text-info').addClass('text-danger').text('Error: ' + err.message);
+    } finally {
+        btn.prop('disabled', false);
+        spinner.addClass('d-none');
+    }
+});
+
+/* ============================================================
+   2. DANGER ZONE: WIPE ALL PICKS
+   ============================================================ */
+
+$(document).on('click', '#clearPicksBtn', async function() {
+    const btn = $(this);
+    const spinner = $('#clearSpinner');
+    const status = $('#clearStatus');
+
+    // Triple-check confirmation
+    if (!confirm("🚨 WARNING: This will delete EVERY pick in the database. Are you sure?")) return;
+    if (!confirm("This action is permanent. Do you really want to proceed?")) return;
+
+    btn.prop('disabled', true);
+    spinner.removeClass('d-none');
+    status.removeClass('text-success text-danger').addClass('text-info').text('Wiping database...');
+
+    try {
+        const picksRef = collection(db, "draft_picks");
+        const snapshot = await getDocs(picksRef);
+
+        if (snapshot.empty) {
+            status.text('Database is already empty.');
+            return;
+        }
+
+        // Delete documents one by one
+        const deletePromises = [];
+        snapshot.forEach((docSnap) => {
+            deletePromises.push(deleteDoc(doc(db, "draft_picks", docSnap.id)));
+        });
+
+        await Promise.all(deletePromises);
+        status.removeClass('text-info').addClass('text-success').text(`Success! Removed ${snapshot.size} picks.`);
+    } catch (err) {
+        console.error("Wipe Error:", err);
+        status.removeClass('text-info').addClass('text-danger').text('Error: ' + err.message);
     } finally {
         btn.prop('disabled', false);
         spinner.addClass('d-none');
