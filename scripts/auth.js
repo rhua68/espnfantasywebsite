@@ -63,7 +63,7 @@ async function sendDiscordNotification(tradeData, type = "finalized") {
         embeds: [{
             title: isVote ? "Vote Required" : "Consensus Reached",
             description: isVote 
-                ? `${senderName} and ${receiverName} have proposed a deal.` 
+                ? `${senderName} and ${receiverName} have proposed a deal.\n\n🔗 **[Cast your vote on the website](https://espnfantasywebsite-igh9kbiuk-rhua68s-projects.vercel.app/)**` 
                 : "The trade has been officially pushed to ESPN.",
             fields: [
                 { 
@@ -79,7 +79,7 @@ async function sendDiscordNotification(tradeData, type = "finalized") {
             ],
             color: isVote ? 3447003 : 16758981,
             // Added a footer with the link to your site
-            footer: { text: "Go to the website to cast your vote!" }
+            footer: { text: "DynastyHQ Trade Portal" }
         }]
     };
 
