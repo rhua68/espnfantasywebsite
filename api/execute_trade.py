@@ -43,7 +43,7 @@ class handler(BaseHTTPRequestHandler):
 
             # 3. Fetch current league status
             current_period = 114
-            status_url = f"https://lm-api-reads.fantasy.fantasy.espn.com/apis/v3/games/fba/seasons/2026/segments/0/leagues/{league_id}?view=mStatus"
+            status_url = f"https://lm-api-reads.fantasy.espn.com/apis/v3/games/fba/seasons/2026/segments/0/leagues/{league_id}?view=mStatus"
             status_res = requests.get(status_url, cookies=cookies, headers=headers, timeout=5)
             if status_res.status_code == 200:
                 current_period = status_res.json().get('status', {}).get('currentScoringPeriod', 114)
