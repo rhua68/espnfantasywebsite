@@ -2,6 +2,13 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebas
 import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 import { getFirestore, doc, addDoc, getDoc, getDocs, collection, query, where, onSnapshot, updateDoc, deleteDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
+const getTeamName=(id) => {
+        if(!window.allData || !window.allData.rosters) return `Team ${id}`;
+        const team = window.allData.rosters.find(r=>r.id == id);
+        return team ? team.name : `Team ${id}`;
+    }
+
+
 const firebaseConfig = {
     apiKey: "AIzaSyBb9gMG8_QbHApFJ9wWIBANAd05qWrPTZw",
     authDomain: "dynastyhq-e9aa7.firebaseapp.com",
@@ -39,17 +46,14 @@ export async function handleLogout() {
     }
 }
 
+
 // --- NOTIFICATION & FINALIZATION LOGIC ---
 
 async function sendDiscordNotification(tradeData, type = "finalized") {
     const webhookURL = "https://discord.com/api/webhooks/1472118060746801235/Wdx5NnfYO-M4aKaCCVwBeT76psv8hvgjLGf7kBy3ssYbEkY_yBLjdsXgEDjxcADompKH"; // Replace with your URL
     const isVote = type === "voting";
 
-    const getTeamName=(id) => {
-        if(!window.allData || !window.allData.rosters) return `Team ${id}`;
-        const team = window.allData.rosters.find(r=>r.id == id);
-        return team ? team.name : `Team ${id}`;
-    }
+    
 
     const senderName = getTeamName(tradeData.senderId);
     const receiverName = getTeamName(tradeData.receiverId);
@@ -249,7 +253,7 @@ $(document).on('click', '.vote-btn', async function() {
         // Update trade status to accepted
         await updateDoc(tradeRef, { status: "accepted", finalizedAt: serverTimestamp() });
 
-        
+
         // --- NEW: UPDATE DRAFT PICK OWNERSHIP IN FIRESTORE ---
         try {
             await processDraftPickTransfer(data);
@@ -274,11 +278,17 @@ $(document).on('click', '.vote-btn', async function() {
 
         // write to firebase trade_history collection
         await addDoc(collection(db, "trade_history"), {
+            tradeId: tradeId,
             senderId: data.senderId,
+            senderName: getTeamName(data.senderId),
             receiverId: data.receiverId,
-            senderAssets: data.senderAssets,
-            receiverAssets: data.receiverAssets,
+            receiverName: getTeamName(data.receiverId),
+            assetsSent: data.senderAssets,
+            assetsReceived: data.receiverAssets,
+            type: data.senderPlayerIds.length > 0 && data.receiverPlayerIds.length > 0 ? "Players-Only" : "Pick-Involved",
             finalizedAt: serverTimestamp()
+
+            
         });
 
         
@@ -322,6 +332,9 @@ async function processDraftPickTransfer(tradeData) {
         }
     }
 }
+
+window.getTeamName = getTeamName;
+window.sendDiscordNotification = sendDiscordNotification;
 
 $(document).ready(function() {
     $('#doLogin').on('click', function() {
