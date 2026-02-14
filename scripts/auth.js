@@ -88,78 +88,99 @@ onAuthStateChanged(auth, async (user) => {
                 }
             }
 
-            // --- LIVE LEAGUE POLLS (Visible to all logged-in users) ---
+            // --- LIVE LEAGUE POLLS ---
             const votingQuery = query(collection(db, "pending_trades"), where("status", "==", "voting"));
+            
             onSnapshot(votingQuery, (snapshot) => {
                 const pollSection = $('#league-polls-section');
-                const pollList = $('#polls-list').empty();
+                const pollList = $('#polls-list');
 
                 if (snapshot.empty) { 
                     pollSection.addClass('d-none'); 
+                    pollList.empty();
                 } else {
                     pollSection.removeClass('d-none');
-                    snapshot.forEach(async (docSnap) => {
-                        const trade = docSnap.data();
-                        const tradeId = docSnap.id;
-                        const votes = trade.votes || {};
 
-                        // 1. Check for 24-hour expiration
-                        if (trade.timestamp) {
-                            const now = Math.floor(Date.now() / 1000);
-                            if ((now - trade.timestamp.seconds) / 3600 >= 24) {
-                                await deleteDoc(doc(db, "pending_trades", tradeId));
-                                return;
-                            }
+                    snapshot.docChanges().forEach(async (change) => {
+                        const tradeId = change.doc.id;
+
+                        // HANDLE REMOVAL: When status changes from 'voting' to 'accepted' or doc is deleted
+                        if (change.type === "removed") {
+                            $(`[data-poll-id="${tradeId}"]`).fadeOut(300, function() {
+                                $(this).remove();
+                                if (pollList.children().length === 0) pollSection.addClass('d-none');
+                            });
+                            return;
                         }
 
-                        // 2. Calculate Vote Counts
-                        const approves = Object.values(votes).filter(v => v === 'approve').length;
-                        const vetoes = Object.values(votes).filter(v => v === 'veto').length;
-                        
-                        // 3. User-Specific Vote State
-                        const currentVote = votes[window.currentUserTeamId]; // 'approve', 'veto', or undefined
-                        const hasVoted = !!currentVote;
+                        // HANDLE ADD/UPDATE
+                        if (change.type === "added" || change.type === "modified") {
+                            const trade = change.doc.data();
+                            const votes = trade.votes || {};
 
-                        // 4. UI Styling logic
-                        const glowClass = vetoes > 0 ? 'border-veto' : 'border-sakura';
-                        const statusLabel = vetoes > 0 ? '⚠️ Trade Contested' : '🗳️ League Vote In Progress';
+                            // 1. Expiration check (Keep logic inside listener)
+                            if (trade.timestamp) {
+                                const now = Math.floor(Date.now() / 1000);
+                                if ((now - trade.timestamp.seconds) / 3600 >= 24) {
+                                    await deleteDoc(doc(db, "pending_trades", tradeId));
+                                    return;
+                                }
+                            }
 
-                        pollList.append(`
-                            <div class="col-md-6 mb-3">
-                                <div class="card ${glowClass} p-3 shadow-sm" style="background: black !important; overflow: visible !important;">
-                                    <div class="x-small text-uppercase text-white opacity-75 fw-bold mb-1">
-                                        ${statusLabel}
-                                    </div>
-                                    
-                                    <div class="small text-white fw-bold mb-2">
-                                        ${trade.senderAssets.join(', ')} <span class="text-secondary">↔️</span> ${trade.receiverAssets.join(', ')}
-                                    </div>
-                                    
-                                    <div class="progress mb-2" style="height: 8px; background: #1a1a1a;">
-                                        <div class="progress-bar bg-success" style="width: ${(approves / 6) * 100}%; transition: 0.5s;"></div>
-                                    </div>
-                                    
-                                    <div class="d-flex justify-content-between x-small text-secondary mb-3">
-                                        <span class="text-white">${approves}/6 Approvals</span>
-                                        <span class="${hasVoted ? 'text-success' : 'text-warning'}">
-                                            ${vetoes > 0 ? `<span class="text-danger fw-bold">${vetoes} VETOS</span> | ` : ''}
-                                            ${hasVoted ? '✅ Recorded' : '⌛ Awaiting Vote'}
-                                        </span>
-                                    </div>
-                                    
-                                    <div class="d-flex gap-2">
-                                        <button class="btn btn-sm w-100 fw-bold vote-btn ${currentVote === 'approve' ? 'btn-success' : 'btn-outline-success'}" 
-                                                data-id="${tradeId}" data-type="approve">
-                                            ${currentVote === 'approve' ? '✅ Approved' : 'Approve'}
-                                        </button>
-                                        <button class="btn btn-sm w-100 fw-bold vote-btn ${currentVote === 'veto' ? 'btn-danger' : 'btn-outline-danger'}" 
-                                                data-id="${tradeId}" data-type="veto">
-                                            ${currentVote === 'veto' ? '🚫 Vetoed' : 'Veto'}
-                                        </button>
+                            // 2. Vote Counts
+                            const approves = Object.values(votes).filter(v => v === 'approve').length;
+                            const vetoes = Object.values(votes).filter(v => v === 'veto').length;
+                            const currentVote = votes[window.currentUserTeamId];
+                            const hasVoted = !!currentVote;
+
+                            // 3. UI Styling
+                            const glowClass = vetoes > 0 ? 'border-veto' : 'border-sakura';
+                            const statusLabel = vetoes > 0 ? '⚠️ Trade Contested' : '🗳️ League Vote In Progress';
+
+                            const pollHtml = `
+                                <div class="col-md-6 mb-3" data-poll-id="${tradeId}">
+                                    <div class="card ${glowClass} p-3 shadow-sm" style="background: black !important; overflow: visible !important;">
+                                        <div class="x-small text-uppercase text-white opacity-75 fw-bold mb-1">
+                                            ${statusLabel}
+                                        </div>
+                                        
+                                        <div class="small text-white fw-bold mb-2">
+                                            ${trade.senderAssets.join(', ')} <span class="text-secondary">↔️</span> ${trade.receiverAssets.join(', ')}
+                                        </div>
+                                        
+                                        <div class="progress mb-2" style="height: 8px; background: #1a1a1a;">
+                                            <div class="progress-bar bg-success" style="width: ${(approves / 6) * 100}%; transition: 0.5s;"></div>
+                                        </div>
+                                        
+                                        <div class="d-flex justify-content-between x-small text-secondary mb-3">
+                                            <span class="text-white">${approves}/6 Approvals</span>
+                                            <span class="${hasVoted ? 'text-success' : 'text-warning'}">
+                                                ${vetoes > 0 ? `<span class="text-danger fw-bold">${vetoes} VETOS</span> | ` : ''}
+                                                ${hasVoted ? '✅ Recorded' : '⌛ Awaiting Vote'}
+                                            </span>
+                                        </div>
+                                        
+                                        <div class="d-flex gap-2">
+                                            <button class="btn btn-sm w-100 fw-bold vote-btn ${currentVote === 'approve' ? 'btn-success' : 'btn-outline-success'}" 
+                                                    data-id="${tradeId}" data-type="approve">
+                                                ${currentVote === 'approve' ? '✅ Approved' : 'Approve'}
+                                            </button>
+                                            <button class="btn btn-sm w-100 fw-bold vote-btn ${currentVote === 'veto' ? 'btn-danger' : 'btn-outline-danger'}" 
+                                                    data-id="${tradeId}" data-type="veto">
+                                                ${currentVote === 'veto' ? '🚫 Vetoed' : 'Veto'}
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        `);
+                            `;
+
+                            const existing = $(`[data-poll-id="${tradeId}"]`);
+                            if (existing.length) {
+                                existing.replaceWith(pollHtml);
+                            } else {
+                                pollList.append(pollHtml);
+                            }
+                        }
                     });
                 }
             });
@@ -170,9 +191,9 @@ onAuthStateChanged(auth, async (user) => {
         adminLink.addClass('d-none');
         window.currentUserTeamId = null;
         $('#league-polls-section').addClass('d-none'); 
+        $('#polls-list').empty();
     }
 });
-
 // --- VOTING ACTIONS ---
 
 $(document).on('click', '.vote-btn', async function() {
