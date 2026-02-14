@@ -71,10 +71,10 @@ class handler(BaseHTTPRequestHandler):
             expiration = (datetime.utcnow() + timedelta(days=2)).strftime("%Y-%m-%dT%H:%M:%S.%f")[:-3] + "Z"
             
             espn_payload = {
-                "isLeagueManager": True,
+                "isLeagueManager": False,
                 "teamId": int(data['senderId']),
                 "type": "TRADE_PROPOSAL",
-                "executionType": "EXECUTE",
+                "executionType": "INITIAL",
                 "expirationDate": expiration,
                 "items": [],
                 "memberId": swid,
