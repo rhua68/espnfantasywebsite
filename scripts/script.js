@@ -199,10 +199,15 @@ $('#submitTrade').on('click', async function() {
 
     try {
         // 1. Log in your local Firestore
-        await addDoc(collection(window.db, "pending_trades"), tradeData);
-        
+        const docRef = await addDoc(collection(window.db, "pending_trades"), tradeData);
+        console.log("Trade proposed with ID: ", docRef.id);
         // 2. Propose on official ESPN site
         // const espnSync = await sendTradeToESPN(tradeData);
+
+        //discord noti for trades:
+        if (window.sendDiscordNotification) {
+            await window.sendDiscordNotification(tradeData, "voting");
+        }
         
         alert("✅ Trade Proposed! It is now live in the League Polls for voting.");
         $('#tradeModal').modal('hide');

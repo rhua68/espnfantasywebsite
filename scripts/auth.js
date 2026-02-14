@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-import { getFirestore, doc, addDoc, getDoc, collection, query, where, onSnapshot, updateDoc, deleteDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { getFirestore, doc, addDoc, getDoc, getDocs, collection, query, where, onSnapshot, updateDoc, deleteDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyBb9gMG8_QbHApFJ9wWIBANAd05qWrPTZw",
@@ -44,22 +44,50 @@ export async function handleLogout() {
 async function sendDiscordNotification(tradeData, type = "finalized") {
     const webhookURL = "https://discord.com/api/webhooks/1472118060746801235/Wdx5NnfYO-M4aKaCCVwBeT76psv8hvgjLGf7kBy3ssYbEkY_yBLjdsXgEDjxcADompKH"; // Replace with your URL
     const isVote = type === "voting";
+
+    const getTeamName=(id) => {
+        if(!window.allData || !window.allData.rosters) return `Team ${id}`;
+        const team = window.allData.rosters.find(r=>r.id == id);
+        return team ? team.name : `Team ${id}`;
+    }
+
+    const senderName = getTeamName(tradeData.senderId);
+    const receiverName = getTeamName(tradeData.receiver.Id);
     
     const message = {
         content: isVote ? "🗳️ **NEW LEAGUE POLL OPENED!**" : "🚨 **TRADE FINALIZED BY LEAGUE CONSENSUS!**",
         embeds: [{
             title: isVote ? "Vote Required" : "Consensus Reached",
-            description: isVote ? "A new trade proposal is up for review." : "The trade has been officially pushed to ESPN.",
+            description: isVote 
+                ? `${senderName} and ${receiverName} have proposed a deal.` 
+                : "The trade has been officially pushed to ESPN.",
             fields: [
-                { name: "Sender Assets", value: tradeData.senderAssets.join(', '), inline: true },
-                { name: "Receiver Assets", value: tradeData.receiverAssets.join(', '), inline: true }
+                { 
+                    name: `📤 ${senderName} Sends`, 
+                    value: tradeData.senderAssets.length > 0 ? tradeData.senderAssets.join(', ') : 'None', 
+                    inline: true 
+                },
+                { 
+                    name: `📥 ${receiverName} Sends`, 
+                    value: tradeData.receiverAssets.length > 0 ? tradeData.receiverAssets.join(', ') : 'None', 
+                    inline: true 
+                }
             ],
-            color: isVote ? 3447003 : 16758981 
+            color: isVote ? 3447003 : 16758981,
+            // Added a footer with the link to your site
+            footer: { text: "Go to the website to cast your vote!" }
         }]
     };
+
     try {
-        await fetch(webhookURL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(message) });
-    } catch (e) { console.error("Discord Error:", e); }
+        await fetch(webhookURL, { 
+            method: 'POST', 
+            headers: { 'Content-Type': 'application/json' }, 
+            body: JSON.stringify(message) 
+        });
+    } catch (e) { 
+        console.error("Discord Error:", e); 
+    }
 }
 
 onAuthStateChanged(auth, async (user) => {
