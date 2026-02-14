@@ -74,10 +74,9 @@ class handler(BaseHTTPRequestHandler):
                 "isLeagueManager": True,
                 "teamId": admin_team_id,
                 "type": "TRADE_PROPOSAL",
-                "executionType": "INITIAL",
+                "executionType": "EXECUTE",
                 "expirationDate": expiration,
                 "items": [],
-                "memberId": swid,
                 "scoringPeriodId": current_period
             }
             
