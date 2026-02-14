@@ -42,18 +42,36 @@ class handler(BaseHTTPRequestHandler):
             # --- END: PICK-ONLY PROTECTION ---
 
             # 3. Fetch current league status
-            current_period = 114
-            status_url = f"https://lm-api-reads.fantasy.espn.com/apis/v3/games/fba/seasons/2026/segments/0/leagues/{league_id}?view=mStatus"
-            status_res = requests.get(status_url, cookies=cookies, headers=headers, timeout=5)
-            if status_res.status_code == 200:
-                current_period = status_res.json().get('status', {}).get('currentScoringPeriod', 114)
+            current_period = 114 # Keep as a hard fallback
+            try:
+                status_url = f"https://lm-api-reads.fantasy.espn.com/apis/v3/games/fba/seasons/2026/segments/0/leagues/{league_id}?view=mStatus"
+                status_res = requests.get(status_url, cookies=cookies, headers=headers, timeout=5)
+                
+                if status_res.status_code == 200:
+                    status_data = status_res.json().get('status', {})
+                    
+                    # Priority: isActive > currentScoringPeriod > latestScoringPeriod
+                    # This handles the 'Overnight Rollover' window specifically
+                    period_options = [
+                        status_data.get('isActiveScoringPeriod'),
+                        status_data.get('currentScoringPeriod'),
+                        status_data.get('latestScoringPeriod')
+                    ]
+                    
+                    # Pick the first one that isn't None/0
+                    current_period = next((p for p in period_options if p), 114)
+                    print(f"DEBUG: Selected Scoring Period: {current_period}", file=sys.stderr)
+                else:
+                    print(f"DEBUG: Status API Failed ({status_res.status_code}). Using 114.", file=sys.stderr)
+            except Exception as e:
+                print(f"ERROR Fetching Status: {e}", file=sys.stderr)
 
             # 4. Build ESPN Payload
             url = f"https://lm-api-writes.fantasy.espn.com/apis/v3/games/fba/seasons/2026/segments/0/leagues/{league_id}/transactions/?platformVersion=939dee45e5bc09d6156830875454f77275346525"
             expiration = (datetime.utcnow() + timedelta(days=2)).strftime("%Y-%m-%dT%H:%M:%S.%f")[:-3] + "Z"
             
             espn_payload = {
-                "isLeagueManager": False,
+                "isLeagueManager": True,
                 "teamId": int(data['senderId']),
                 "type": "TRADE_PROPOSAL",
                 "executionType": "EXECUTE",
