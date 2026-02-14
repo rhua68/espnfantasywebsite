@@ -1,4 +1,6 @@
 from espn_api.basketball import League
+import os
+from dotenv import load_dotenv
 import json
 from datetime import datetime
 import requests
@@ -21,16 +23,18 @@ cert_dict = {
     "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs"
 }
 
+# Initialize Firebase only once
 if not firebase_admin._apps:
     cred = credentials.Certificate(cert_dict)
     firebase_admin.initialize_app(cred)
+
 # --- CONFIGURATION ---
 LEAGUE_ID = int(os.environ.get('LEAGUE_ID', 257157556))
 YEARS = [2025, 2026] 
 ESPN_S2 = os.environ.get('ESPN_S2')
 SWID = os.environ.get('SWID')
-cred = credentials.Certificate('serviceAccountKey.json')
-firebase_admin.initialize_app(cred)
+
+# Get Firestore client
 db = firestore.client()
 
 def get_season_trades(year):
@@ -249,15 +253,6 @@ def main():
     for team in league.teams:
         print(f"Name: {team.team_name} | ID: {team.team_id}")
     print("---------------------------\n")
-
-    master_data = {
-        "updated": datetime.now().strftime("%m/%d/%Y %I:%M %p"),
-        "seasons": {},
-        "rosters": get_current_rosters(),
-        "trade_block": get_trade_block()
-    }
-    
-
 
 if __name__ == "__main__":
     main()

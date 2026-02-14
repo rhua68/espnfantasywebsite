@@ -178,7 +178,7 @@ onAuthStateChanged(auth, async (user) => {
                                         </div>
                                         
                                         <div class="small text-white fw-bold mb-2">
-                                            ${trade.senderAssets.join(', ')} <span class="text-secondary">↔️</span> ${trade.receiverAssets.join(', ')}
+                                            ${(trade.senderAssets || []).join(', ')} <span class="text-secondary">↔️</span> ${(trade.receiverAssets || []).join(', ')}
                                         </div>
                                         
                                         <div class="progress mb-2" style="height: 8px; background: #1a1a1a;">

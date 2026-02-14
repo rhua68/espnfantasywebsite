@@ -6,3 +6,16 @@
     box-shadow: 0 0 0 0.25rem rgba(255, 183, 197, 0.25);
     border-color: #ffb7c5;
 }
+
+/* Greys out the disabled placeholder option inside the dropdown list */
+select option:disabled {
+    color: #6c757d; /* Bootstrap secondary grey */
+}
+
+/* Optional: If you want the select box itself to look grey until changed */
+#manualOrigOwner:has(option:checked:disabled) {
+    color: #6c757d !important;
+}
+#manualNewOwner:has(option:checked:disabled) {
+    color: #6c757d !important;
+}
