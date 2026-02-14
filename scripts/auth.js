@@ -193,20 +193,78 @@ $(document).on('click', '.vote-btn', async function() {
         alert("🚨 Trade Vetoed. It will be removed from the league polls.");
         await deleteDoc(tradeRef);
     } else if (approves >= 2) { // ❗❗FOR TESTING CHANGE BACK TO 6 FOR PRODUCTION❗❗
-        await updateDoc(tradeRef, { status: "accepted", finalizedAt: serverTimestamp() });
         
-        // Push to ESPN
+        // --- NEW: UPDATE DRAFT PICK OWNERSHIP IN FIRESTORE ---
+        try {
+            await processDraftPickTransfer(data);
+            console.log("✅ Firestore Pick Ownership Updated");
+        } catch (pickErr) {
+            console.error("❌ Error transferring picks:", pickErr);
+        }
+
+        
+        // Push Players to ESPN
         if (window.sendTradeToESPN) {
             const success = await window.sendTradeToESPN(data);
             if (success) {
-                alert("✅ Consensus met! Trade pushed to ESPN.");
+                alert("✅ Consensus met! Trade pushed to ESPN & Picks updated.");
                 await sendDiscordNotification(data, "finalized");
             } else {
-                alert("⚠️ Consensus met, but ESPN sync failed. Check Vercel logs.");
+                alert("⚠️ Consensus met, but ESPN player sync failed. Check Vercel logs.");
+            }
+        }
+
+        // write to firebase trade_history collection
+        await addDoc(collection(db, "trade_history"), {
+            senderId: data.senderId,
+            receiverId: data.receiverId,
+            senderAssets: data.senderAssets,
+            receiverAssets: data.receiverAssets,
+            finalizedAt: serverTimestamp()
+        });
+
+        // Update trade status to accepted
+        await updateDoc(tradeRef, { status: "accepted", finalizedAt: serverTimestamp() });
+        
+        
+    }
+});
+
+// --- HELPER FUNCTION: TRANSFER PICK OWNERSHIP ---
+async function processDraftPickTransfer(tradeData) {
+    const transfers = [
+        { assets: tradeData.senderAssets, newOwnerId: tradeData.receiverId },
+        { assets: tradeData.receiverAssets, newOwnerId: tradeData.senderId }
+    ];
+
+    for (const group of transfers) {
+        for (const assetName of group.assets) {
+            // Regex to find strings like "2026 Rd 1"
+            const pickMatch = assetName.match(/(\d{4}) Rd (\d+)/);
+            if (pickMatch) {
+                const year = parseInt(pickMatch[1]);
+                const round = parseInt(pickMatch[2]);
+
+                // Query for the specific pick
+                const q = query(
+                    collection(db, "draft_picks"),
+                    where("year", "==", year),
+                    where("round", "==", round)
+                );
+
+                const snap = await getDocs(q);
+                // Update the currentOwnerId for any matching pick found
+                const updatePromises = [];
+                snap.forEach((docSnap) => {
+                    updatePromises.push(updateDoc(doc(db, "draft_picks", docSnap.id), {
+                        currentOwnerId: group.newOwnerId
+                    }));
+                });
+                await Promise.all(updatePromises);
             }
         }
     }
-});
+}
 
 $(document).ready(function() {
     $('#doLogin').on('click', function() {

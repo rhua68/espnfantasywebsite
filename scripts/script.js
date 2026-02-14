@@ -204,7 +204,7 @@ $('#submitTrade').on('click', async function() {
         // 2. Propose on official ESPN site
         // const espnSync = await sendTradeToESPN(tradeData);
         
-        alert(espnSync ? "✅ Trade Proposed on Site!" : "⚠️ Trade saved locally, but failed to sync with ESPN. Please contact the commissioner.");
+        alert("✅ Trade Proposed! It is now live in the League Polls for voting.");
         $('#tradeModal').modal('hide');
     } catch (e) {
         console.error(e);
@@ -266,29 +266,104 @@ function setupYearDropdown(seasons) {
     });
 }
 
-function loadYearData(year) {
+// function loadYearData(year) {
+//     const trades = window.allData.seasons[year] || [];
+//     if ($.fn.DataTable.isDataTable('#trades-table')) $('#trades-table').DataTable().destroy();
+    
+//     $('#trades-table').DataTable({
+//         data: trades,
+//         columns: [
+//             { data: 'date', width: '15%' },
+//             { 
+//                 data: null,
+//                 render: row => `
+//                     <div class="trade-assets-container p-2">
+//                         <div class="row text-center position-relative g-0">
+//                             <div class="col-12 col-md-6 pb-3 pb-md-0 border-bottom-mobile">
+//                                 <div class="text-primary x-small fw-bold mb-1">${row.teams[0]} SENT:</div>
+//                                 <div class="small fw-bold text-white">${row.assets.filter(a => a.from === row.teams[0]).map(a => a.player).join("<br>")}</div>
+//                             </div>
+//                             <div class="col-12 col-md-6 pt-3 pt-md-0">
+//                                 <div class="text-info x-small fw-bold mb-1">${row.teams[1]} SENT:</div>
+//                                 <div class="small fw-bold text-white">${row.assets.filter(a => a.from === row.teams[1]).map(a => a.player).join("<br>")}</div>
+//                             </div>
+//                         </div>
+//                     </div>`
+//             }
+//         ],
+//         order: [[0, 'desc']],
+//         responsive: true,
+//         dom: 'rtp'
+//     });
+// }
+
+async function loadYearData(year) {
     const trades = window.allData.seasons[year] || [];
+    
+    // 1. Fetch "Off-Book" Assets (Picks) from Firestore
+    let extraAssets = [];
+    try {
+        const historySnap = await getDocs(collection(window.db, "trade_history"));
+        extraAssets = historySnap.docs.map(doc => doc.data());
+    } catch (err) {
+        console.error("Error fetching pick history:", err);
+    }
+
+    // 2. Merge Firestore Picks into the Scraped ESPN Trades
+    const mergedTrades = trades.map(trade => {
+        // Find a matching trade in Firestore based on sender and date proximity
+        // ESPN dates usually match the day of the finalizedAt timestamp
+        const match = extraAssets.find(f => 
+            f.senderId === trade.senderId && 
+            new Date(f.finalizedAt.seconds * 1000).toLocaleDateString() === new Date(trade.date).toLocaleDateString()
+        );
+
+        if (match) {
+            // Add any picks found in Firestore that aren't already in the ESPN assets
+            match.senderAssets.forEach(asset => {
+                if (asset.includes("Rd") && !trade.assets.some(a => a.player === asset)) {
+                    trade.assets.push({ from: trade.teams[0], player: `🎫 ${asset}` });
+                }
+            });
+            match.receiverAssets.forEach(asset => {
+                if (asset.includes("Rd") && !trade.assets.some(a => a.player === asset)) {
+                    trade.assets.push({ from: trade.teams[1], player: `🎫 ${asset}` });
+                }
+            });
+        }
+        return trade;
+    });
+
+    // 3. Render the Table with Merged Data
     if ($.fn.DataTable.isDataTable('#trades-table')) $('#trades-table').DataTable().destroy();
     
     $('#trades-table').DataTable({
-        data: trades,
+        data: mergedTrades,
         columns: [
             { data: 'date', width: '15%' },
             { 
                 data: null,
-                render: row => `
+                render: row => {
+                    const team0 = row.teams[0];
+                    const team1 = row.teams[1];
+                    
+                    const team0Assets = row.assets.filter(a => a.from === team0).map(a => a.player).join("<br>");
+                    const team1Assets = row.assets.filter(a => a.from === team1).map(a => a.player).join("<br>");
+
+                    return `
                     <div class="trade-assets-container p-2">
                         <div class="row text-center position-relative g-0">
                             <div class="col-12 col-md-6 pb-3 pb-md-0 border-bottom-mobile">
-                                <div class="text-primary x-small fw-bold mb-1">${row.teams[0]} SENT:</div>
-                                <div class="small fw-bold text-white">${row.assets.filter(a => a.from === row.teams[0]).map(a => a.player).join("<br>")}</div>
+                                <div class="text-primary x-small fw-bold mb-1">${team0.toUpperCase()} SENT:</div>
+                                <div class="small fw-bold text-white">${team0Assets || '<span class="text-secondary opacity-50">No Players</span>'}</div>
                             </div>
                             <div class="col-12 col-md-6 pt-3 pt-md-0">
-                                <div class="text-info x-small fw-bold mb-1">${row.teams[1]} SENT:</div>
-                                <div class="small fw-bold text-white">${row.assets.filter(a => a.from === row.teams[1]).map(a => a.player).join("<br>")}</div>
+                                <div class="text-info x-small fw-bold mb-1">${team1.toUpperCase()} SENT:</div>
+                                <div class="small fw-bold text-white">${team1Assets || '<span class="text-secondary opacity-50">No Players</span>'}</div>
                             </div>
                         </div>
-                    </div>`
+                    </div>`;
+                }
             }
         ],
         order: [[0, 'desc']],
