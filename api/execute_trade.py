@@ -71,7 +71,7 @@ class handler(BaseHTTPRequestHandler):
             # 2. teamId = admin_team_id (Matches the SWID owner)
             # 3. executionType = "EXECUTE" (Forces the trade now)
             espn_payload = {
-                "isLeagueManager": True,
+                "isLeagueManager": False,
                 "teamId": admin_team_id,
                 "type": "TRADE_PROPOSAL",
                 "executionType": "EXECUTE",
