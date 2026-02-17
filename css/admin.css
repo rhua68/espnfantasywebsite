@@ -19,3 +19,12 @@ select option:disabled {
 #manualNewOwner:has(option:checked:disabled) {
     color: #6c757d !important;
 }
+
+
+#picksTableContainer {
+    overflow: hidden; /* Ensures smooth sliding */
+}
+
+#picksTableContainer {
+    transition: all 0.3s ease;
+}

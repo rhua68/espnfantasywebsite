@@ -147,3 +147,232 @@
 .border-sakura {
     border: 2px solid #ffb7c5 !important;
 }
+
+.traded-glow {
+    /* Subtle background tint that spans the whole width */
+    background: linear-gradient(90deg, 
+        rgba(0, 212, 255, 0.1) 0%, 
+        rgba(0, 212, 255, 0.02) 50%, 
+        rgba(0, 212, 255, 0.1) 100%) !important;
+
+    /* Left and Right vertical "caps" */
+    border-left: 3px solid #0dcaf0 !important;
+    border-right: 3px solid #0dcaf0 !important;
+
+    /* Glow coming from both sides */
+    box-shadow: 
+        inset 15px 0 20px -15px rgba(13, 202, 240, 0.5),
+        inset -15px 0 20px -15px rgba(13, 202, 240, 0.5) !important;
+    
+    /* Remove the left padding to fix the indentation */
+    padding-left: 0px !important; 
+    padding-right: 10px !important; /* Small gap for the right border */
+
+    /* Vertical breathing room */
+    padding-top: 15px !important;
+    padding-bottom: 15px !important;
+    
+    transition: all 0.3s ease;
+}
+
+.traded-glow:hover {
+    background: linear-gradient(90deg, 
+        rgba(0, 212, 255, 0.15) 0%, 
+        rgba(0, 212, 255, 0.05) 50%, 
+        rgba(0, 212, 255, 0.15) 100%) !important;
+    box-shadow: 
+        inset 25px 0 30px -15px rgba(13, 202, 240, 0.6),
+        inset -25px 0 30px -15px rgba(13, 202, 240, 0.6) !important;
+}
+
+/* ====================================
+   MOBILE RESPONSIVE FIXES - MODERN COMPACT DESIGN
+   ==================================== */
+
+/* Tablet and smaller - adjust stats grid */
+@media (max-width: 992px) {
+    .stats-grid {
+        min-width: 170px;
+        gap: 5px;
+    }
+    
+    .stat-box {
+        min-width: 32px;
+        padding: 2px 4px;
+    }
+}
+
+/* Mobile - Modern compact design */
+@media (max-width: 768px) {
+    .player-strip {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-rows: auto auto;
+        gap: 8px 10px;
+        padding: 10px !important;
+        align-items: start;
+    }
+    
+    /* Player image - compact circle */
+    .player-strip .player-img {
+        grid-row: 1 / 3; /* Spans both rows */
+        width: 55px !important;
+        height: 55px !important;
+        border-radius: 50%; /* Circle avatar */
+        object-fit: cover;
+        border: 2px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    /* Player name section */
+    .player-strip .d-flex:first-child {
+        grid-column: 2;
+        grid-row: 1;
+        align-self: center;
+        min-width: 0;
+        flex: none;
+    }
+    
+    /* Player name text */
+    .player-strip .d-flex:first-child .text-white {
+        font-size: 0.95rem;
+        font-weight: 600;
+        line-height: 1.2;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    /* Stats grid - second row, spans both columns */
+    .stats-grid {
+        grid-column: 1 / 3;
+        grid-row: 2;
+        width: 100%;
+        min-width: 0;
+        margin-top: -2px;
+        
+        overflow-x: auto;
+        overflow-y: hidden;
+        
+        /* Hide scrollbar */
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        
+        /* Smooth scrolling */
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+        
+        /* Modern styling */
+        background: rgba(13, 110, 253, 0.08);
+        border: 1px solid rgba(13, 110, 253, 0.15);
+        padding: 6px 8px;
+        border-radius: 8px;
+        
+        /* Flex layout */
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 5px;
+    }
+    
+    .stats-grid::-webkit-scrollbar {
+        display: none;
+    }
+    
+    /* Stat boxes - more compact */
+    .stat-box {
+        flex-shrink: 0;
+        min-width: 52px;
+        background: rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 4px 6px;
+        border-radius: 6px;
+    }
+    
+    .stat-label {
+        font-size: 0.5rem;
+        color: #00d1ff;
+        font-weight: 700;
+        letter-spacing: 0.3px;
+    }
+    
+    .stat-val {
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: #fff;
+        margin-top: 1px;
+    }
+    
+    /* Scroll indicator gradient */
+    .stats-grid::after {
+        content: '';
+        position: sticky;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 30px;
+        background: linear-gradient(to left, rgba(13, 110, 253, 0.15), transparent);
+        pointer-events: none;
+        border-radius: 0 8px 8px 0;
+        float: right;
+        margin-left: -30px;
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 576px) {
+    .player-strip {
+        padding: 8px !important;
+        gap: 6px 8px;
+    }
+    
+    .player-strip .player-img {
+        width: 50px !important;
+        height: 50px !important;
+    }
+    
+    .player-strip .d-flex:first-child .text-white {
+        font-size: 0.9rem;
+    }
+    
+    .stats-grid {
+        padding: 5px 6px;
+        gap: 4px;
+    }
+    
+    .stat-box {
+        min-width: 48px;
+        padding: 3px 5px;
+    }
+    
+    .stat-label {
+        font-size: 0.48rem;
+    }
+    
+    .stat-val {
+        font-size: 0.75rem;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 400px) {
+    .player-strip .player-img {
+        width: 45px !important;
+        height: 45px !important;
+    }
+    
+    .player-strip .d-flex:first-child .text-white {
+        font-size: 0.85rem;
+    }
+    
+    .stat-box {
+        min-width: 45px;
+        padding: 3px 4px;
+    }
+    
+    .stat-label {
+        font-size: 0.45rem;
+    }
+    
+    .stat-val {
+        font-size: 0.7rem;
+    }
+}

@@ -152,13 +152,17 @@ async function fetchPicksForTeam(teamId, teamName, targetContainer) {
 
         snapshot.forEach(doc => {
             const pick = doc.data();
+            const isTraded = pick.originalOwnerId !== pick.currentOwnerId;
+            
             targetContainer.append(`
-                <div class="pick-item d-flex justify-content-between align-items-center border-bottom border-secondary py-3">
-                    <div>
+                <div class="pick-item d-flex justify-content-between align-items-center border-bottom border-secondary py-3 ${isTraded ? 'traded-glow' : ''}">
+                    <div style="${isTraded ? 'margin-left: 10px;' : ''}">
                         <div class="text-white fw-bold">${pick.year} Round ${pick.round}</div>
-                        <div class="x-small text-secondary italic">Original: ${pick.originalOwner}</div>
+                        <div class="x-small text-secondary italic">Original: ${pick.originalOwnerName}</div>
                     </div>
-                    <span class="badge bg-dark border border-secondary text-info">ASSET</span>
+                    <span class="badge ${isTraded ? 'bg-info text-dark' : 'bg-dark border border-secondary text-info'} m-2">
+                        ${isTraded ? 'TRADED ASSET' : 'ASSET'}
+                    </span>
                 </div>
             `);
         });

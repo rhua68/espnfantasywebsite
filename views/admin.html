@@ -22,6 +22,11 @@
             border: 1px solid rgba(255, 255, 255, 0.1) !important;
             border-radius: 16px !important;
         }
+
+        .toggle-btn {
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
     </style>
 </head>
 <body class="bg-black text-white">
@@ -77,91 +82,118 @@
                 </div>
 
                 <div class="card admin-card mb-4 shadow-lg">
-    
-        <div class="card admin-card mb-4 shadow-lg">
-    <div class="card-header bg-black py-3 border-bottom border-secondary">
-        <h5 class="mb-0 text-info fw-bold">Manual Pick Adjustment</h5>
-    </div>
-    <div class="card-body p-4">
-        <p class="text-secondary small">Force change the owner of a specific draft pick. Use the dropdowns to ensure accuracy.</p>
-        
-        <div class="row g-3">
-            <div class="col-md-3">
-                <label class="small fw-bold text-secondary mb-1">Year</label>
-                <input type="number" id="manualYearSelect" class="form-control bg-dark text-white border-secondary" value="2026">
-            </div>
-            <div class="col-md-3">
-                <label class="small fw-bold text-secondary mb-1">Round</label>
-                <select id="manualRoundSelect" class="form-select bg-dark text-white border-secondary">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                </select>
-            </div>
-            <div class="col-md-6">
-                <label class="small fw-bold text-secondary mb-1">Original Owner (The "Name" on Pick)</label>
-                <select id="manualOrigOwner" class="form-select bg-dark text-white border-secondary">
-                    <option value ="" selected disabled clasee ="placeholder-style">-- Select Owner --</option>
-                    <option value="1">Ryan Hua</option>
-                    <option value="2">Collin Matsukiyo</option>
-                    <option value="3">Darrin Chung</option>
-                    <option value="4">Daniel Ho</option>
-                    <option value="5">Aidan Sakuma</option>
-                    <option value="6">Ryan Win</option>
-                    <option value="7">Tyler Bang</option>
-                    <option value="8">Eric Phan</option>
-                    <option value="9">Tanjirul Alam</option>
-                    <option value="10">Nathan Ngo</option>
-                    <option value="11">Daiki Narimoto</option>
-                    <option value="12">Kenny Ly</option>
-                </select>
-            </div>
-            <div class="col-md-12">
-                <label class="small fw-bold text-secondary mb-1">Move To (New Current Owner)</label>
-                <select id="manualNewOwner" class="form-select bg-dark text-white border-secondary">
-                    <option value ="" selected disabled clasee ="placeholder-style">-- Select Owner --</option>
-                    <option value="1">Ryan Hua</option>
-                    <option value="2">Collin Matsukiyo</option>
-                    <option value="3">Darrin Chung</option>
-                    <option value="4">Daniel Ho</option>
-                    <option value="5">Aidan Sakuma</option>
-                    <option value="6">Ryan Win</option>
-                    <option value="7">Tyler Bang</option>
-                    <option value="8">Eric Phan</option>
-                    <option value="9">Tanjirul Alam</option>
-                    <option value="10">Nathan Ngo</option>
-                    <option value="11">Daiki Narimoto</option>
-                    <option value="12">Kenny Ly</option>
-                </select>
-            </div>
-            <div class="col-12 text-end">
-                <button id="updateManualPickBtn" class="btn btn-info btn-sm fw-bold px-4">Update Ownership</button>
-            </div>
-        </div>
-        
-        <div id="manualStatus" class="mt-4 p-3 rounded bg-black border border-secondary d-none">
-            <div id="manualStatusMessage" class="small fw-bold"></div>
-        </div>
-    </div>
-</div>
-    <div class="mt-5">
-        <h4 class="text-white mb-3">Current Draft Picks</h4>
-        <div class="table-responsive">
-            <table class="table table-dark table-hover border-secondary">
-                <thead>
-                    <tr>
-                        <th>Year/Round</th>
-                        <th>Original Owner</th>
-                        <th>Current Owner</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody id="picksTableBody">
-                    </tbody>
-            </table>
-        </div>
-    </div>
-    </div>
+                    <div class="card-header bg-black py-3 border-bottom border-secondary">
+                        <h5 class="mb-0 text-info fw-bold">Manual Pick Adjustment</h5>
+                    </div>
+                    <div class="card-body p-4">
+                        <p class="text-secondary small">Force change the owner of a specific draft pick. Use the dropdowns to ensure accuracy.</p>
+                        
+                        <div class="row g-3">
+                            <div class="col-md-3">
+                                <label class="small fw-bold text-secondary mb-1">Year</label>
+                                <input type="number" id="manualYearSelect" class="form-control bg-dark text-white border-secondary" value="2026">
+                            </div>
+                            <div class="col-md-3">
+                                <label class="small fw-bold text-secondary mb-1">Round</label>
+                                <select id="manualRoundSelect" class="form-select bg-dark text-white border-secondary">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="small fw-bold text-secondary mb-1">Original Owner (The "Name" on Pick)</label>
+                                <select id="manualOrigOwner" class="form-select bg-dark text-white border-secondary">
+                                    <option value="" selected disabled>-- Select Owner --</option>
+                                    <option value="1">Ryan Hua</option>
+                                    <option value="2">Collin Matsukiyo</option>
+                                    <option value="3">Darrin Chung</option>
+                                    <option value="4">Daniel Ho</option>
+                                    <option value="5">Aidan Sakuma</option>
+                                    <option value="6">Ryan Win</option>
+                                    <option value="7">Tyler Bang</option>
+                                    <option value="8">Eric Phan</option>
+                                    <option value="9">Tanjirul Alam</option>
+                                    <option value="10">Nathan Ngo</option>
+                                    <option value="11">Daiki Narimoto</option>
+                                    <option value="12">Kenny Ly</option>
+                                </select>
+                            </div>
+                            <div class="col-md-12">
+                                <label class="small fw-bold text-secondary mb-1">Move To (New Current Owner)</label>
+                                <select id="manualNewOwner" class="form-select bg-dark text-white border-secondary">
+                                    <option value="" selected disabled>-- Select Owner --</option>
+                                    <option value="1">Ryan Hua</option>
+                                    <option value="2">Collin Matsukiyo</option>
+                                    <option value="3">Darrin Chung</option>
+                                    <option value="4">Daniel Ho</option>
+                                    <option value="5">Aidan Sakuma</option>
+                                    <option value="6">Ryan Win</option>
+                                    <option value="7">Tyler Bang</option>
+                                    <option value="8">Eric Phan</option>
+                                    <option value="9">Tanjirul Alam</option>
+                                    <option value="10">Nathan Ngo</option>
+                                    <option value="11">Daiki Narimoto</option>
+                                    <option value="12">Kenny Ly</option>
+                                </select>
+                            </div>
+                            <div class="col-12 text-end">
+                                <button id="updateManualPickBtn" class="btn btn-info btn-sm fw-bold px-4">Update Ownership</button>
+                            </div>
+                        </div>
+                        
+                        <div id="manualStatus" class="mt-4 p-3 rounded bg-black border border-secondary d-none">
+                            <div id="manualStatusMessage" class="small fw-bold"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-5 mb-4">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="text-white mb-0">Current Draft Picks</h4>
+                        <div class = "d-flex gap-2">
+                            <button id="sortOrderBtn" class="btn btn-outline-info btn-sm fw-bold">
+                                Sort: <span id="sortOrderText">ASC</span>
+                            </button>
+                            <button id="togglePicksBtn" class="btn btn-outline-light btn-sm fw-bold">
+                                <span id="toggleText">Hide Table</span>
+                            </button>
+                        </div>
+                        <!-- <button id="togglePicksBtn" class="btn btn-outline-light btn-sm fw-bold">
+                            <span id="toggleText">Hide Table</span>
+                        </button> -->
+                    </div>
+                    <div id="picksTableContainer" class="table-responsive">
+                        <table class="table table-dark table-hover border-secondary">
+                            <thead>
+                                <tr>
+                                    <th>Year/Round</th>
+                                    <th>Original Owner</th>
+                                    <th>Current Owner</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="picksTableBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="card admin-card mb-4 shadow-lg border-info">
+                    <div class="card-header bg-black py-3 border-bottom border-secondary">
+                        <h5 class="mb-0 text-info fw-bold">System Sync</h5>
+                    </div>
+                    <div class="card-body p-4">
+                        <p class="text-secondary small">
+                            Manually trigger the tracker script to fetch the latest ESPN data and redeploy to Vercel. 
+                            Use this after making manual pick adjustments.
+                        </p>
+                        <button id="syncNowBtn" class="btn btn-outline-info fw-bold w-100 py-2">
+                            <span id="syncSpinner" class="spinner-border spinner-border-sm d-none me-2"></span>
+                            Sync ESPN & Update Site
+                        </button>
+                        <div id="syncStatus" class="mt-3 small text-center fw-bold"></div>
+                    </div>
+                </div>
 
                 <div class="card border-danger bg-danger-subtle bg-opacity-10 mt-5">
                     <div class="card-body p-4">
@@ -208,6 +240,26 @@
             } else {
                 console.log("Welcome, Admin.");
                 $('body').fadeIn(); 
+            }
+        });
+
+        // Minimize/Expand Logic
+       $(document).on('click', '#togglePicksBtn', function(e) {
+            e.preventDefault();
+            
+            const container = $('#picksTableContainer');
+            const toggleText = $('#toggleText');
+
+            if (container.is(':visible')) {
+                // Hide it
+                container.slideUp(300, function() {
+                    $(this).addClass('minimized');
+                    toggleText.text('Show Table');
+                });
+            } else {
+                // Show it
+                container.hide().removeClass('minimized').slideDown(300);
+                toggleText.text('Hide Table');
             }
         });
     </script>

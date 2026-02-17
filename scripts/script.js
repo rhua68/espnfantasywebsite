@@ -88,7 +88,8 @@ async function populateTradeAssets(teamId, containerId, side) {
         
         snapshot.forEach(docSnap => {
             const p = docSnap.data();
-            html += `<div class="asset-item" data-name="${p.year} Rd ${p.round}" data-side="${side}">${p.year} Rd ${p.round}</div>`;
+            const displayName = `${p.year} Rd ${p.round} (${p.originalOwnerName})`;
+            html += `<div class="asset-item" data-name="${displayName}" data-side="${side}">${displayName}</div>`;
         });
     } catch (e) {
         console.error("Error fetching picks:", e);

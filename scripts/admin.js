@@ -19,6 +19,7 @@ import {
 console.log("🚀 admin.js: Module loaded successfully.");
 
 const db = window.db;
+let isTableHiden = false;
 
 /* ============================================================
    1. DRAFT PICK SEEDER LOGIC
@@ -190,7 +191,7 @@ $(document).on('click', '#updateManualPickBtn', async function(e) {
 /* ============================================================
    4. LIVE VIEW TABLE
    ============================================================ */
-const qPicks = query(collection(db, "draft_picks"), orderBy("year", "desc"), orderBy("round", "asc"));
+const qPicks = query(collection(db, "draft_picks"), orderBy("year", "asc"), orderBy("round", "asc"));
 
 onSnapshot(qPicks, (snapshot) => {
     const tbody = $('#picksTableBody');
@@ -216,4 +217,116 @@ onSnapshot(qPicks, (snapshot) => {
             </tr>
         `);
     });
+});
+
+/* ============================================================
+   5. MANUAL SYSTEM SYNC (GitHub API)
+   ============================================================ */
+
+$(document).on('click', '#syncNowBtn', async function() {
+    const btn = $(this);
+    const status = $('#syncStatus');
+
+    btn.prop('disabled', true).text('Syncing...');
+
+    try {
+        // We call our OWN internal API, not GitHub directly
+        const response = await fetch('/api/sync', { method: 'POST' });
+        
+        if (response.ok) {
+            status.addClass('text-success').text('🚀 Sync Triggered! Site will update in ~2 mins.');
+        } else {
+            status.addClass('text-danger').text('Failed to trigger sync.');
+        }
+    } catch (err) {
+        status.addClass('text-danger').text('Error connecting to sync service.');
+    } finally {
+        btn.prop('disabled', false).text('Sync ESPN & Update Site');
+    }
+});
+
+/* ============================================================
+   6. TOGGLE PICKS TABLE VISIBILITY
+   ============================================================ */
+
+$(document).on('click', '#togglePicksBtn', function(e) {
+    e.preventDefault();
+    const table = $('#picksTableContainer');
+    const toggleText = $('#toggleText');
+
+    if (!isTableHidden) {
+        // Hide logic
+        table.slideUp(300, function() {
+            isTableHidden = true;
+            toggleText.text('Show Table');
+        });
+    } else {
+        // Show logic
+        table.slideDown(300, function() {
+            isTableHidden = false;
+            toggleText.text('Hide Table');
+        });
+    }
+});
+
+/* ============================================================
+   7. LIVE VIEW TABLE (With Sort Swapping)
+   ============================================================ */
+let currentSort = 'asc';
+let unsubscribePicks = null; // Store the listener here so we can kill it
+
+function attachPicksListener(direction) {
+    // 1. If a listener is already running, stop it
+    if (unsubscribePicks) {
+        unsubscribePicks();
+    }
+
+    // 2. Define the new sorted query
+    const qPicks = query(
+        collection(db, "draft_picks"), 
+        orderBy("year", direction), 
+        orderBy("round", "asc")
+    );
+
+    // 3. Start the new listener
+    unsubscribePicks = onSnapshot(qPicks, (snapshot) => {
+        const tbody = $('#picksTableBody');
+        if (!tbody.length) return; 
+        
+        tbody.empty();
+
+        snapshot.forEach((docSnap) => {
+            const pick = docSnap.data();
+            const isMoved = pick.originalOwnerId !== pick.currentOwnerId;
+            
+            const getOwnerName = (id) => {
+                const team = window.allData?.rosters?.find(t => t.id == id);
+                return team ? team.name : `Team ${id}`;
+            };
+
+            tbody.append(`
+                <tr>
+                    <td>${pick.year} - Rd ${pick.round}</td>
+                    <td>${pick.originalOwnerName}</td>
+                    <td class="${isMoved ? 'text-warning fw-bold' : 'text-white'}">${getOwnerName(pick.currentOwnerId)}</td>
+                    <td><span class="badge ${isMoved ? 'bg-warning text-dark' : 'bg-success'}">${isMoved ? 'Traded' : 'Original'}</span></td>
+                </tr>
+            `);
+        });
+    });
+}
+
+// Initial Call
+attachPicksListener(currentSort);
+
+// 5. THE SWAP LOGIC
+$(document).on('click', '#sortOrderBtn', function() {
+    // Swap the variable
+    currentSort = (currentSort === 'asc') ? 'desc' : 'asc';
+    
+    // Update the UI
+    $('#sortOrderText').text(currentSort.toUpperCase());
+    
+    // Re-attach the listener with the new direction
+    attachPicksListener(currentSort);
 });
