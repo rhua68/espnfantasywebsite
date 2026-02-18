@@ -169,44 +169,55 @@ onAuthStateChanged(auth, async (user) => {
                             // 3. UI Styling
                             const glowClass = vetoes > 0 ? 'border-veto' : 'border-sakura';
                             const statusLabel = vetoes > 0 ? '⚠️ Trade Contested' : '🗳️ League Vote In Progress';
+                            const senderName = getTeamName(trade.senderId);
+                            const receiverName = getTeamName(trade.receiverId);
 
                             const pollHtml = `
-                                <div class="col-md-6 mb-3" data-poll-id="${tradeId}">
-                                    <div class="card ${glowClass} p-3 shadow-sm" style="background: black !important; overflow: visible !important;">
-                                        <div class="x-small text-uppercase text-white opacity-75 fw-bold mb-1">
-                                            ${statusLabel}
-                                        </div>
-                                        
-                                        <div class="small text-white fw-bold mb-2">
-                                            ${(trade.senderAssets || []).join(', ')} <span class="text-secondary">↔️</span> ${(trade.receiverAssets || []).join(', ')}
-                                        </div>
-                                        
-                                        <div class="progress mb-2" style="height: 8px; background: #1a1a1a;">
-                                            <div class="progress-bar bg-success" style="width: ${(approves / 6) * 100}%; transition: 0.5s;"></div>
-                                        </div>
-                                        
-                                        <div class="d-flex justify-content-between x-small text-secondary mb-3">
-                                            <span class="text-white">${approves}/6 Approvals</span>
-                                            <span class="${hasVoted ? 'text-success' : 'text-warning'}">
-                                                ${vetoes > 0 ? `<span class="text-danger fw-bold">${vetoes} VETOS</span> | ` : ''}
-                                                ${hasVoted ? '✅ Recorded' : '⌛ Awaiting Vote'}
-                                            </span>
-                                        </div>
-                                        
-                                        <div class="d-flex gap-2">
-                                            <button class="btn btn-sm w-100 fw-bold vote-btn ${currentVote === 'approve' ? 'btn-success' : 'btn-outline-success'}" 
-                                                    data-id="${tradeId}" data-type="approve">
-                                                ${currentVote === 'approve' ? '✅ Approved' : 'Approve'}
-                                            </button>
-                                            <button class="btn btn-sm w-100 fw-bold vote-btn ${currentVote === 'veto' ? 'btn-danger' : 'btn-outline-danger'}" 
-                                                    data-id="${tradeId}" data-type="veto">
-                                                ${currentVote === 'veto' ? '🚫 Vetoed' : 'Veto'}
-                                            </button>
-                                        </div>
+                            <div class="col-md-6 mb-3" data-poll-id="${tradeId}">
+                                <div class="card ${glowClass} p-3 shadow-sm" style="background: black !important; overflow: visible !important;">
+                                    
+                                    <div class="d-flex justify-content-between align-items-center mb-2 border-bottom border-secondary pb-2">
+                                        <span class="text-primary fw-bold x-small text-uppercase">
+                                            ${senderName} ↔ ${receiverName}
+                                        </span>
+                                        <span class="badge bg-dark border border-secondary x-small text-secondary">
+                                            ID: ${tradeId.substring(0, 5)}
+                                        </span>
+                                    </div>
+
+                                    <div class="x-small text-uppercase text-white opacity-75 fw-bold mb-1">
+                                        ${statusLabel}
+                                    </div>
+                                    
+                                    <div class="small text-white fw-bold mb-2">
+                                        ${(trade.senderAssets || []).join(', ')} <span class="text-secondary">↔️</span> ${(trade.receiverAssets || []).join(', ')}
+                                    </div>
+                                    
+                                    <div class="progress mb-2" style="height: 8px; background: #1a1a1a;">
+                                        <div class="progress-bar bg-success" style="width: ${(approves / 6) * 100}%; transition: 0.5s;"></div>
+                                    </div>
+                                    
+                                    <div class="d-flex justify-content-between x-small text-secondary mb-3">
+                                        <span class="text-white">${approves}/6 Approvals</span>
+                                        <span class="${hasVoted ? 'text-success' : 'text-warning'}">
+                                            ${vetoes > 0 ? `<span class="text-danger fw-bold">${vetoes} VETOS</span> | ` : ''}
+                                            ${hasVoted ? '✅ Recorded' : '⌛ Awaiting Vote'}
+                                        </span>
+                                    </div>
+                                    
+                                    <div class="d-flex gap-2">
+                                        <button class="btn btn-sm w-100 fw-bold vote-btn ${currentVote === 'approve' ? 'btn-success' : 'btn-outline-success'}" 
+                                                data-id="${tradeId}" data-type="approve">
+                                            ${currentVote === 'approve' ? '✅ Approved' : 'Approve'}
+                                        </button>
+                                        <button class="btn btn-sm w-100 fw-bold vote-btn ${currentVote === 'veto' ? 'btn-danger' : 'btn-outline-danger'}" 
+                                                data-id="${tradeId}" data-type="veto">
+                                            ${currentVote === 'veto' ? '🚫 Vetoed' : 'Veto'}
+                                        </button>
                                     </div>
                                 </div>
-                            `;
-
+                            </div>
+                        `;
                             const existing = $(`[data-poll-id="${tradeId}"]`);
                             if (existing.length) {
                                 existing.replaceWith(pollHtml);
