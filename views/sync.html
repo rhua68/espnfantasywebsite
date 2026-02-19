@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynasty HQ | Linking Account...</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        body { background-color: #000; display: flex; align-items: center; justify-content: center; height: 100vh; }
+        .sync-card { border: 1px solid #333; padding: 2rem; border-radius: 12px; text-align: center; max-width: 400px; }
+    </style>
+</head>
+<body class="text-white">
+
+    <div class="sync-card">
+        <div id="loader" class="spinner-border text-primary mb-3" role="status"></div>
+        <h4 id="status-text" class="fw-bold">Linking your ESPN Account...</h4>
+        <p id="sub-text" class="small text-secondary">Please don't close this window.</p>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+        import { getFirestore, doc, updateDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBb9gMG8_QbHApFJ9wWIBANAd05qWrPTZw",
+            authDomain: "dynastyhq-e9aa7.firebaseapp.com",
+            projectId: "dynastyhq-e9aa7",
+            storageBucket: "dynastyhq-e9aa7.firebasestorage.app",
+            messagingSenderId: "1022459584904",
+            appId: "1:1022459584904:web:e547be4ad61e425b939a3d"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        // 1. Extract cookies from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const s2 = urlParams.get('s2');
+        const swid = urlParams.get('swid');
+
+        onAuthStateChanged(auth, async (user) => {
+            if (!user) {
+                document.getElementById('status-text').innerText = "Please log in to DynastyHQ first!";
+                document.getElementById('loader').classList.add('d-none');
+                return;
+            }
+
+            if (s2 && swid) {
+                try {
+                    // 2. Save to Firestore
+                    const userRef = doc(db, "users", user.uid);
+                    await updateDoc(userRef, {
+                        espn_s2: s2,
+                        espn_swid: swid
+                    });
+
+                    // 3. Save to localStorage for the current browser session
+                    localStorage.setItem('espn_s2', s2);
+                    localStorage.setItem('swid', swid);
+
+                    document.getElementById('status-text').innerText = "✅ Successfully Linked!";
+                    document.getElementById('sub-text').innerText = "Redirecting you back to rosters...";
+                    
+                    // 4. Redirect home after a short delay
+                    setTimeout(() => {
+                        window.location.href = "rosters.html";
+                    }, 1500);
+
+                } catch (error) {
+                    console.error("Sync Error:", error);
+                    document.getElementById('status-text').innerText = "❌ Sync Failed";
+                    document.getElementById('sub-text').innerText = error.message;
+                }
+            } else {
+                document.getElementById('status-text').innerText = "⚠️ No data received.";
+                document.getElementById('sub-text').innerText = "Make sure you used the bookmarklet on the ESPN site.";
+            }
+        });
+    </script>
+</body>
+</html>

@@ -100,15 +100,44 @@ onAuthStateChanged(auth, async (user) => {
     const adminLink = $('#admin-link');
     const ADMIN_UID = "KTbGiCum1sdWftINswO89nVax0a2"; 
 
+    // --- Added Navbar Sync UI Elements ---
+    const statusPill = $('#sync-status-pill');
+    const accountDropdown = $('#account-dropdown-wrapper');
+
     if (user) {
         loginBtn.text('Logout').off('click').on('click', handleLogout);
         if (user.uid === ADMIN_UID) adminLink.removeClass('d-none'); else adminLink.addClass('d-none');
+
+        // Show the account dropdown menu
+        accountDropdown.removeClass('d-none');
+
+        // Check for ESPN cookies and update status pill
+        const hasS2 = localStorage.getItem('espn_s2');
+        const hasSwid = localStorage.getItem('swid');
+
+        if (hasS2 && hasSwid) {
+            statusPill.html(`
+                <span class="badge rounded-pill bg-success-subtle text-success border border-success border-opacity-25 py-2 px-3" style="font-size: 0.7rem;">
+                    ● ESPN LINKED
+                </span>`);
+        } else {
+            statusPill.html(`
+                <span class="badge rounded-pill bg-danger-subtle text-danger border border-danger border-opacity-25 py-2 px-3" style="font-size: 0.7rem; cursor: pointer;" onclick="window.location.href='./views/rosters.html'">
+                    ● NOT LINKED
+                </span>`);
+        }
 
         try {
             const userDoc = await getDoc(doc(db, "users", user.uid));
             if (userDoc.exists()) {
                 const userData = userDoc.data();
                 window.currentUserTeamId = userData.espnTeamId; 
+
+                // Sync cookies from Firestore to localStorage if they exist
+                if (userData.espn_s2 && userData.espn_swid) {
+                    localStorage.setItem('espn_s2', userData.espn_s2);
+                    localStorage.setItem('swid', userData.espn_swid);
+                }
                 
                 // Roster Highlight for "Your Team"
                 if (window.location.pathname.includes('rosters.html')) {
@@ -137,7 +166,6 @@ onAuthStateChanged(auth, async (user) => {
                     snapshot.docChanges().forEach(async (change) => {
                         const tradeId = change.doc.id;
 
-                        // HANDLE REMOVAL: When status changes from 'voting' to 'accepted' or doc is deleted
                         if (change.type === "removed") {
                             $(`[data-poll-id="${tradeId}"]`).fadeOut(300, function() {
                                 $(this).remove();
@@ -146,12 +174,10 @@ onAuthStateChanged(auth, async (user) => {
                             return;
                         }
 
-                        // HANDLE ADD/UPDATE
                         if (change.type === "added" || change.type === "modified") {
                             const trade = change.doc.data();
                             const votes = trade.votes || {};
 
-                            // 1. Expiration check (Keep logic inside listener)
                             if (trade.timestamp) {
                                 const now = Math.floor(Date.now() / 1000);
                                 if ((now - trade.timestamp.seconds) / 3600 >= 24) {
@@ -160,13 +186,11 @@ onAuthStateChanged(auth, async (user) => {
                                 }
                             }
 
-                            // 2. Vote Counts
                             const approves = Object.values(votes).filter(v => v === 'approve').length;
                             const vetoes = Object.values(votes).filter(v => v === 'veto').length;
                             const currentVote = votes[window.currentUserTeamId];
                             const hasVoted = !!currentVote;
 
-                            // 3. UI Styling
                             const glowClass = vetoes > 0 ? 'border-veto' : 'border-sakura';
                             const statusLabel = vetoes > 0 ? '⚠️ Trade Contested' : '🗳️ League Vote In Progress';
                             const senderName = getTeamName(trade.senderId);
@@ -175,7 +199,6 @@ onAuthStateChanged(auth, async (user) => {
                             const pollHtml = `
                             <div class="col-md-6 mb-3" data-poll-id="${tradeId}">
                                 <div class="card ${glowClass} p-3 shadow-sm" style="background: black !important; overflow: visible !important;">
-                                    
                                     <div class="d-flex justify-content-between align-items-center mb-2 border-bottom border-secondary pb-2">
                                         <span class="text-primary fw-bold x-small text-uppercase">
                                             ${senderName} ↔ ${receiverName}
@@ -184,19 +207,15 @@ onAuthStateChanged(auth, async (user) => {
                                             ID: ${tradeId.substring(0, 5)}
                                         </span>
                                     </div>
-
                                     <div class="x-small text-uppercase text-white opacity-75 fw-bold mb-1">
                                         ${statusLabel}
                                     </div>
-                                    
                                     <div class="small text-white fw-bold mb-2">
                                         ${(trade.senderAssets || []).join(', ')} <span class="text-secondary">↔️</span> ${(trade.receiverAssets || []).join(', ')}
                                     </div>
-                                    
                                     <div class="progress mb-2" style="height: 8px; background: #1a1a1a;">
                                         <div class="progress-bar bg-success" style="width: ${(approves / 6) * 100}%; transition: 0.5s;"></div>
                                     </div>
-                                    
                                     <div class="d-flex justify-content-between x-small text-secondary mb-3">
                                         <span class="text-white">${approves}/6 Approvals</span>
                                         <span class="${hasVoted ? 'text-success' : 'text-warning'}">
@@ -204,7 +223,6 @@ onAuthStateChanged(auth, async (user) => {
                                             ${hasVoted ? '✅ Recorded' : '⌛ Awaiting Vote'}
                                         </span>
                                     </div>
-                                    
                                     <div class="d-flex gap-2">
                                         <button class="btn btn-sm w-100 fw-bold vote-btn ${currentVote === 'approve' ? 'btn-success' : 'btn-outline-success'}" 
                                                 data-id="${tradeId}" data-type="approve">
@@ -216,8 +234,7 @@ onAuthStateChanged(auth, async (user) => {
                                         </button>
                                     </div>
                                 </div>
-                            </div>
-                        `;
+                            </div>`;
                             const existing = $(`[data-poll-id="${tradeId}"]`);
                             if (existing.length) {
                                 existing.replaceWith(pollHtml);
@@ -233,6 +250,11 @@ onAuthStateChanged(auth, async (user) => {
     } else {
         loginBtn.text('Login').off('click').on('click', () => $('#loginModal').modal('show'));
         adminLink.addClass('d-none');
+        
+        // Hide Sync UI when logged out
+        statusPill.html('');
+        accountDropdown.addClass('d-none');
+
         window.currentUserTeamId = null;
         $('#league-polls-section').addClass('d-none'); 
         $('#polls-list').empty();

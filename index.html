@@ -21,9 +21,29 @@
                 <ul class="navbar-nav mx-auto align-items-center">
                     <li class="nav-item"><a class="nav-link active" href="./index.html">Trades</a></li>
                     <li class="nav-item"><a class="nav-link" href="./views/rosters.html">Rosters</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./views/sync.html">Sync</a></li>
                     <li class="nav-item"><a id="admin-link" href="./views/admin.html" class="nav-link text-warning fw-bold d-none">🛠️ Admin</a></li>
                 </ul>
-                <div class="d-flex">
+                <div class="d-flex align-items-center gap-2">
+                    <div id="sync-status-pill"></div>
+
+                    <div class="dropdown d-none" id="account-dropdown-wrapper">
+                        <button class="btn btn-outline-secondary btn-sm dropdown-toggle fw-bold text-white px-3" type="button" data-bs-toggle="dropdown">
+                            👤 Account
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end bg-black border-secondary shadow-lg">
+                            <li><h6 class="dropdown-header text-primary fw-bold">ESPN IDENTITY</h6></li>
+                            <li>
+                                <a class="dropdown-item text-white small py-2" 
+                                   href='javascript:(function(){const s2=document.cookie.match(/espn_s2=([^;]+)/);const swid=document.cookie.match(/SWID=([^;]+)/);if(s2&&swid){window.location.href=`https://your-app-url.vercel.app/views/sync.html?s2=${s2[1]}&swid=${swid[1]}`;}else{alert("Please log in to ESPN first!");}})();'>
+                                   ⚓ Drag to Bookmarks Bar
+                                </a>
+                            </li>
+                            <li><hr class="dropdown-divider border-secondary"></li>
+                            <li><a class="dropdown-item text-white small py-2" href="#" onclick="copyMobileScript()">📱 Mobile Sync Script</a></li>
+                        </ul>
+                    </div>
+
                     <button id="login-nav-btn" class="btn btn-outline-primary btn-sm fw-bold px-3">Login</button>
                 </div>
             </div>
@@ -153,6 +173,14 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+
+    <script>
+        function copyMobileScript() {
+            const script = 'javascript:prompt("Copy this string and send to your Commissioner", document.cookie);';
+            navigator.clipboard.writeText(script);
+            alert("Mobile script copied! \n1. Go to ESPN.com on your phone. \n2. Type 'javascript:' in address bar and paste this code.");
+        }
+    </script>
 
     <script type="module" src="./scripts/auth.js"></script>
     <script type="module" src="./scripts/script.js"></script>
