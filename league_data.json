@@ -1,5 +1,5 @@
 {
-    "updated": "02/18/2026 05:27 PM",
+    "updated": "02/18/2026 07:58 PM",
     "seasons": {
         "2025": [],
         "2026": [
@@ -4206,6 +4206,19 @@
                     "avg_blk": "0.5",
                     "avg_fg_pct": "0.51",
                     "avg_ft_pct": "0.78",
+                    "avg_3pm": "0.7"
+                },
+                {
+                    "name": "Guerschon Yabusele",
+                    "id": 4017844,
+                    "img": "https://a.espncdn.com/i/headshots/nba/players/full/4017844.png",
+                    "avg_pts": "3.4",
+                    "avg_reb": "2.3",
+                    "avg_ast": "0.5",
+                    "avg_stl": "0.2",
+                    "avg_blk": "0.2",
+                    "avg_fg_pct": "0.40",
+                    "avg_ft_pct": "0.64",
                     "avg_3pm": "0.7"
                 }
             ],
