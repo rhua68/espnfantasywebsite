@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 import { getFirestore, doc, addDoc, getDoc, getDocs, collection, query, where, onSnapshot, updateDoc, deleteDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 const getTeamName=(id) => {
@@ -45,6 +45,27 @@ export async function handleLogout() {
         console.error("Logout Error:", error.message);
     }
 }
+
+export async function handleForgotPassword() {
+    const email = $('#loginEmail').val();
+   
+    if (!email) {
+         $('#loginEmail').addClass('is-invalid');
+        alert("Please enter your email address first.");
+        return;
+    }
+
+    try {
+        await sendPasswordResetEmail(auth, email);
+         $('#loginEmail').addClass('is-valid');
+        alert("Password reset email sent! Please check your inbox.");
+    } catch (error) {
+        console.error("Reset Error:", error.message);
+        $('#loginEmail').removeClass('is-valid').addClass('is-invalid');
+        alert("Error: " + error.message);
+    }
+}
+window.handleForgotPassword = handleForgotPassword;
 
 
 // --- NOTIFICATION & FINALIZATION LOGIC ---

