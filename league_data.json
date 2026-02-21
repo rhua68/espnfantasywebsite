@@ -1,5 +1,5 @@
 {
-    "updated": "02/21/2026 02:45 PM",
+    "updated": "02/21/2026 02:58 PM",
     "seasons": {
         "2025": [],
         "2026": [
@@ -809,8 +809,8 @@
                     "id": 4701232,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4701232.png",
                     "avg_pts": "11.9",
-                    "avg_reb": "8.0",
-                    "avg_ast": "1.0",
+                    "avg_reb": "8.1",
+                    "avg_ast": "1.1",
                     "avg_stl": "0.9",
                     "avg_blk": "0.9",
                     "avg_fg_pct": "0.65",
@@ -1075,14 +1075,14 @@
                     "name": "Desmond Bane",
                     "id": 4066320,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4066320.png",
-                    "avg_pts": "19.5",
+                    "avg_pts": "19.6",
                     "avg_reb": "4.1",
                     "avg_ast": "4.1",
                     "avg_stl": "0.9",
                     "avg_blk": "0.5",
                     "avg_fg_pct": "0.48",
                     "avg_ft_pct": "0.93",
-                    "avg_3pm": "1.9"
+                    "avg_3pm": "2.0"
                 },
                 {
                     "name": "Ivica Zubac",
@@ -2078,11 +2078,11 @@
                     "id": 4437244,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4437244.png",
                     "avg_pts": "12.0",
-                    "avg_reb": "2.1",
+                    "avg_reb": "2.2",
                     "avg_ast": "2.1",
                     "avg_stl": "0.7",
                     "avg_blk": "0.0",
-                    "avg_fg_pct": "0.42",
+                    "avg_fg_pct": "0.40",
                     "avg_ft_pct": "0.85",
                     "avg_3pm": "1.9"
                 },
@@ -3047,11 +3047,11 @@
                     "name": "Paolo Banchero",
                     "id": 4432573,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4432573.png",
-                    "avg_pts": "21.1",
-                    "avg_reb": "8.2",
+                    "avg_pts": "21.2",
+                    "avg_reb": "8.3",
                     "avg_ast": "4.8",
                     "avg_stl": "0.7",
-                    "avg_blk": "0.6",
+                    "avg_blk": "0.7",
                     "avg_fg_pct": "0.45",
                     "avg_ft_pct": "0.77",
                     "avg_3pm": "1.2"
@@ -3750,7 +3750,7 @@
                     "name": "Collin Gillespie",
                     "id": 4278585,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4278585.png",
-                    "avg_pts": "13.0",
+                    "avg_pts": "13.2",
                     "avg_reb": "4.1",
                     "avg_ast": "4.7",
                     "avg_stl": "1.4",
@@ -3965,14 +3965,14 @@
                     "name": "Grayson Allen",
                     "id": 3135045,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3135045.png",
-                    "avg_pts": "16.7",
+                    "avg_pts": "16.8",
                     "avg_reb": "2.9",
                     "avg_ast": "3.9",
                     "avg_stl": "1.4",
                     "avg_blk": "0.3",
                     "avg_fg_pct": "0.42",
                     "avg_ft_pct": "0.84",
-                    "avg_3pm": "3.2"
+                    "avg_3pm": "3.3"
                 },
                 {
                     "name": "Paul George",
