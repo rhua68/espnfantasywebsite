@@ -1,5 +1,5 @@
 {
-    "updated": "02/21/2026 03:54 PM",
+    "updated": "02/21/2026 04:00 PM",
     "seasons": {
         "2025": [],
         "2026": [
@@ -1075,7 +1075,7 @@
                     "name": "Desmond Bane",
                     "id": 4066320,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4066320.png",
-                    "avg_pts": "19.7",
+                    "avg_pts": "19.8",
                     "avg_reb": "4.2",
                     "avg_ast": "4.1",
                     "avg_stl": "0.9",
@@ -3047,9 +3047,9 @@
                     "name": "Paolo Banchero",
                     "id": 4432573,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4432573.png",
-                    "avg_pts": "21.3",
+                    "avg_pts": "21.4",
                     "avg_reb": "8.3",
-                    "avg_ast": "4.8",
+                    "avg_ast": "4.9",
                     "avg_stl": "0.7",
                     "avg_blk": "0.7",
                     "avg_fg_pct": "0.45",
@@ -3752,7 +3752,7 @@
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4278585.png",
                     "avg_pts": "13.3",
                     "avg_reb": "4.1",
-                    "avg_ast": "4.7",
+                    "avg_ast": "4.8",
                     "avg_stl": "1.4",
                     "avg_blk": "0.2",
                     "avg_fg_pct": "0.43",
