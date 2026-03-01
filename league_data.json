@@ -1,5 +1,5 @@
 {
-    "updated": "03/01/2026 01:52 PM",
+    "updated": "03/01/2026 01:59 PM",
     "seasons": {
         "2025": [],
         "2026": [
@@ -3203,9 +3203,9 @@
                     "name": "Guerschon Yabusele",
                     "id": 4017844,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4017844.png",
-                    "avg_pts": "4.1",
+                    "avg_pts": "4.2",
                     "avg_reb": "2.8",
-                    "avg_ast": "0.7",
+                    "avg_ast": "0.8",
                     "avg_stl": "0.3",
                     "avg_blk": "0.2",
                     "avg_fg_pct": "0.39",
@@ -4291,7 +4291,7 @@
                     "avg_blk": "0.3",
                     "avg_fg_pct": "0.46",
                     "avg_ft_pct": "0.76",
-                    "avg_3pm": "1.7"
+                    "avg_3pm": "1.8"
                 },
                 {
                     "name": "De'Aaron Fox",
@@ -4403,7 +4403,7 @@
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4277811.png",
                     "avg_pts": "13.7",
                     "avg_reb": "1.9",
-                    "avg_ast": "3.3",
+                    "avg_ast": "3.4",
                     "avg_stl": "1.0",
                     "avg_blk": "0.2",
                     "avg_fg_pct": "0.48",
