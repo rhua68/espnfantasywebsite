@@ -1,5 +1,5 @@
 {
-    "updated": "03/01/2026 11:54 AM",
+    "updated": "03/01/2026 12:01 PM",
     "seasons": {
         "2025": [],
         "2026": [
@@ -346,7 +346,7 @@
                     "name": "Victor Wembanyama",
                     "id": 5104157,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/5104157.png",
-                    "avg_pts": "23.6",
+                    "avg_pts": "23.7",
                     "avg_reb": "11.2",
                     "avg_ast": "2.9",
                     "avg_stl": "1.0",
@@ -1037,7 +1037,7 @@
                     "id": 3136195,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3136195.png",
                     "avg_pts": "19.7",
-                    "avg_reb": "11.6",
+                    "avg_reb": "11.7",
                     "avg_ast": "2.8",
                     "avg_stl": "0.9",
                     "avg_blk": "0.6",
@@ -1673,7 +1673,7 @@
                     "avg_stl": "0.6",
                     "avg_blk": "0.1",
                     "avg_fg_pct": "0.54",
-                    "avg_ft_pct": "0.79",
+                    "avg_ft_pct": "0.78",
                     "avg_3pm": "1.2"
                 },
                 {
@@ -1992,7 +1992,7 @@
                     "avg_stl": "1.0",
                     "avg_blk": "0.1",
                     "avg_fg_pct": "0.42",
-                    "avg_ft_pct": "0.80",
+                    "avg_ft_pct": "0.78",
                     "avg_3pm": "1.7"
                 },
                 {
