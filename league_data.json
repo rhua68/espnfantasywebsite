@@ -1,5 +1,5 @@
 {
-    "updated": "03/01/2026 11:55 PM",
+    "updated": "03/02/2026 12:30 AM",
     "seasons": {
         "2025": [],
         "2026": [
@@ -1703,19 +1703,6 @@
                     "avg_3pm": "1.3"
                 },
                 {
-                    "name": "Paul Reed",
-                    "id": 4278562,
-                    "img": "https://a.espncdn.com/i/headshots/nba/players/full/4278562.png",
-                    "avg_pts": "6.8",
-                    "avg_reb": "4.5",
-                    "avg_ast": "1.2",
-                    "avg_stl": "0.9",
-                    "avg_blk": "0.8",
-                    "avg_fg_pct": "0.60",
-                    "avg_ft_pct": "0.63",
-                    "avg_3pm": "0.2"
-                },
-                {
                     "name": "Ousmane Dieng",
                     "id": 4997526,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4997526.png",
@@ -1766,6 +1753,19 @@
                     "avg_fg_pct": "0.52",
                     "avg_ft_pct": "0.77",
                     "avg_3pm": "1.4"
+                },
+                {
+                    "name": "Leonard Miller",
+                    "id": 5044385,
+                    "img": "https://a.espncdn.com/i/headshots/nba/players/full/5044385.png",
+                    "avg_pts": "3.2",
+                    "avg_reb": "1.5",
+                    "avg_ast": "0.5",
+                    "avg_stl": "0.2",
+                    "avg_blk": "0.2",
+                    "avg_fg_pct": "0.63",
+                    "avg_ft_pct": "0.73",
+                    "avg_3pm": "0.2"
                 }
             ],
             "abbrev": "HH"
@@ -4259,6 +4259,19 @@
                     "avg_fg_pct": "0.47",
                     "avg_ft_pct": "0.62",
                     "avg_3pm": "0.4"
+                },
+                {
+                    "name": "Dylan Cardwell",
+                    "id": 4433174,
+                    "img": "https://a.espncdn.com/i/headshots/nba/players/full/4433174.png",
+                    "avg_pts": "5.4",
+                    "avg_reb": "7.7",
+                    "avg_ast": "1.2",
+                    "avg_stl": "0.8",
+                    "avg_blk": "1.6",
+                    "avg_fg_pct": "0.60",
+                    "avg_ft_pct": "0.55",
+                    "avg_3pm": "0.0"
                 }
             ],
             "abbrev": "DDT"
