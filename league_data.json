@@ -1,5 +1,5 @@
 {
-    "updated": "03/02/2026 07:33 AM",
+    "updated": "03/02/2026 08:05 AM",
     "seasons": {
         "2025": [],
         "2026": [
@@ -3864,19 +3864,6 @@
                     "avg_3pm": "0.8"
                 },
                 {
-                    "name": "Javon Small",
-                    "id": 4781746,
-                    "img": "https://a.espncdn.com/i/headshots/nba/players/full/4781746.png",
-                    "avg_pts": "7.7",
-                    "avg_reb": "2.7",
-                    "avg_ast": "3.5",
-                    "avg_stl": "0.6",
-                    "avg_blk": "0.2",
-                    "avg_fg_pct": "0.43",
-                    "avg_ft_pct": "0.83",
-                    "avg_3pm": "1.2"
-                },
-                {
                     "name": "Ja'Kobe Walter",
                     "id": 4684272,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4684272.png",
@@ -3888,6 +3875,19 @@
                     "avg_fg_pct": "0.43",
                     "avg_ft_pct": "0.83",
                     "avg_3pm": "1.2"
+                },
+                {
+                    "name": "Jordan Miller",
+                    "id": 4396818,
+                    "img": "https://a.espncdn.com/i/headshots/nba/players/full/4396818.png",
+                    "avg_pts": "9.3",
+                    "avg_reb": "3.0",
+                    "avg_ast": "1.9",
+                    "avg_stl": "0.7",
+                    "avg_blk": "0.2",
+                    "avg_fg_pct": "0.52",
+                    "avg_ft_pct": "0.79",
+                    "avg_3pm": "0.7"
                 }
             ],
             "abbrev": "NB"
