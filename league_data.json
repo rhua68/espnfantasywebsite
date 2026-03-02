@@ -1,5 +1,5 @@
 {
-    "updated": "03/02/2026 12:30 AM",
+    "updated": "03/02/2026 01:07 AM",
     "seasons": {
         "2025": [],
         "2026": [
@@ -2990,19 +2990,6 @@
                     "avg_fg_pct": "0.40",
                     "avg_ft_pct": "0.92",
                     "avg_3pm": "0.6"
-                },
-                {
-                    "name": "Bradley Beal",
-                    "id": 6580,
-                    "img": "https://a.espncdn.com/i/headshots/nba/players/full/6580.png",
-                    "avg_pts": "8.2",
-                    "avg_reb": "0.8",
-                    "avg_ast": "1.7",
-                    "avg_stl": "0.5",
-                    "avg_blk": "0.0",
-                    "avg_fg_pct": "0.38",
-                    "avg_ft_pct": "0.75",
-                    "avg_3pm": "1.2"
                 },
                 {
                     "name": "Simone Fontecchio",
