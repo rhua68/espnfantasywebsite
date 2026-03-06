@@ -1,5 +1,5 @@
 {
-    "updated": "03/06/2026 10:31 AM",
+    "updated": "03/06/2026 11:10 AM",
     "seasons": {
         "2025": [],
         "2026": [
@@ -666,19 +666,6 @@
                     "avg_fg_pct": "0.41",
                     "avg_ft_pct": "0.89",
                     "avg_3pm": "1.4"
-                },
-                {
-                    "name": "Christian Koloko",
-                    "id": 4431778,
-                    "img": "https://a.espncdn.com/i/headshots/nba/players/full/4431778.png",
-                    "avg_pts": "2.7",
-                    "avg_reb": "3.2",
-                    "avg_ast": "0.6",
-                    "avg_stl": "0.6",
-                    "avg_blk": "1.0",
-                    "avg_fg_pct": "0.43",
-                    "avg_ft_pct": "0.70",
-                    "avg_3pm": "0.0"
                 },
                 {
                     "name": "Tre Jones",
