@@ -1,5 +1,5 @@
 {
-    "updated": "03/08/2026 12:47 PM",
+    "updated": "03/08/2026 12:55 PM",
     "seasons": {
         "2025": [],
         "2026": [
@@ -706,7 +706,7 @@
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3945274.png",
                     "avg_pts": "31.9",
                     "avg_reb": "7.7",
-                    "avg_ast": "8.3",
+                    "avg_ast": "8.4",
                     "avg_stl": "1.4",
                     "avg_blk": "0.5",
                     "avg_fg_pct": "0.47",
@@ -3646,7 +3646,7 @@
                     "name": "Deandre Ayton",
                     "id": 4278129,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4278129.png",
-                    "avg_pts": "12.3",
+                    "avg_pts": "12.4",
                     "avg_reb": "8.1",
                     "avg_ast": "0.8",
                     "avg_stl": "0.6",
@@ -4173,8 +4173,8 @@
                     "name": "Josh Hart",
                     "id": 3062679,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3062679.png",
-                    "avg_pts": "11.7",
-                    "avg_reb": "7.3",
+                    "avg_pts": "11.8",
+                    "avg_reb": "7.4",
                     "avg_ast": "5.1",
                     "avg_stl": "1.1",
                     "avg_blk": "0.3",
