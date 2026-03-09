@@ -1,5 +1,5 @@
 {
-    "updated": "03/08/2026 09:29 PM",
+    "updated": "03/08/2026 10:39 PM",
     "seasons": {
         "2025": [],
         "2026": [
@@ -2175,7 +2175,7 @@
                     "name": "Miles Bridges",
                     "id": 4066383,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4066383.png",
-                    "avg_pts": "17.4",
+                    "avg_pts": "17.5",
                     "avg_reb": "5.9",
                     "avg_ast": "3.4",
                     "avg_stl": "0.6",
@@ -3444,9 +3444,9 @@
                     "name": "Tre Mann",
                     "id": 4432819,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4432819.png",
-                    "avg_pts": "6.4",
+                    "avg_pts": "6.2",
                     "avg_reb": "2.1",
-                    "avg_ast": "2.0",
+                    "avg_ast": "1.9",
                     "avg_stl": "0.5",
                     "avg_blk": "0.1",
                     "avg_fg_pct": "0.36",
