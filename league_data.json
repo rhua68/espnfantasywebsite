@@ -1,5 +1,5 @@
 {
-    "updated": "03/09/2026 12:25 PM",
+    "updated": "03/09/2026 12:55 PM",
     "seasons": {
         "2025": [],
         "2026": [
@@ -823,19 +823,6 @@
                     "avg_3pm": "1.7"
                 },
                 {
-                    "name": "Caleb Martin",
-                    "id": 3138160,
-                    "img": "https://a.espncdn.com/i/headshots/nba/players/full/3138160.png",
-                    "avg_pts": "3.9",
-                    "avg_reb": "2.5",
-                    "avg_ast": "1.4",
-                    "avg_stl": "0.7",
-                    "avg_blk": "0.2",
-                    "avg_fg_pct": "0.46",
-                    "avg_ft_pct": "0.58",
-                    "avg_3pm": "0.3"
-                },
-                {
                     "name": "Isaiah Joe",
                     "id": 4395702,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4395702.png",
@@ -1029,6 +1016,19 @@
                     "avg_fg_pct": "0.44",
                     "avg_ft_pct": "0.58",
                     "avg_3pm": "1.5"
+                },
+                {
+                    "name": "Isaiah Jackson",
+                    "id": 4432170,
+                    "img": "https://a.espncdn.com/i/headshots/nba/players/full/4432170.png",
+                    "avg_pts": "6.3",
+                    "avg_reb": "5.3",
+                    "avg_ast": "0.8",
+                    "avg_stl": "0.7",
+                    "avg_blk": "0.8",
+                    "avg_fg_pct": "0.60",
+                    "avg_ft_pct": "0.65",
+                    "avg_3pm": "0.0"
                 }
             ],
             "abbrev": "CCT"
