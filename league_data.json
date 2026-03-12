@@ -1,5 +1,5 @@
 {
-    "updated": "03/11/2026 04:50 PM",
+    "updated": "03/11/2026 05:01 PM",
     "seasons": {
         "2025": [],
         "2026": [
@@ -774,13 +774,13 @@
                     "name": "Jalen Suggs",
                     "id": 4432165,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4432165.png",
-                    "avg_pts": "13.5",
+                    "avg_pts": "13.6",
                     "avg_reb": "3.7",
                     "avg_ast": "5.2",
                     "avg_stl": "1.9",
                     "avg_blk": "0.8",
                     "avg_fg_pct": "0.44",
-                    "avg_ft_pct": "0.85",
+                    "avg_ft_pct": "0.86",
                     "avg_3pm": "2.0"
                 },
                 {
@@ -1249,7 +1249,7 @@
                     "name": "Keon Ellis",
                     "id": 4702177,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4702177.png",
-                    "avg_pts": "5.8",
+                    "avg_pts": "5.7",
                     "avg_reb": "1.6",
                     "avg_ast": "0.8",
                     "avg_stl": "1.2",
@@ -1711,7 +1711,7 @@
                     "name": "Tristan da Silva",
                     "id": 4702382,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4702382.png",
-                    "avg_pts": "8.9",
+                    "avg_pts": "9.0",
                     "avg_reb": "3.6",
                     "avg_ast": "1.4",
                     "avg_stl": "0.9",
@@ -2043,8 +2043,8 @@
                     "name": "Jaylon Tyson",
                     "id": 4683747,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4683747.png",
-                    "avg_pts": "13.4",
-                    "avg_reb": "5.2",
+                    "avg_pts": "13.2",
+                    "avg_reb": "5.1",
                     "avg_ast": "2.2",
                     "avg_stl": "0.8",
                     "avg_blk": "0.4",
@@ -2466,7 +2466,7 @@
                     "name": "Sam Merrill",
                     "id": 4066757,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4066757.png",
-                    "avg_pts": "12.4",
+                    "avg_pts": "12.5",
                     "avg_reb": "2.3",
                     "avg_ast": "2.3",
                     "avg_stl": "0.5",
@@ -2764,7 +2764,7 @@
                     "avg_ast": "1.5",
                     "avg_stl": "0.8",
                     "avg_blk": "0.4",
-                    "avg_fg_pct": "0.44",
+                    "avg_fg_pct": "0.43",
                     "avg_ft_pct": "0.71",
                     "avg_3pm": "1.2"
                 },
@@ -3082,7 +3082,7 @@
                     "avg_reb": "8.5",
                     "avg_ast": "3.6",
                     "avg_stl": "0.8",
-                    "avg_blk": "1.8",
+                    "avg_blk": "1.9",
                     "avg_fg_pct": "0.52",
                     "avg_ft_pct": "0.63",
                     "avg_3pm": "1.1"
