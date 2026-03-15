@@ -1,5 +1,5 @@
 {
-    "updated": "03/15/2026 04:37 PM",
+    "updated": "03/15/2026 04:56 PM",
     "seasons": {
         "2025": [],
         "2026": [
@@ -1763,10 +1763,10 @@
                     "name": "Cameron Payne",
                     "id": 3064230,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3064230.png",
-                    "avg_pts": "7.6",
-                    "avg_reb": "1.6",
-                    "avg_ast": "2.6",
-                    "avg_stl": "1.1",
+                    "avg_pts": "7.7",
+                    "avg_reb": "1.7",
+                    "avg_ast": "2.7",
+                    "avg_stl": "1.2",
                     "avg_blk": "0.3",
                     "avg_fg_pct": "0.39",
                     "avg_ft_pct": "0.92",
@@ -2122,7 +2122,7 @@
                     "id": 4066211,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4066211.png",
                     "avg_pts": "6.8",
-                    "avg_reb": "6.7",
+                    "avg_reb": "6.8",
                     "avg_ast": "1.0",
                     "avg_stl": "0.7",
                     "avg_blk": "1.6",
@@ -2134,7 +2134,7 @@
                     "name": "Vit Krejci",
                     "id": 4578893,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4578893.png",
-                    "avg_pts": "8.5",
+                    "avg_pts": "8.6",
                     "avg_reb": "2.3",
                     "avg_ast": "1.6",
                     "avg_stl": "0.7",
@@ -2369,7 +2369,7 @@
                     "avg_blk": "0.6",
                     "avg_fg_pct": "0.45",
                     "avg_ft_pct": "0.82",
-                    "avg_3pm": "2.3"
+                    "avg_3pm": "2.4"
                 },
                 {
                     "name": "GG Jackson",
@@ -2668,7 +2668,7 @@
                     "name": "Andre Drummond",
                     "id": 6585,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/6585.png",
-                    "avg_pts": "6.4",
+                    "avg_pts": "6.5",
                     "avg_reb": "8.5",
                     "avg_ast": "1.0",
                     "avg_stl": "0.6",
@@ -3503,11 +3503,11 @@
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4431675.png",
                     "avg_pts": "6.3",
                     "avg_reb": "3.3",
-                    "avg_ast": "2.4",
+                    "avg_ast": "2.5",
                     "avg_stl": "0.3",
                     "avg_blk": "0.4",
                     "avg_fg_pct": "0.51",
-                    "avg_ft_pct": "0.73",
+                    "avg_ft_pct": "0.72",
                     "avg_3pm": "0.2"
                 },
                 {
@@ -3717,7 +3717,7 @@
                     "id": 4397014,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4397014.png",
                     "avg_pts": "13.3",
-                    "avg_reb": "3.6",
+                    "avg_reb": "3.7",
                     "avg_ast": "3.4",
                     "avg_stl": "0.9",
                     "avg_blk": "0.4",
@@ -4119,7 +4119,7 @@
                     "avg_stl": "0.6",
                     "avg_blk": "1.6",
                     "avg_fg_pct": "0.52",
-                    "avg_ft_pct": "0.66",
+                    "avg_ft_pct": "0.67",
                     "avg_3pm": "1.0"
                 },
                 {
