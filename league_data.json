@@ -1,5 +1,5 @@
 {
-    "updated": "03/20/2026 07:26 AM",
+    "updated": "03/20/2026 08:13 AM",
     "seasons": {
         "2025": [],
         "2026": [
@@ -1656,19 +1656,6 @@
                     "avg_3pm": "1.2"
                 },
                 {
-                    "name": "Yanic Konan Niederhauser",
-                    "id": 5108024,
-                    "img": "https://a.espncdn.com/i/headshots/nba/players/full/5108024.png",
-                    "avg_pts": "4.3",
-                    "avg_reb": "2.9",
-                    "avg_ast": "0.3",
-                    "avg_stl": "0.1",
-                    "avg_blk": "0.7",
-                    "avg_fg_pct": "0.64",
-                    "avg_ft_pct": "0.76",
-                    "avg_3pm": "0.0"
-                },
-                {
                     "name": "Ousmane Dieng",
                     "id": 4997526,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4997526.png",
@@ -1771,6 +1758,19 @@
                     "avg_fg_pct": "0.45",
                     "avg_ft_pct": "0.77",
                     "avg_3pm": "1.4"
+                },
+                {
+                    "name": "Kyle Anderson",
+                    "id": 2993874,
+                    "img": "https://a.espncdn.com/i/headshots/nba/players/full/2993874.png",
+                    "avg_pts": "6.6",
+                    "avg_reb": "3.4",
+                    "avg_ast": "2.8",
+                    "avg_stl": "1.0",
+                    "avg_blk": "0.5",
+                    "avg_fg_pct": "0.56",
+                    "avg_ft_pct": "0.69",
+                    "avg_3pm": "0.1"
                 }
             ],
             "abbrev": "HH"
