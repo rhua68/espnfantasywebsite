@@ -1,5 +1,5 @@
 {
-    "updated": "03/21/2026 11:05 PM",
+    "updated": "03/22/2026 12:02 AM",
     "seasons": {
         "2025": [],
         "2026": [
@@ -1823,7 +1823,7 @@
                     "id": 4433621,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4433621.png",
                     "avg_pts": "19.2",
-                    "avg_reb": "10.6",
+                    "avg_reb": "10.5",
                     "avg_ast": "1.6",
                     "avg_stl": "0.9",
                     "avg_blk": "0.8",
@@ -3882,19 +3882,6 @@
                     "avg_3pm": "1.0"
                 },
                 {
-                    "name": "Nick Richards",
-                    "id": 4278076,
-                    "img": "https://a.espncdn.com/i/headshots/nba/players/full/4278076.png",
-                    "avg_pts": "5.7",
-                    "avg_reb": "5.0",
-                    "avg_ast": "0.3",
-                    "avg_stl": "0.2",
-                    "avg_blk": "0.7",
-                    "avg_fg_pct": "0.52",
-                    "avg_ft_pct": "0.64",
-                    "avg_3pm": "0.1"
-                },
-                {
                     "name": "Leonard Miller",
                     "id": 5044385,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/5044385.png",
@@ -3945,6 +3932,19 @@
                     "avg_fg_pct": "0.40",
                     "avg_ft_pct": "0.80",
                     "avg_3pm": "2.0"
+                },
+                {
+                    "name": "Jamir Watkins",
+                    "id": 4606840,
+                    "img": "https://a.espncdn.com/i/headshots/nba/players/full/4606840.png",
+                    "avg_pts": "6.4",
+                    "avg_reb": "3.5",
+                    "avg_ast": "1.2",
+                    "avg_stl": "1.0",
+                    "avg_blk": "0.6",
+                    "avg_fg_pct": "0.46",
+                    "avg_ft_pct": "0.63",
+                    "avg_3pm": "0.8"
                 }
             ],
             "abbrev": "NB"
