@@ -1,5 +1,5 @@
 {
-    "updated": "03/22/2026 04:02 PM",
+    "updated": "03/22/2026 04:36 PM",
     "seasons": {
         "2025": [],
         "2026": [
@@ -789,10 +789,10 @@
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4683678.png",
                     "avg_pts": "13.5",
                     "avg_reb": "2.8",
-                    "avg_ast": "3.8",
+                    "avg_ast": "3.9",
                     "avg_stl": "0.5",
                     "avg_blk": "0.3",
-                    "avg_fg_pct": "0.42",
+                    "avg_fg_pct": "0.41",
                     "avg_ft_pct": "0.82",
                     "avg_3pm": "1.7"
                 },
@@ -1366,12 +1366,12 @@
                     "name": "Ziaire Williams",
                     "id": 4433137,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4433137.png",
-                    "avg_pts": "9.7",
+                    "avg_pts": "9.8",
                     "avg_reb": "2.4",
                     "avg_ast": "1.0",
                     "avg_stl": "1.2",
                     "avg_blk": "0.4",
-                    "avg_fg_pct": "0.43",
+                    "avg_fg_pct": "0.42",
                     "avg_ft_pct": "0.87",
                     "avg_3pm": "1.6"
                 },
@@ -2226,7 +2226,7 @@
                     "avg_blk": "0.4",
                     "avg_fg_pct": "0.43",
                     "avg_ft_pct": "0.69",
-                    "avg_3pm": "2.4"
+                    "avg_3pm": "2.5"
                 },
                 {
                     "name": "Ace Bailey",
@@ -2812,7 +2812,7 @@
                     "id": 4898371,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4898371.png",
                     "avg_pts": "11.8",
-                    "avg_reb": "7.2",
+                    "avg_reb": "7.3",
                     "avg_ast": "1.3",
                     "avg_stl": "0.5",
                     "avg_blk": "0.6",
@@ -3027,7 +3027,7 @@
                     "id": 4431679,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4431679.png",
                     "avg_pts": "9.3",
-                    "avg_reb": "6.4",
+                    "avg_reb": "6.5",
                     "avg_ast": "1.3",
                     "avg_stl": "0.9",
                     "avg_blk": "0.7",
@@ -3148,7 +3148,7 @@
                     "avg_ast": "1.5",
                     "avg_stl": "0.5",
                     "avg_blk": "0.2",
-                    "avg_fg_pct": "0.42",
+                    "avg_fg_pct": "0.41",
                     "avg_ft_pct": "0.90",
                     "avg_3pm": "0.7"
                 },
@@ -3462,14 +3462,14 @@
                     "name": "Terance Mann",
                     "id": 3907823,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3907823.png",
-                    "avg_pts": "7.2",
+                    "avg_pts": "7.3",
                     "avg_reb": "3.2",
                     "avg_ast": "3.1",
                     "avg_stl": "0.6",
                     "avg_blk": "0.2",
                     "avg_fg_pct": "0.46",
                     "avg_ft_pct": "0.78",
-                    "avg_3pm": "0.8"
+                    "avg_3pm": "0.9"
                 },
                 {
                     "name": "Tre Mann",
@@ -3625,7 +3625,7 @@
                     "name": "DeMar DeRozan",
                     "id": 3978,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3978.png",
-                    "avg_pts": "18.3",
+                    "avg_pts": "18.4",
                     "avg_reb": "2.9",
                     "avg_ast": "4.0",
                     "avg_stl": "1.1",
@@ -4140,7 +4140,7 @@
                     "id": 5105565,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/5105565.png",
                     "avg_pts": "12.4",
-                    "avg_reb": "11.6",
+                    "avg_reb": "11.7",
                     "avg_ast": "2.2",
                     "avg_stl": "0.6",
                     "avg_blk": "1.6",
@@ -4282,7 +4282,7 @@
                     "name": "Dylan Cardwell",
                     "id": 4433174,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4433174.png",
-                    "avg_pts": "5.1",
+                    "avg_pts": "5.2",
                     "avg_reb": "7.6",
                     "avg_ast": "1.3",
                     "avg_stl": "0.7",
@@ -4471,14 +4471,14 @@
                     "name": "Malik Monk",
                     "id": 4066262,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4066262.png",
-                    "avg_pts": "12.4",
+                    "avg_pts": "12.5",
                     "avg_reb": "1.9",
                     "avg_ast": "2.7",
                     "avg_stl": "0.6",
-                    "avg_blk": "0.3",
+                    "avg_blk": "0.4",
                     "avg_fg_pct": "0.44",
                     "avg_ft_pct": "0.88",
-                    "avg_3pm": "2.0"
+                    "avg_3pm": "2.1"
                 },
                 {
                     "name": "Brice Sensabaugh",
