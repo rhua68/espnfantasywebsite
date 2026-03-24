@@ -1,5 +1,5 @@
 {
-    "updated": "03/23/2026 09:31 PM",
+    "updated": "03/23/2026 10:43 PM",
     "seasons": {
         "2025": [],
         "2026": [
@@ -611,14 +611,14 @@
                     "name": "AJ Green",
                     "id": 4397475,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4397475.png",
-                    "avg_pts": "9.5",
+                    "avg_pts": "9.6",
                     "avg_reb": "2.5",
                     "avg_ast": "1.8",
                     "avg_stl": "0.5",
                     "avg_blk": "0.1",
                     "avg_fg_pct": "0.42",
-                    "avg_ft_pct": "0.81",
-                    "avg_3pm": "2.7"
+                    "avg_ft_pct": "0.80",
+                    "avg_3pm": "2.8"
                 },
                 {
                     "name": "Al Horford",
@@ -969,7 +969,7 @@
                     "name": "Gary Trent Jr.",
                     "id": 4277843,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4277843.png",
-                    "avg_pts": "7.5",
+                    "avg_pts": "7.7",
                     "avg_reb": "1.0",
                     "avg_ast": "1.2",
                     "avg_stl": "0.5",
