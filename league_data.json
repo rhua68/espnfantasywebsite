@@ -1,5 +1,5 @@
 {
-    "updated": "03/24/2026 12:40 AM",
+    "updated": "03/24/2026 01:27 AM",
     "seasons": {
         "2025": [],
         "2026": [
@@ -3856,19 +3856,6 @@
                     "avg_3pm": "1.1"
                 },
                 {
-                    "name": "Baylor Scheierman",
-                    "id": 4593841,
-                    "img": "https://a.espncdn.com/i/headshots/nba/players/full/4593841.png",
-                    "avg_pts": "4.8",
-                    "avg_reb": "3.5",
-                    "avg_ast": "1.4",
-                    "avg_stl": "0.6",
-                    "avg_blk": "0.1",
-                    "avg_fg_pct": "0.45",
-                    "avg_ft_pct": "0.89",
-                    "avg_3pm": "1.1"
-                },
-                {
                     "name": "Olivier-Maxence Prosper",
                     "id": 4595400,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4595400.png",
@@ -3945,6 +3932,19 @@
                     "avg_fg_pct": "0.39",
                     "avg_ft_pct": "1.00",
                     "avg_3pm": "1.5"
+                },
+                {
+                    "name": "Ryan Dunn",
+                    "id": 4888725,
+                    "img": "https://a.espncdn.com/i/headshots/nba/players/full/4888725.png",
+                    "avg_pts": "5.9",
+                    "avg_reb": "4.2",
+                    "avg_ast": "1.4",
+                    "avg_stl": "0.9",
+                    "avg_blk": "0.4",
+                    "avg_fg_pct": "0.45",
+                    "avg_ft_pct": "0.50",
+                    "avg_3pm": "0.8"
                 }
             ],
             "abbrev": "NB"
