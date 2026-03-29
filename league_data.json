@@ -1,5 +1,5 @@
 {
-    "updated": "03/29/2026 11:03 AM",
+    "updated": "03/29/2026 11:57 AM",
     "seasons": {
         "2025": [],
         "2026": [
@@ -3932,19 +3932,6 @@
                     "avg_fg_pct": "0.48",
                     "avg_ft_pct": "0.71",
                     "avg_3pm": "0.4"
-                },
-                {
-                    "name": "Adem Bona",
-                    "id": 5105637,
-                    "img": "https://a.espncdn.com/i/headshots/nba/players/full/5105637.png",
-                    "avg_pts": "4.8",
-                    "avg_reb": "4.5",
-                    "avg_ast": "0.4",
-                    "avg_stl": "0.4",
-                    "avg_blk": "1.2",
-                    "avg_fg_pct": "0.58",
-                    "avg_ft_pct": "0.69",
-                    "avg_3pm": "0.0"
                 }
             ],
             "abbrev": "NB"
