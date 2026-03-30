@@ -1,5 +1,5 @@
 {
-    "updated": "03/30/2026 03:49 AM",
+    "updated": "03/30/2026 04:42 AM",
     "seasons": {
         "2025": [],
         "2026": [
@@ -4227,19 +4227,6 @@
                     "avg_3pm": "1.8"
                 },
                 {
-                    "name": "Cameron Payne",
-                    "id": 3064230,
-                    "img": "https://a.espncdn.com/i/headshots/nba/players/full/3064230.png",
-                    "avg_pts": "7.8",
-                    "avg_reb": "1.9",
-                    "avg_ast": "2.8",
-                    "avg_stl": "1.2",
-                    "avg_blk": "0.3",
-                    "avg_fg_pct": "0.38",
-                    "avg_ft_pct": "0.85",
-                    "avg_3pm": "1.6"
-                },
-                {
                     "name": "Devin Carter",
                     "id": 4433188,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4433188.png",
@@ -4290,6 +4277,32 @@
                     "avg_fg_pct": "0.45",
                     "avg_ft_pct": "0.66",
                     "avg_3pm": "1.0"
+                },
+                {
+                    "name": "Sandro Mamukelashvili",
+                    "id": 4278580,
+                    "img": "https://a.espncdn.com/i/headshots/nba/players/full/4278580.png",
+                    "avg_pts": "11.1",
+                    "avg_reb": "4.9",
+                    "avg_ast": "1.8",
+                    "avg_stl": "0.8",
+                    "avg_blk": "0.5",
+                    "avg_fg_pct": "0.52",
+                    "avg_ft_pct": "0.74",
+                    "avg_3pm": "1.4"
+                },
+                {
+                    "name": "Jahmai Mashack",
+                    "id": 4683934,
+                    "img": "https://a.espncdn.com/i/headshots/nba/players/full/4683934.png",
+                    "avg_pts": "5.4",
+                    "avg_reb": "2.2",
+                    "avg_ast": "1.4",
+                    "avg_stl": "1.2",
+                    "avg_blk": "0.5",
+                    "avg_fg_pct": "0.41",
+                    "avg_ft_pct": "0.56",
+                    "avg_3pm": "0.6"
                 }
             ],
             "abbrev": "DDT"
