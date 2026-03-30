@@ -1,5 +1,5 @@
 {
-    "updated": "03/29/2026 10:13 PM",
+    "updated": "03/30/2026 12:00 AM",
     "seasons": {
         "2025": [],
         "2026": [
@@ -1734,19 +1734,6 @@
                     "avg_3pm": "0.8"
                 },
                 {
-                    "name": "Jevon Carter",
-                    "id": 3133635,
-                    "img": "https://a.espncdn.com/i/headshots/nba/players/full/3133635.png",
-                    "avg_pts": "6.6",
-                    "avg_reb": "1.7",
-                    "avg_ast": "1.6",
-                    "avg_stl": "0.7",
-                    "avg_blk": "0.2",
-                    "avg_fg_pct": "0.40",
-                    "avg_ft_pct": "0.79",
-                    "avg_3pm": "1.6"
-                },
-                {
                     "name": "Pelle Larsson",
                     "id": 4601025,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4601025.png",
@@ -1771,6 +1758,19 @@
                     "avg_fg_pct": "0.57",
                     "avg_ft_pct": "0.53",
                     "avg_3pm": "0.0"
+                },
+                {
+                    "name": "Kevin Huerter",
+                    "id": 4066372,
+                    "img": "https://a.espncdn.com/i/headshots/nba/players/full/4066372.png",
+                    "avg_pts": "9.9",
+                    "avg_reb": "3.5",
+                    "avg_ast": "2.4",
+                    "avg_stl": "0.9",
+                    "avg_blk": "0.5",
+                    "avg_fg_pct": "0.45",
+                    "avg_ft_pct": "0.77",
+                    "avg_3pm": "1.4"
                 }
             ],
             "abbrev": "HH"
