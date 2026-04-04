@@ -1,5 +1,5 @@
 {
-    "updated": "04/04/2026 02:56 PM",
+    "updated": "04/04/2026 03:19 PM",
     "seasons": {
         "2025": [],
         "2026": [
@@ -3324,7 +3324,7 @@
                     "avg_ast": "3.9",
                     "avg_stl": "0.8",
                     "avg_blk": "0.3",
-                    "avg_fg_pct": "0.50",
+                    "avg_fg_pct": "0.51",
                     "avg_ft_pct": "0.74",
                     "avg_3pm": "0.9"
                 },
@@ -3573,7 +3573,7 @@
                     "name": "Nikola Jokic",
                     "id": 3112335,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/3112335.png",
-                    "avg_pts": "27.8",
+                    "avg_pts": "27.9",
                     "avg_reb": "12.9",
                     "avg_ast": "10.9",
                     "avg_stl": "1.4",
@@ -4328,9 +4328,9 @@
                     "name": "De'Aaron Fox",
                     "id": 4066259,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4066259.png",
-                    "avg_pts": "18.4",
+                    "avg_pts": "18.5",
                     "avg_reb": "3.8",
-                    "avg_ast": "6.1",
+                    "avg_ast": "6.2",
                     "avg_stl": "1.2",
                     "avg_blk": "0.2",
                     "avg_fg_pct": "0.49",
