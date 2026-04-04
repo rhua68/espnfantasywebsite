@@ -1,5 +1,5 @@
 {
-    "updated": "04/03/2026 11:09 PM",
+    "updated": "04/04/2026 12:14 AM",
     "seasons": {
         "2025": [],
         "2026": [
@@ -1656,19 +1656,6 @@
                     "avg_3pm": "1.1"
                 },
                 {
-                    "name": "Oso Ighodaro",
-                    "id": 4601023,
-                    "img": "https://a.espncdn.com/i/headshots/nba/players/full/4601023.png",
-                    "avg_pts": "6.5",
-                    "avg_reb": "5.1",
-                    "avg_ast": "2.3",
-                    "avg_stl": "0.9",
-                    "avg_blk": "0.6",
-                    "avg_fg_pct": "0.65",
-                    "avg_ft_pct": "0.46",
-                    "avg_3pm": "0.0"
-                },
-                {
                     "name": "Cody Williams",
                     "id": 4895758,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4895758.png",
@@ -1771,6 +1758,19 @@
                     "avg_fg_pct": "0.43",
                     "avg_ft_pct": "0.87",
                     "avg_3pm": "1.2"
+                },
+                {
+                    "name": "Sharife Cooper",
+                    "id": 4432173,
+                    "img": "https://a.espncdn.com/i/headshots/nba/players/full/4432173.png",
+                    "avg_pts": "7.3",
+                    "avg_reb": "2.2",
+                    "avg_ast": "2.7",
+                    "avg_stl": "0.3",
+                    "avg_blk": "0.1",
+                    "avg_fg_pct": "0.48",
+                    "avg_ft_pct": "0.82",
+                    "avg_3pm": "0.6"
                 }
             ],
             "abbrev": "HH"
