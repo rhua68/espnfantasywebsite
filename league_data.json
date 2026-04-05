@@ -1,5 +1,5 @@
 {
-    "updated": "04/04/2026 11:39 PM",
+    "updated": "04/05/2026 12:39 AM",
     "seasons": {
         "2025": [],
         "2026": [
@@ -4188,19 +4188,6 @@
                     "avg_3pm": "1.0"
                 },
                 {
-                    "name": "Daeqwon Plowden",
-                    "id": 4279318,
-                    "img": "https://a.espncdn.com/i/headshots/nba/players/full/4279318.png",
-                    "avg_pts": "10.4",
-                    "avg_reb": "3.0",
-                    "avg_ast": "1.1",
-                    "avg_stl": "0.7",
-                    "avg_blk": "0.1",
-                    "avg_fg_pct": "0.43",
-                    "avg_ft_pct": "0.85",
-                    "avg_3pm": "1.9"
-                },
-                {
                     "name": "Devin Carter",
                     "id": 4433188,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4433188.png",
@@ -4225,19 +4212,6 @@
                     "avg_fg_pct": "0.45",
                     "avg_ft_pct": "0.80",
                     "avg_3pm": "1.0"
-                },
-                {
-                    "name": "Nick Richards",
-                    "id": 4278076,
-                    "img": "https://a.espncdn.com/i/headshots/nba/players/full/4278076.png",
-                    "avg_pts": "5.8",
-                    "avg_reb": "5.1",
-                    "avg_ast": "0.3",
-                    "avg_stl": "0.2",
-                    "avg_blk": "0.7",
-                    "avg_fg_pct": "0.51",
-                    "avg_ft_pct": "0.64",
-                    "avg_3pm": "0.1"
                 },
                 {
                     "name": "Sandro Mamukelashvili",
@@ -4279,17 +4253,43 @@
                     "avg_3pm": "0.8"
                 },
                 {
-                    "name": "Jordan Clarkson",
-                    "id": 2528426,
-                    "img": "https://a.espncdn.com/i/headshots/nba/players/full/2528426.png",
-                    "avg_pts": "8.8",
-                    "avg_reb": "1.8",
-                    "avg_ast": "1.3",
-                    "avg_stl": "0.4",
-                    "avg_blk": "0.1",
+                    "name": "Pete Nance",
+                    "id": 4397233,
+                    "img": "https://a.espncdn.com/i/headshots/nba/players/full/4397233.png",
+                    "avg_pts": "5.5",
+                    "avg_reb": "2.7",
+                    "avg_ast": "0.9",
+                    "avg_stl": "0.3",
+                    "avg_blk": "0.3",
+                    "avg_fg_pct": "0.53",
+                    "avg_ft_pct": "0.29",
+                    "avg_3pm": "1.1"
+                },
+                {
+                    "name": "Taylor Hendricks",
+                    "id": 4684806,
+                    "img": "https://a.espncdn.com/i/headshots/nba/players/full/4684806.png",
+                    "avg_pts": "7.2",
+                    "avg_reb": "3.7",
+                    "avg_ast": "0.9",
+                    "avg_stl": "0.8",
+                    "avg_blk": "0.5",
                     "avg_fg_pct": "0.45",
-                    "avg_ft_pct": "0.82",
+                    "avg_ft_pct": "0.66",
                     "avg_3pm": "1.0"
+                },
+                {
+                    "name": "Tristan da Silva",
+                    "id": 4702382,
+                    "img": "https://a.espncdn.com/i/headshots/nba/players/full/4702382.png",
+                    "avg_pts": "10.1",
+                    "avg_reb": "3.7",
+                    "avg_ast": "1.5",
+                    "avg_stl": "0.9",
+                    "avg_blk": "0.3",
+                    "avg_fg_pct": "0.45",
+                    "avg_ft_pct": "0.89",
+                    "avg_3pm": "1.6"
                 }
             ],
             "abbrev": "DDT"
