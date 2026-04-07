@@ -1,5 +1,5 @@
 {
-    "updated": "04/07/2026 11:32 AM",
+    "updated": "04/07/2026 12:37 PM",
     "seasons": {
         "2025": [],
         "2026": [
@@ -1760,17 +1760,17 @@
                     "avg_3pm": "3.3"
                 },
                 {
-                    "name": "Jamal Cain",
-                    "id": 4278572,
-                    "img": "https://a.espncdn.com/i/headshots/nba/players/full/4278572.png",
-                    "avg_pts": "5.0",
-                    "avg_reb": "1.8",
-                    "avg_ast": "0.7",
-                    "avg_stl": "0.3",
-                    "avg_blk": "0.1",
-                    "avg_fg_pct": "0.47",
-                    "avg_ft_pct": "0.86",
-                    "avg_3pm": "0.7"
+                    "name": "Jalen Slawson",
+                    "id": 4398207,
+                    "img": "https://a.espncdn.com/i/headshots/nba/players/full/4398207.png",
+                    "avg_pts": "7.2",
+                    "avg_reb": "4.6",
+                    "avg_ast": "2.7",
+                    "avg_stl": "1.4",
+                    "avg_blk": "1.2",
+                    "avg_fg_pct": "0.41",
+                    "avg_ft_pct": "0.89",
+                    "avg_3pm": "1.4"
                 }
             ],
             "abbrev": "HH"
