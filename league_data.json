@@ -1,5 +1,5 @@
 {
-    "updated": "04/09/2026 11:14 PM",
+    "updated": "04/10/2026 12:58 AM",
     "seasons": {
         "2025": [],
         "2026": [
@@ -4253,19 +4253,6 @@
                     "avg_3pm": "1.1"
                 },
                 {
-                    "name": "Rayan Rupert",
-                    "id": 5099752,
-                    "img": "https://a.espncdn.com/i/headshots/nba/players/full/5099752.png",
-                    "avg_pts": "4.8",
-                    "avg_reb": "2.6",
-                    "avg_ast": "1.0",
-                    "avg_stl": "0.8",
-                    "avg_blk": "0.1",
-                    "avg_fg_pct": "0.40",
-                    "avg_ft_pct": "0.76",
-                    "avg_3pm": "0.7"
-                },
-                {
                     "name": "Julian Reese",
                     "id": 4683742,
                     "img": "https://a.espncdn.com/i/headshots/nba/players/full/4683742.png",
@@ -4276,19 +4263,6 @@
                     "avg_blk": "0.6",
                     "avg_fg_pct": "0.52",
                     "avg_ft_pct": "0.60",
-                    "avg_3pm": "0.0"
-                },
-                {
-                    "name": "Oso Ighodaro",
-                    "id": 4601023,
-                    "img": "https://a.espncdn.com/i/headshots/nba/players/full/4601023.png",
-                    "avg_pts": "6.5",
-                    "avg_reb": "5.0",
-                    "avg_ast": "2.2",
-                    "avg_stl": "0.9",
-                    "avg_blk": "0.7",
-                    "avg_fg_pct": "0.65",
-                    "avg_ft_pct": "0.45",
                     "avg_3pm": "0.0"
                 },
                 {
@@ -4303,6 +4277,19 @@
                     "avg_fg_pct": "0.58",
                     "avg_ft_pct": "0.65",
                     "avg_3pm": "0.5"
+                },
+                {
+                    "name": "Day'Ron Sharpe",
+                    "id": 4432194,
+                    "img": "https://a.espncdn.com/i/headshots/nba/players/full/4432194.png",
+                    "avg_pts": "8.7",
+                    "avg_reb": "6.7",
+                    "avg_ast": "2.3",
+                    "avg_stl": "1.1",
+                    "avg_blk": "0.4",
+                    "avg_fg_pct": "0.60",
+                    "avg_ft_pct": "0.68",
+                    "avg_3pm": "0.1"
                 }
             ],
             "abbrev": "DDT"
