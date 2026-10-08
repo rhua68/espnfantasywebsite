@@ -1,13 +1,41 @@
 from espn_api.basketball import League
+import os
+from dotenv import load_dotenv
 import json
 from datetime import datetime
 import requests
+import firebase_admin
+from firebase_admin import credentials, firestore
+
+#load in env variabls
+load_dotenv()
+
+cert_dict = {
+    "type": "service_account",
+    "project_id": os.environ.get("FIREBASE_PROJECT_ID"),
+    "private_key_id": os.environ.get("FIREBASE_PRIVATE_KEY_ID"),
+    "private_key": os.environ.get("FIREBASE_PRIVATE_KEY").replace('\\n', '\n'),
+    "client_email": os.environ.get("FIREBASE_CLIENT_EMAIL"),
+    "client_id": os.environ.get("FIREBASE_CLIENT_ID"),
+    "client_x509_cert_url": os.environ.get("FIREBASE_CLIENT_CERT_URL"),
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs"
+}
+
+# Initialize Firebase only once
+if not firebase_admin._apps:
+    cred = credentials.Certificate(cert_dict)
+    firebase_admin.initialize_app(cred)
 
 # --- CONFIGURATION ---
-LEAGUE_ID = 257157556 
+LEAGUE_ID = int(os.environ.get('LEAGUE_ID', 257157556))
 YEARS = [2025, 2026] 
-ESPN_S2 = 'AEBGsMs5uMPPgCUUeJNuagDyGnSx%2F9GdYhZnuHT%2B7OGAknCfYfzHiMmbwjwqWuOleTNJIGNIdiGiU1XtPvPC4yUnunB6mpWEna2oirxOm6MFJGpELu69BJ5ht5UzhtBpt95aPA3d40GJNqPKwEl6Ahw2VOsrykxcAXhCs%2BUdI509Klo40yt38hA3%2FC55Y4SyNNdC7ZUpKmvvMce5VgO2K63iCzTWNskEeyacLIxXHq7H0QvpzZWCIj24jwCy72%2FmTQKNH4BjS21sRw4UpfwhYQII4tAfSzjLwyQBNQOzN5lmZA%3D%3D'
-SWID = '{E26E031F-13AE-4610-8C10-CC193701B873}'
+ESPN_S2 = os.environ.get('ESPN_S2')
+SWID = os.environ.get('SWID')
+
+# Get Firestore client
+db = firestore.client()
 
 def get_season_trades(year):
 
@@ -90,13 +118,20 @@ def get_current_rosters():
     response = requests.get(url, params=params, cookies=cookies, headers=headers)
     data = response.json()
     
+    members = {m['id']: f"{m['firstName']} {m['lastName']}" for m in data.get('members', [])}
+    
     rosters = []
     for team in data.get('teams', []):
+        
+        owner_ids = team.get('owners',[])
+        primary_owner = members.get(owner_ids[0], "Unknown Owner") if owner_ids else "No Owner"
         team_info = {
+            "id": team.get('id'),
             "name": team.get('name'),
             "logo": team.get('logo'),
             "players": [],
-            "abbrev": team.get('abbrev')
+            "abbrev": team.get('abbrev'),
+            "owner": primary_owner
         }
         
         for entry in team.get('roster', {}).get('entries', []):
@@ -117,7 +152,9 @@ def get_current_rosters():
                         "avg_blk": f"{avg.get('1', 0):.1f}",
                         "avg_fg_pct": f"{avg.get('19', 0):.2f}",
                         "avg_ft_pct": f"{avg.get('20', 0):.2f}",
-                        "avg_3pm": f"{avg.get('17', 0):.1f}"
+                        "avg_3pm": f"{avg.get('17', 0):.1f}",
+                        "avg_mpg": f"{avg.get('40', 0):.1f}"
+                        
                     }
 
             player_data = {
@@ -157,6 +194,40 @@ def get_trade_block():
                 })
     return trade_block
 
+def post_process_with_picks(seasons_data):
+    print("--- Post-Processing: Syncing Firestore Draft Picks ---")
+    
+    # Fetch all finalized trades from Firestore
+    # Note: Using 'trade_history' if you created that collection
+    history_ref = db.collection('trade_history')
+    firestore_trades = history_ref.get()
+    
+    for year, trades in seasons_data.items():
+        for trade in trades:
+            # Match trades based on date (ESPN formatting vs Firestore timestamp)
+            # and verify the sender/receiver involved.
+            for doc in firestore_trades:
+                f_trade = doc.to_dict()
+                f_date = f_trade['finalizedAt'].strftime("%b %d, %Y")
+                
+                # Check if this Firestore record matches the ESPN trade
+                if f_date == trade['date']:
+                    # Logic to identify which assets are picks (e.g., strings containing "Rd")
+                    # and append them to the trade['assets'] list
+                    for pick in f_trade.get('senderAssets', []):
+                        if "Rd" in str(pick):
+                            trade["assets"].append({
+                                "from": f_trade['senderName'],
+                                "player": f"🎫 {pick}"
+                            })
+                    for pick in f_trade.get('receiverAssets', []):
+                        if "Rd" in str(pick):
+                            trade["assets"].append({
+                                "from": f_trade['receiverName'],
+                                "player": f"🎫 {pick}"
+                            })
+    return seasons_data
+
 def main():
     master_data = {
         "updated": datetime.now().strftime("%m/%d/%Y %I:%M %p"),
@@ -169,10 +240,19 @@ def main():
         trades = get_season_trades(year)
         master_data["seasons"][str(year)] = trades
 
+    master_data["seasons"] = post_process_with_picks(master_data["seasons"])
+
     with open('league_data.json', 'w') as f:
         json.dump(master_data, f, indent=4)
     
     print("\n--- Done! Rosters and Trades updated ---")
+    
+    league = League(league_id=LEAGUE_ID, year=2026, espn_s2=ESPN_S2, swid=SWID)
+    
+    print("\n--- LEAGUE TEAM MAPPING ---")
+    for team in league.teams:
+        print(f"Name: {team.team_name} | ID: {team.team_id}")
+    print("---------------------------\n")
 
 if __name__ == "__main__":
     main()
