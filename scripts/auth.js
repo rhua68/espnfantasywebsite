@@ -66,8 +66,6 @@ export async function handleForgotPassword() {
     }
 }
 window.handleForgotPassword = handleForgotPassword;
-
-
 // --- NOTIFICATION & FINALIZATION LOGIC ---
 
 async function sendDiscordNotification(tradeData, type = "finalized") {
